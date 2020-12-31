@@ -2,5 +2,22 @@
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#fe92d3",
+    "activityBar.activeBorder": "#4c7e01",
+    "activityBar.background": "#fe92d3",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#4c7e01",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#fe5fbe",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#fe2ca9",
+    "titleBar.activeBackground": "#fe5fbe",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#fe5fbe99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.remoteColor": "#FE5FBE"
 }
