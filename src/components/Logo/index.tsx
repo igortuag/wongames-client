@@ -4,7 +4,7 @@ export type LogoProps = {
   color?: 'white' | 'black'
 }
 
-const Logo = ({ color = 'white ' }: LogoProps) => (
+const Logo = ({ color = 'white' }: LogoProps) => (
   <S.Wrapper color={color}>
     <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158 48">
       <path
