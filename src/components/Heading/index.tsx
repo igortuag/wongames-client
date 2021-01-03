@@ -1,9 +1,11 @@
 import * as S from './styles'
 
-const Heading = () => (
-  <S.Wrapper>
-    <h1>Heading</h1>
-  </S.Wrapper>
+export type HeadingProps = {
+  children: React.ReactNode
+}
+
+const Heading = ({ children }: HeadingProps) => (
+  <S.Wrapper>{children}</S.Wrapper>
 )
 
 export default Heading
