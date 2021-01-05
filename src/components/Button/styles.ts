@@ -1,3 +1,6 @@
 import styled from 'styled-components'
+import { ButtonProps } from '.'
 
-export const Wrapper = styled.button``
+type WrapperProps = Pick<ButtonProps, 'size'>
+
+export const Wrapper = styled.button<WrapperProps>``
