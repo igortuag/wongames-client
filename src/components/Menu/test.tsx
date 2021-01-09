@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { fireEvent, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helper'
 
 import Menu from '.'
@@ -23,6 +23,8 @@ describe('<Menu />', () => {
     expect(fullMenuElement).toHaveStyle({ opacity: 0 })
 
     // clicar no botão de abrir menu e verificar se abriu
+    fireEvent.click(screen.getByLabelText(/open menu/))
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('false')
 
     // clica no botão de fechar menu e verificar se fechou
   })
