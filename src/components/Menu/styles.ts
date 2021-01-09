@@ -38,3 +38,5 @@ export const MenuGroup = styled.div`
     }
   `}
 `
+
+export const MenuFull = styled.nav``

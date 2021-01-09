@@ -21,6 +21,8 @@ const Menu = () => (
         <SearchIcon aria-label="Search" />
       </S.IconWrapper>
     </S.MenuGroup>
+
+    <S.MenuFull aria-hidden="trye"></S.MenuFull>
   </S.Wrapper>
 )
 
