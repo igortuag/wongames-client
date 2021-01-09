@@ -19,6 +19,8 @@ describe('<Menu />', () => {
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
 
     // verificar se o menu esta escondido
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 })
 
     // clicar no botão de abrir menu e verificar se abriu
 

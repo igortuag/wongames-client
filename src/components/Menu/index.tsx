@@ -22,7 +22,7 @@ const Menu = () => (
       </S.IconWrapper>
     </S.MenuGroup>
 
-    <S.MenuFull aria-hidden="trye"></S.MenuFull>
+    <S.MenuFull aria-hidden="true"></S.MenuFull>
   </S.Wrapper>
 )
 
