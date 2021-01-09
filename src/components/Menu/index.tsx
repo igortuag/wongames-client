@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
@@ -5,25 +6,29 @@ import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
 import Logo from 'components/Logo'
 import * as S from './styles'
 
-const Menu = () => (
-  <S.Wrapper>
-    <S.IconWrapper>
-      <MenuIcon aria-label="Open Menu" />
-    </S.IconWrapper>
-    <S.LogoWrapper>
-      <Logo hideOnMobile />
-    </S.LogoWrapper>
-    <S.MenuGroup>
-      <S.IconWrapper>
-        <ShoppingCartIcon aria-label="Open Shopping Cart" />
-      </S.IconWrapper>
-      <S.IconWrapper>
-        <SearchIcon aria-label="Search" />
-      </S.IconWrapper>
-    </S.MenuGroup>
+const Menu = () => {
+  const [isOpen, setIsOpen] = useState(false)
 
-    <S.MenuFull aria-hidden="true"></S.MenuFull>
-  </S.Wrapper>
-)
+  return (
+    <S.Wrapper>
+      <S.IconWrapper onClick={() => setIsOpen(true)}>
+        <MenuIcon aria-label="Open Menu" />
+      </S.IconWrapper>
+      <S.LogoWrapper>
+        <Logo hideOnMobile />
+      </S.LogoWrapper>
+      <S.MenuGroup>
+        <S.IconWrapper>
+          <ShoppingCartIcon aria-label="Open Shopping Cart" />
+        </S.IconWrapper>
+        <S.IconWrapper>
+          <SearchIcon aria-label="Search" />
+        </S.IconWrapper>
+      </S.MenuGroup>
+
+      <S.MenuFull aria-hidden={!isOpen}></S.MenuFull>
+    </S.Wrapper>
+  )
+}
 
 export default Menu
