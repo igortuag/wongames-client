@@ -28,5 +28,8 @@ describe('<Menu />', () => {
     expect(fullMenuElement).toHaveStyle({ opacity: 1 })
 
     // clica no botão de fechar menu e verificar se fechou
+    fireEvent.click(screen.getByLabelText(/close menu/i))
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 })
   })
 })
