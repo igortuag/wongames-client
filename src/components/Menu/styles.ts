@@ -39,4 +39,6 @@ export const MenuGroup = styled.div`
   `}
 `
 
-export const MenuFull = styled.nav``
+export const MenuFull = styled.nav`
+  opacity: 0;
+`
