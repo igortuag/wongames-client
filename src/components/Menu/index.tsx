@@ -26,7 +26,7 @@ const Menu = () => {
         </S.IconWrapper>
       </S.MenuGroup>
 
-      <S.MenuFull aria-hidden={!isOpen}></S.MenuFull>
+      <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}></S.MenuFull>
     </S.Wrapper>
   )
 }
