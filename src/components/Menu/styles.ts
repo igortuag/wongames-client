@@ -79,6 +79,9 @@ type MenuFullProps = {
 
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: ${theme.colors.white};
     position: absolute;
     top: 0;
