@@ -41,7 +41,37 @@ export const MenuGroup = styled.div`
 
 export const MenuNav = styled.div``
 
-export const MenuLink = styled.a``
+export const MenuLink = styled.a`
+  ${({ theme }) => css`
+    position: relative;
+    font-size: ${theme.font.sizes.medium};
+    margin: 0.3rem ${theme.font.sizes.medium};
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.3rem;
+        background: ${theme.colors.primary};
+        animation: hoverAnimation 0.2 forwards;
+      }
+
+      @keyframes hoverAnimation {
+        from {
+          width: 0;
+          left: 50%;
+        }
+        to {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  `}
+`
 
 type MenuFullProps = {
   isOpen: boolean
