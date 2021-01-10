@@ -103,6 +103,14 @@ export const MenuFull = styled.nav<MenuFullProps>`
       height: 2.4rem;
     }
 
+    ${MenuNav} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      flex-direction: column;
+    }
+
     ${MenuLink} {
       color: ${theme.colors.black};
       font-weight: ${theme.font.bold};
