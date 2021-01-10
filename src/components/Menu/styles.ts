@@ -39,6 +39,10 @@ export const MenuGroup = styled.div`
   `}
 `
 
+export const MenuNav = styled.div``
+
+export const MenuLink = styled.a``
+
 type MenuFullProps = {
   isOpen: boolean
 }
