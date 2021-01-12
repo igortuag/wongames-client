@@ -33,6 +33,11 @@ const Menu = () => {
         <S.MenuNav>
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Explore</S.MenuLink>
+
+          <>
+            <S.MenuLink href="#">My account</S.MenuLink>
+            <S.MenuLink href="#">Wishlist</S.MenuLink>
+          </>
         </S.MenuNav>
 
         <S.RegisterBox>
