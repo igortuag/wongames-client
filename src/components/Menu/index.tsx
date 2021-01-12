@@ -8,7 +8,11 @@ import Logo from 'components/Logo'
 import * as S from './styles'
 import Button from 'components/Button'
 
-const Menu = () => {
+export type MenuProps = {
+  username?: string
+}
+
+const Menu = ({ username }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -34,10 +38,12 @@ const Menu = () => {
           <S.MenuLink href="#">Home</S.MenuLink>
           <S.MenuLink href="#">Explore</S.MenuLink>
 
-          <>
-            <S.MenuLink href="#">My account</S.MenuLink>
-            <S.MenuLink href="#">Wishlist</S.MenuLink>
-          </>
+          {!!username && (
+            <>
+              <S.MenuLink href="#">My account</S.MenuLink>
+              <S.MenuLink href="#">Wishlist</S.MenuLink>
+            </>
+          )}
         </S.MenuNav>
 
         <S.RegisterBox>
