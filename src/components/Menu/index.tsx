@@ -46,15 +46,17 @@ const Menu = ({ username }: MenuProps) => {
           )}
         </S.MenuNav>
 
-        <S.RegisterBox>
-          <Button fullWidth size="large">
-            Log in now
-          </Button>
-          <span>or</span>
-          <S.CreateAccount href="#" title="Sign Up">
-            Sign Up
-          </S.CreateAccount>
-        </S.RegisterBox>
+        {!username && (
+          <S.RegisterBox>
+            <Button fullWidth size="large">
+              Log in now
+            </Button>
+            <span>or</span>
+            <S.CreateAccount href="#" title="Sign Up">
+              Sign Up
+            </S.CreateAccount>
+          </S.RegisterBox>
+        )}
       </S.MenuFull>
     </S.Wrapper>
   )
