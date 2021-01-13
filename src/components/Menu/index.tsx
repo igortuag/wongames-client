@@ -7,6 +7,7 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 import Logo from 'components/Logo'
 import * as S from './styles'
 import Button from 'components/Button'
+import MediaMatch from 'components/MediaMatch'
 
 export type MenuProps = {
   username?: string
@@ -17,9 +18,12 @@ const Menu = ({ username }: MenuProps) => {
 
   return (
     <S.Wrapper>
+      <MediaMatch lessThan="medium">
       <S.IconWrapper onClick={() => setIsOpen(true)}>
         <MenuIcon aria-label="Open Menu" />
       </S.IconWrapper>
+      </MediaMatch>
+
       <S.LogoWrapper>
         <Logo hideOnMobile />
       </S.LogoWrapper>
