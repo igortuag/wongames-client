@@ -19,9 +19,9 @@ const Menu = ({ username }: MenuProps) => {
   return (
     <S.Wrapper>
       <MediaMatch lessThan="medium">
-      <S.IconWrapper onClick={() => setIsOpen(true)}>
-        <MenuIcon aria-label="Open Menu" />
-      </S.IconWrapper>
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
+          <MenuIcon aria-label="Open Menu" />
+        </S.IconWrapper>
       </MediaMatch>
 
       <S.LogoWrapper>
@@ -42,6 +42,11 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <SearchIcon aria-label="Search" />
         </S.IconWrapper>
+        {!username && (
+          <MediaMatch greaterThan="medium">
+            <Button>Sign In</Button>
+          </MediaMatch>
+        )}
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
