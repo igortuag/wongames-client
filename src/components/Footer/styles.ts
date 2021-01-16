@@ -33,4 +33,12 @@ export const Column = styled.div`
   `}
 `
 
-export const Copyright = styled.div``
+export const Copyright = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray};
+    font-size: ${theme.font.sizes.xsmall};
+    margin-top: ${theme.spacings.large};
+    margin-bottom: ${theme.spacings.medium};
+    text-align: center;
+  `}
+`
