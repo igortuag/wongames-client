@@ -17,6 +17,20 @@ export const Content = styled.div`
   `}
 `
 
-export const Column = styled.div``
+export const Column = styled.div`
+  ${({ theme }) => css`
+    a,
+    span {
+      display: block;
+      color: ${theme.colors.gray};
+      text-decoration: none;
+      margin-bottom: ${theme.spacings.xxsmall};
+      font-size: ${theme.font.sizes.small};
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  `}
+`
 
 export const Copyright = styled.div``
