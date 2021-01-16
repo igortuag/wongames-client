@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.footer``
+import * as HeadingStyles from 'components/Heading/styles'
+
+export const Wrapper = styled.footer`
+  ${HeadingStyles.Wrapper} {
+    text-transform: uppercase;
+  }
+`
 
 export const Content = styled.div``
 
