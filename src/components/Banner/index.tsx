@@ -8,7 +8,13 @@ export type BannerProps = {
   buttonLink: string
 }
 
-const Banner = () => (
+const Banner = ({
+  img,
+  title,
+  subtitle,
+  buttonLabel,
+  buttonLink
+}: BannerProps) => (
   <S.Wrapper>
     <h1>Banner</h1>
   </S.Wrapper>
