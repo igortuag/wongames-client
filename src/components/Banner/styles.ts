@@ -2,7 +2,11 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.main``
 
-export const Image = styled.div``
+type ImageProps = {
+  src: string
+}
+
+export const Image = styled.div<ImageProps>``
 
 export const Caption = styled.div``
 
