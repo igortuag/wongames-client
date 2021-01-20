@@ -15,5 +15,9 @@ describe('<Banner />', () => {
   it('should render correctly', () => {
     renderWithTheme(<Banner {...props} />)
     expect(screen.getByRole('heading', { name: /Defy death/i }))
+      .toBeInTheDocument
+    expect(
+      screen.getByRole('heading', { name: /Play the new CrashLands season/i })
+    ).toBeInTheDocument
   })
 })
