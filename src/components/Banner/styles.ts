@@ -22,7 +22,20 @@ export const Image = styled.div<ImageProps>`
   `}
 `
 
-export const Caption = styled.div``
+export const Caption = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: ${theme.spacings.small};
+    ${media.greaterThan('medium')`
+      border-radius: 0 0 ${theme.border.radius} ${theme.border.radius};
+      padding: ${theme.spacings.large};
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    `}
+  `}
+`
 
 export const Title = styled.h2``
 
