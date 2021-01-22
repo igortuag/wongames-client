@@ -6,4 +6,15 @@ export default {
   component: Ribbon
 } as Meta
 
-export const Default: Story = () => <Ribbon />
+export const Default: Story = () => (
+  <div
+    style={{
+      width: '40rem',
+      height: '25rem',
+      position: 'relative',
+      background: '#888'
+    }}
+  >
+    <Ribbon />
+  </div>
+)
