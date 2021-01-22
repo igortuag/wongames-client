@@ -1,13 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helper'
 
 import Ribbon from '.'
 
 describe('<Ribbon />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Ribbon />)
+  it('should render the text correctly', () => {
+    renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
-    expect(screen.getByRole('heading', { name: /Ribbon/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByText(/Best Seller/i).toBeInTheDocument()
   })
 })
