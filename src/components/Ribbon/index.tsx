@@ -1,9 +1,9 @@
 import * as S from './styles'
 
-const Ribbon = () => (
-  <S.Wrapper>
-    <h1>Ribbon</h1>
-  </S.Wrapper>
-)
+export type RibbonProps = {
+  children: React.ReactNode
+}
+
+const Ribbon = ({ children }: RibbonProps) => <S.Wrapper>{children}</S.Wrapper>
 
 export default Ribbon
