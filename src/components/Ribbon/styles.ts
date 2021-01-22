@@ -1,3 +1,14 @@
-import styled from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
+import { RibbonColors, RibbonProps } from '.'
 
-export const Wrapper = styled.main``
+const wrapperModifiers = {
+  color: (theme: DefaultTheme, color: RibbonColors) => css`
+    background-color: ${theme.colors[color]};
+  `
+}
+
+export const Wrapper = styled.div<Omit<RibbonProps, 'children'>>`
+  ${({ theme, color }) => css`
+    ${!!color && wrapperModifiers.color(theme, color)}
+  `}
+`
