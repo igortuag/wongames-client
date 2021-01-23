@@ -40,9 +40,25 @@ const wrapperModifiers = {
   `
 }
 
-export const Wrapper = styled.div<Omit<RibbonProps, 'children'>>`
+export const Wrapper = styled.div<RibbonProps>`
   ${({ theme, color, size }) => css`
-    ${!!size && wrapperModifiers[size](theme)}
-    ${!!color && wrapperModifiers.color(theme, color)}
+    position: absolute;
+    top: ${theme.spacings.xsmall};
+    display: flex;
+    align-items: center;
+    font-weight: ${theme.font.bold};
+    color: ${theme.colors.white};
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      border-style: solid;
+      border-left-width: 0rem;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      border-bottom-width: 1rem;
+    }
+    ${!!color && wrapperModifiers.color(theme, color)};
+    ${!!size && wrapperModifiers[size](theme)};
   `}
 `
