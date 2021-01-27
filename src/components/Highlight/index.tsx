@@ -1,3 +1,4 @@
+import Button from 'components/Button'
 import * as S from './styles'
 
 export type HighlightProps = {
@@ -16,6 +17,9 @@ const Highlight = ({
   <S.Wrapper>
     <S.Title>{title}</S.Title>
     <S.Subtitle>{subtitle}</S.Subtitle>
+    <Button as="a" href={buttonLink}>
+      {buttonLabel}
+    </Button>
   </S.Wrapper>
 )
 
