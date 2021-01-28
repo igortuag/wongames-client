@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 import { HighlightProps } from '.'
 
 type WrapperProps = Pick<HighlightProps, 'backgroundImage'>
 
 export const Wrapper = styled.section<WrapperProps>`
-  ${({ theme, backgroundImage }) => css`
+  ${({ backgroundImage }) => css`
     position: relative;
     background-image: url(${backgroundImage});
     background-position: center center;
@@ -19,6 +20,10 @@ export const Wrapper = styled.section<WrapperProps>`
       height: 100%;
       background-color: rgba(0, 0, 0, -0.6);
     }
+
+    ${media.greaterThan('medium')`
+      height: 32rem;
+    `}
   `}
 `
 
