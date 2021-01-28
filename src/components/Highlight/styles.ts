@@ -24,6 +24,14 @@ export const Content = styled.div`
   `}
 `
 
-export const Title = styled.h2``
+export const Title = styled.h2`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.bold};
+    color: ${theme.colors.white};
+  `}
+`
 
-export const Subtitle = styled.h3``
+export const Subtitle = styled.h3`
+  ${({ theme }) => css``}
+`
