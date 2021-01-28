@@ -16,6 +16,14 @@ export const Wrapper = styled.main`
   `}
 `
 
+export const Content = styled.div`
+  ${({ theme }) => css`
+    z-index: ${theme.layers.base};
+    text-align: right;
+    padding: ${theme.spacings.xsmall};
+  `}
+`
+
 export const Title = styled.h2``
 
 export const Subtitle = styled.h3``
