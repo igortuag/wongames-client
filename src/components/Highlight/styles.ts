@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components'
+import { HighlightProps } from '.'
 
-export const Wrapper = styled.section`
-  ${({ theme }) => css`
+type WrapperProps = Pick<HighlightProps, 'backgroundImage'>
+
+export const Wrapper = styled.section<WrapperProps>`
+  ${({ theme, backgroundImage }) => css`
     position: relative;
+    background-image: url(${backgroundImage});
+    background-position: center center;
+    background-size: cover;
     height: 23rem;
     display: grid;
 
