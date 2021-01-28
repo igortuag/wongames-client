@@ -40,6 +40,10 @@ export const Title = styled.h2`
     font-size: ${theme.font.sizes.large};
     font-weight: ${theme.font.bold};
     color: ${theme.colors.white};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.xxlarge};
+    `}
   `}
 `
 
@@ -49,5 +53,9 @@ export const Subtitle = styled.h3`
     font-weight: ${theme.font.light};
     color: ${theme.colors.white};
     margin-bottom: ${theme.spacings.medium};
+
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.large};
+    `}
   `}
 `
