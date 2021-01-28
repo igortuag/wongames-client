@@ -33,5 +33,10 @@ export const Title = styled.h2`
 `
 
 export const Subtitle = styled.h3`
-  ${({ theme }) => css``}
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.light};
+    color: ${theme.colors.white};
+    margin-bottom: ${theme.spacings.medium};
+  `}
 `
