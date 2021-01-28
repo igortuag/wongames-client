@@ -32,6 +32,11 @@ export const Content = styled.div`
     z-index: ${theme.layers.base};
     text-align: right;
     padding: ${theme.spacings.xsmall};
+
+    ${media.greaterThan('medium')`
+      align-self: end;
+      padding: ${theme.spacings.large};
+    `}
   `}
 `
 
