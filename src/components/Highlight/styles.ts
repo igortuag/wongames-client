@@ -12,12 +12,15 @@ export const Wrapper = styled.section<WrapperProps>`
     background-size: cover;
     height: 23rem;
     display: grid;
+    grid-template-areas: 'floatimage content';
+    grid-template-columns: 1.3fr 2fr;
 
     &:after {
       content: '';
       position: absolute;
       width: 100%;
       height: 100%;
+      align-self: flex-end;
       background-color: rgba(0, 0, 0, -0.6);
     }
 
@@ -29,6 +32,7 @@ export const Wrapper = styled.section<WrapperProps>`
 
 export const Content = styled.div`
   ${({ theme }) => css`
+    grid-area: content;
     z-index: ${theme.layers.base};
     text-align: right;
     padding: ${theme.spacings.xsmall};
@@ -42,6 +46,7 @@ export const Content = styled.div`
 
 export const FloatImage = styled.img`
   ${({ theme }) => css`
+    grid-area: floatimage;
     z-index: ${theme.layers.base};
     max-height: 23rem;
     max-width: 100%;
