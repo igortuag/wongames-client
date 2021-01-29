@@ -40,7 +40,17 @@ export const Content = styled.div`
   `}
 `
 
-export const FloatImage = styled.img``
+export const FloatImage = styled.img`
+  ${({ theme }) => css`
+    z-index: ${theme.layers.base};
+    max-height: 23rem;
+    max-width: 100%;
+
+    ${media.greaterThan('medium')`
+      max-height: 32rem;
+    `}
+  `}
+`
 
 export const Title = styled.h2`
   ${({ theme }) => css`
