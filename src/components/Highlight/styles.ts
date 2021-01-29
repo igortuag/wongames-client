@@ -40,6 +40,8 @@ export const Content = styled.div`
   `}
 `
 
+export const FloatImage = styled.img``
+
 export const Title = styled.h2`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.large};
