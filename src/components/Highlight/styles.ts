@@ -7,6 +7,10 @@ type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alignment'>
 const wrapperModifiers = {
   right: () => css`
     grid-template-areas: 'floatimage content';
+
+    ${Content} {
+      text-align: right;
+    }
   `,
   left: () => css`
     grid-template-areas: 'content floatimage';
@@ -44,7 +48,6 @@ export const Content = styled.div`
   ${({ theme }) => css`
     grid-area: content;
     z-index: ${theme.layers.base};
-    text-align: right;
     padding: ${theme.spacings.xsmall};
 
     ${media.greaterThan('medium')`
