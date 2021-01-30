@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helper'
 
 import Highlight from '.'
+import * as S from './styles'
 
 const props = {
   title: 'Heading 1',
@@ -45,6 +46,10 @@ describe('<Highlight />', () => {
 
   it('should render a align right by default', () => {
     const { container } = renderWithTheme(<Highlight {...props} />)
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${S.Content}`
+    })
 
     expect(container.firstChild).toHaveStyleRule(
       'grid-template-areas',
