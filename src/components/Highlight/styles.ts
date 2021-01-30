@@ -14,6 +14,10 @@ const wrapperModifiers = {
   `,
   left: () => css`
     grid-template-areas: 'content floatimage';
+
+    ${Content} {
+      text-align: left;
+    }
   `
 }
 
