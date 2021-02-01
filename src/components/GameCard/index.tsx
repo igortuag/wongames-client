@@ -1,3 +1,4 @@
+import { FavoriteBorder } from '@styled-icons/material-outlined'
 import * as S from './styles'
 
 export type GameCardProps = {
@@ -16,6 +17,9 @@ const GameCard = ({ title, developer, img, price }: GameCardProps) => (
       <S.Title>{title}</S.Title>
       <S.Developer>{developer}</S.Developer>
     </S.Info>
+    <S.FavButton role="button">
+      <FavoriteBorder aria-label="Add to Wish list" />
+    </S.FavButton>
   </S.Wrapper>
 )
 

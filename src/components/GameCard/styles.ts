@@ -9,3 +9,5 @@ export const Info = styled.div``
 export const Title = styled.h3``
 
 export const Developer = styled.h4``
+
+export const FavButton = styled.div``
