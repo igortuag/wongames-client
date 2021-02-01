@@ -12,6 +12,10 @@ const GameCard = ({ title, developer, img, price }: GameCardProps) => (
     <S.ImageBox>
       <img src={img} alt={title} />
     </S.ImageBox>
+    <S.Info>
+      <S.Title>{title}</S.Title>
+      <S.Developer>{developer}</S.Developer>
+    </S.Info>
   </S.Wrapper>
 )
 
