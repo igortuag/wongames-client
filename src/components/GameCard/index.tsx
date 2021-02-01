@@ -9,7 +9,9 @@ export type GameCardProps = {
 
 const GameCard = ({ title, developer, img, price }: GameCardProps) => (
   <S.Wrapper>
-    <h1>GameCard</h1>
+    <S.ImageBox>
+      <img src={img} alt={title} />
+    </S.ImageBox>
   </S.Wrapper>
 )
 
