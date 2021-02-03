@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.article``
 
+export const Content = styled.article``
+
 export const ImageBox = styled.div``
 
 export const Info = styled.div``
