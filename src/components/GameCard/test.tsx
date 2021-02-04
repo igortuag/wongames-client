@@ -29,4 +29,11 @@ describe('<GameCard />', () => {
 
     expect(screen.getByLabelText(/add to wishlist/i)).toBeInTheDocument()
   })
+
+  it(`should render price in label`, () => {
+    // renderizar o componente
+    // preço não tenha line-through
+    // preço não tenha cor cinza
+    // preço tenha o background secundário
+  })
 })
