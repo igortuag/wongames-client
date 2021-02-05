@@ -39,8 +39,14 @@ describe('<GameCard />', () => {
   })
 
   it(`should render a line-trough in price when promotional`, () => {
-    // renderizar o componente (COM promotionalPrice) // 200 reais // 15 reais
-    // preço não tenha line-through (200)
-    // preço novo promocional não vai ter line line-through (15)
+    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 15,00" />)
+
+    expect(screen.getByText('R$ 235,00')).toHaveStyle({
+      textDecoration: 'line-through'
+    })
+
+    expect(screen.getByText('R$ 15,00')).not.toHaveStyle({
+      textDecoration: 'line-through'
+    })
   })
 })
