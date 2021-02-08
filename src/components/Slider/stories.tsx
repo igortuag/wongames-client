@@ -34,3 +34,22 @@ export const Horizontal: Story = () => (
     <Slide>6</Slide>
   </Slider>
 )
+
+const verticalSettings: Settings = {
+  vertical: true,
+  verticalSwiping: true,
+  dots: true,
+  infinite: false,
+  slidesToShow: 1
+}
+
+export const Vertical: Story = () => (
+  <Slider settings={verticalSettings}>
+    <Slide>1</Slide>
+    <Slide>2</Slide>
+    <Slide>3</Slide>
+    <Slide>4</Slide>
+    <Slide>5</Slide>
+    <Slide>6</Slide>
+  </Slider>
+)
