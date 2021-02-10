@@ -11,7 +11,16 @@ const settings: SliderSettings = {
   arrows: false,
   vertical: true,
   verticalSwiping: true,
-  infinite: false
+  infinite: false,
+  responsive: [
+    {
+      breakpoint: 1170,
+      settings: {
+        vertical: false,
+        verticalSwiping: false
+      }
+    }
+  ]
 }
 
 const BannerSlider = ({ items }: BannerSliderProps) => (
