@@ -1,8 +1,20 @@
+import Banner, { BannerProps } from 'components/Banner'
+import Slider from 'components/Slider'
 import * as S from './styles'
 
-const BannerSlider = () => (
+type BannerSliderProps = {
+  items: BannerProps[]
+}
+
+const settings = {}
+
+const BannerSlider = ({ items }: BannerSliderProps) => (
   <S.Wrapper>
-    <h1>BannerSlider</h1>
+    <Slider settings={settings}>
+      {items.map((item) => (
+        <Banner key={item.title} {...item} />
+      ))}
+    </Slider>
   </S.Wrapper>
 )
 
