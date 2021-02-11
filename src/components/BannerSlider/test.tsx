@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import 'match-media-mock'
+import { renderWithTheme } from 'utils/tests/helper'
 
 import BannerSlider from '.'
 
@@ -21,11 +22,9 @@ const items = [
 ]
 
 describe('<BannerSlider />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<BannerSlider />)
+  it('should render vertical slider', () => {
+    const { container } = renderWithTheme(<BannerSlider items={items} />)
 
-    expect(
-      screen.getByRole('heading', { name: /BannerSlider/i })
-    ).toBeInTheDocument()
+    expect(container.querySelector('.slick-vertical')).toBeInTheDocument()
   })
 })
