@@ -11,6 +11,8 @@ type GameCardSliderProps = {
 }
 
 const settings: SliderSettings = {
+  slidesToShow: 4,
+  infinite: false,
   nextArrow: <ArrowRight aria-label="next games" />,
   prevArrow: <ArrowLeft aria-label="previous games" />
 }
