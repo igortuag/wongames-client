@@ -1,9 +1,7 @@
-import * as S from './styles'
+import styled, { css } from 'styled-components'
 
-const Container = () => (
-  <S.Wrapper>
-    <h1>Container</h1>
-  </S.Wrapper>
-)
+export const Container = styled.div`
+  ${({ theme }) => `
 
-export default Container
+  `}
+`
