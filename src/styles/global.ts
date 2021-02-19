@@ -51,7 +51,7 @@ const GlobalStyles: GlobalStyleComponent<
     }
   }
 
-  ${({ theme }) => css`
+  ${({ theme, removeBg }) => css`
     html {
       font-size: 62.5%;
     }
@@ -59,7 +59,11 @@ const GlobalStyles: GlobalStyleComponent<
     body {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      background-color: ${theme.colors.mainBg};
+
+      ${!removeBg &&
+      css`
+        background-color: ${theme.colors.mainBg};
+      `}
     }
   `}
 `
