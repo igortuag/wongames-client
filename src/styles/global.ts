@@ -1,5 +1,9 @@
 import { createGlobalStyle, css } from 'styled-components'
 
+type GlobalStylesProps = {
+  removeBg?: boolean
+}
+
 const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Poppins';
