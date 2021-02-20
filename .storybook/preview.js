@@ -7,7 +7,7 @@ import theme from 'styles/theme'
 addDecorator(withNextRouter())
 
 export const parameters = {
-  background: {
+  backgrounds: {
     default: 'won-light',
     values: [
       {
