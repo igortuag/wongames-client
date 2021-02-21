@@ -17,6 +17,12 @@ const Home = () => (
     </Container>
 
     <Container>
+      <Heading lineLeft lineColor="secondary">
+        Most Popular
+      </Heading>
+    </Container>
+
+    <Container>
       <Footer />
     </Container>
   </section>
