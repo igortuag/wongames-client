@@ -4,7 +4,7 @@ export default function Index(props: any) {
   return <Home {...props} />
 }
 
-export function getStaticProps() {
+export function getServerSideProps() {
   return {
     props: {
       heading: 'Lock at me here!'
