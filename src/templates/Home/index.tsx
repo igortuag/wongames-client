@@ -61,6 +61,10 @@ const Home = ({
       <Heading lineLeft lineColor="secondary">
         Upcomming
       </Heading>
+
+      <GameCardSlider items={upcommingGames} color="white" />
+      <Highlight {...upcommingHighlight} />
+      <GameCardSlider items={upcommingMoreGames} color="white" />
     </Container>
 
     <Container>
