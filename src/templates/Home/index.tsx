@@ -1,6 +1,6 @@
 import { BannerProps } from 'components/Banner'
 import { GameCardProps } from 'components/GameCard'
-import { HighlightProps } from 'components/Highlight'
+import Highlight, { HighlightProps } from 'components/Highlight'
 
 import { Container } from 'components/Container'
 import Footer from 'components/Footer'
@@ -50,8 +50,11 @@ const Home = ({
 
     <Container>
       <Heading lineLeft lineColor="secondary">
-        Most Popular {heading}
+        Most Popular
       </Heading>
+
+      <Highlight {...mostPopularHighlight} />
+      <GameCardSlider items={mostPopularGames} color="white" />
     </Container>
 
     <Container>
