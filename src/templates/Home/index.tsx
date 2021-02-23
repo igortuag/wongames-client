@@ -9,6 +9,7 @@ import Menu from 'components/Menu'
 
 import * as S from './styles'
 import BannerSlider from 'components/BannerSlider'
+import GameCardSlider from 'components/GameCardSlider'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -24,7 +25,7 @@ export type HomeTemplateProps = {
 
 const Home = ({
   banners,
-  newGames,
+  newsGames,
   mostPopularHighlight,
   mostPopularGames,
   upcommingGames,
@@ -43,6 +44,8 @@ const Home = ({
       <Heading lineLeft lineColor="secondary" color="black">
         News
       </Heading>
+
+      <GameCardSlider items={newsGames} />
     </Container>
 
     <Container>
