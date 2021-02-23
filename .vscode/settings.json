@@ -19,5 +19,9 @@
     "titleBar.inactiveBackground": "#f231a599",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.remoteColor": "#f231a5"
+  "peacock.remoteColor": "#f231a5",
+  "cSpell.words": [
+    "games",
+    "upcomming"
+  ]
 }

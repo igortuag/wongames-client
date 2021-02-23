@@ -8,6 +8,7 @@ import Heading from 'components/Heading'
 import Menu from 'components/Menu'
 
 import * as S from './styles'
+import BannerSlider from 'components/BannerSlider'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -35,6 +36,7 @@ const Home = ({
   <section>
     <Container>
       <Menu />
+      <BannerSlider items={banners} />
     </Container>
 
     <Container>
