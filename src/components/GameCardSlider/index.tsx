@@ -47,7 +47,7 @@ const settings: SliderSettings = {
 
 export type GameCardSliderProps = {
   items: GameCardProps[]
-  color: 'white' | 'black'
+  color?: 'white' | 'black'
 }
 
 const GameCardSlider = ({ items, color = 'white' }: GameCardSliderProps) => (
