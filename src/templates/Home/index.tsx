@@ -25,7 +25,7 @@ export type HomeTemplateProps = {
 
 const Home = ({
   banners,
-  newsGames,
+  newGames,
   mostPopularHighlight,
   mostPopularGames,
   upcommingGames,
@@ -45,7 +45,7 @@ const Home = ({
         News
       </Heading>
 
-      <GameCardSlider items={newsGames} />
+      <GameCardSlider items={newGames} />
     </Container>
 
     <Container>
