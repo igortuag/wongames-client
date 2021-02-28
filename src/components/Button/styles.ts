@@ -1,4 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
+import { darken } from 'polished'
+
 import { ButtonProps } from '.'
 
 type WrapperProps = {
@@ -35,6 +37,10 @@ const wrapperModifiers = {
   minimal: (theme: DefaultTheme) => css`
     background: none;
     color: ${theme.colors.primary};
+
+    &:hover {
+      color: ${darken(0.1, theme.colors.primary)};
+    }
   `
 }
 

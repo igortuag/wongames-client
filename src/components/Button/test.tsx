@@ -68,7 +68,7 @@ describe('<Button />', () => {
       'background',
       'none',
       {
-        modifier: 'hover'
+        modifier: ':hover'
       }
     )
   })
