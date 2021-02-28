@@ -58,6 +58,10 @@ describe('<Button />', () => {
         Buy Now
       </Button>
     )
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
+      background: 'none'
+    })
   })
 
   it('should render Button as a link', () => {
