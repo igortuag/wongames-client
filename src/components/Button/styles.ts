@@ -38,7 +38,7 @@ const wrapperModifiers = {
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -57,6 +57,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!size && wrapperModifiers[size](theme)};
     ${fullWidth! && wrapperModifiers.fullWidth()};
     ${!!hasIcon && wrapperModifiers.withIcon(theme)};
-    ${!!hasIcon && wrapperModifiers.withIcon(theme)};
+    ${minimal && wrapperModifiers.minimal(theme)};
   `}
 `
