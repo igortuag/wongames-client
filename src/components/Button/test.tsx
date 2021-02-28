@@ -60,7 +60,8 @@ describe('<Button />', () => {
     )
 
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
-      background: 'none'
+      background: 'none',
+      color: '#F231A5'
     })
   })
 
