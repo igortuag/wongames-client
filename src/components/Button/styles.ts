@@ -3,7 +3,7 @@ import { ButtonProps } from '.'
 
 type WrapperProps = {
   hasIcon: boolean
-} & Pick<ButtonProps, 'size' | 'fullWidth'>
+} & Pick<ButtonProps, 'size' | 'fullWidth' | 'minimal'>
 
 const wrapperModifiers = {
   small: (theme: DefaultTheme) => css`
@@ -31,6 +31,9 @@ const wrapperModifiers = {
         margin-left: ${theme.spacings.xxsmall};
       }
     }
+  `,
+  minimal: (theme: DefaultTheme) => css`
+    background: none;
   `
 }
 
@@ -53,6 +56,7 @@ export const Wrapper = styled.button<WrapperProps>`
 
     ${!!size && wrapperModifiers[size](theme)};
     ${fullWidth! && wrapperModifiers.fullWidth()};
+    ${!!hasIcon && wrapperModifiers.withIcon(theme)};
     ${!!hasIcon && wrapperModifiers.withIcon(theme)};
   `}
 `
