@@ -9,9 +9,6 @@ describe('<Checkbox />', () => {
 
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
     expect(screen.getByLabelText(/checkbox label/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/checkbox label/i)).toHaveAttribute(
-      'for',
-      'check'
-    )
+    expect(screen.getByText(/checkbox label/i)).toHaveAttribute('for', 'check ')
   })
 })
