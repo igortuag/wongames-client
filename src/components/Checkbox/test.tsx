@@ -28,4 +28,14 @@ describe('<Checkbox />', () => {
       color: theme.colors.black
     })
   })
+
+  it('should dispatch onCheck when status change', () => {
+    const onCheck = jest.fn()
+
+    renderWithTheme(<Checkbox label="CheckBox" onCheck={onCheck} />)
+
+    expect(onCheck).toHaveStyle({
+      color: theme.colors.black
+    })
+  })
 })
