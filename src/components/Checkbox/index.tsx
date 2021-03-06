@@ -1,10 +1,11 @@
+import { InputHTMLAttributes } from 'react'
 import * as S from './styles'
 
 export type CheckboxProps = {
   label?: string
   labelFor?: string
   labelColor?: 'white' | 'black'
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 const Checkbox = ({
   label,
