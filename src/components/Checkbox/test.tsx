@@ -34,8 +34,6 @@ describe('<Checkbox />', () => {
 
     renderWithTheme(<Checkbox label="CheckBox" onCheck={onCheck} />)
 
-    expect(onCheck).toHaveStyle({
-      color: theme.colors.black
-    })
+    expect(onCheck).not.toHaveBeenCalled()
   })
 })
