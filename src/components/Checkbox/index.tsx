@@ -16,7 +16,8 @@ const Checkbox = ({
   label,
   labelFor = '',
   labelColor = 'white',
-  value
+  value,
+  ...props
 }: CheckboxProps) => {
   // controlled component (state)
   const [checked, setChecked] = useState(isChecked)
@@ -36,6 +37,7 @@ const Checkbox = ({
         onChange={onChange}
         checked={checked}
         value={value}
+        {...props}
       />
       {!!label && (
         <S.Label labelColor={labelColor} htmlFor={labelFor}>
