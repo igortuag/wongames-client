@@ -1,3 +1,4 @@
+import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from 'utils/tests/helper'
 import theme from 'styles/theme'
@@ -24,6 +25,10 @@ describe('<Radio />', () => {
     expect(label).toHaveStyle({ color: theme.colors.black })
   })
 
-    expect(container.firstChild).toMatchSnapshot()
+  it('should render without label', () => {
+    renderWithTheme(<Radio />)
+
+    expect(screen.queryByLabelText('Radio')).not.toBeInTheDocument()
+  })
   })
 })
