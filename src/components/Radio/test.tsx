@@ -1,5 +1,6 @@
 import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from 'utils/tests/helper'
+import theme from 'styles/theme'
 
 import Radio from '.'
 
@@ -15,7 +16,13 @@ describe('<Radio />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-    expect(screen.getByRole('heading', { name: /Radio/i })).toBeInTheDocument()
+  it('should render with label (black)', () => {
+    renderWithTheme(<Radio label="Radio" labelColor="black" />)
+
+    const label = screen.getByText('Radio')
+    expect(label).toBeInTheDocument()
+    expect(label).toHaveStyle({ color: theme.colors.black })
+  })
 
     expect(container.firstChild).toMatchSnapshot()
   })
