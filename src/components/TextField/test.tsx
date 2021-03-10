@@ -45,5 +45,16 @@ describe('<TextField />', () => {
     })
     expect(onInput).toHaveBeenCalledWith(text)
   })
+
+  it('Is accessible by tab', () => {
+    renderWithTheme(
+      <TextField label="TextField" labelFor="TextField" id="TextField" />
+    )
+
+    const input = screen.getByLabelText('TextField')
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+    expect(input).toHaveFocus()
   })
 })
