@@ -12,7 +12,11 @@ describe('<TextField />', () => {
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
 
-    expect(screen.getByRole('heading', { name: /TextField/i })).toBeInTheDocument()
+  it('Renders without Label', () => {
+    renderWithTheme(<TextField />)
+
+    expect(screen.queryByLabelText('Label')).not.toBeInTheDocument()
+  })
 
     expect(container.firstChild).toMatchSnapshot()
   })
