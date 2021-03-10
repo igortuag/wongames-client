@@ -18,6 +18,11 @@ describe('<TextField />', () => {
     expect(screen.queryByLabelText('Label')).not.toBeInTheDocument()
   })
 
-    expect(container.firstChild).toMatchSnapshot()
+  it('Renders with placeholder', () => {
+    renderWithTheme(<TextField placeholder="hey you" />)
+
+    expect(screen.getByPlaceholderText('hey you')).toBeInTheDocument()
+  })
+
   })
 })
