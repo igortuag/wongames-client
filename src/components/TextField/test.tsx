@@ -1,10 +1,16 @@
-import { render, screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+
+import { renderWithTheme } from 'utils/tests/helper'
 
 import TextField from '.'
 
 describe('<TextField />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<TextField />)
+  it('Renders with Label', () => {
+    renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
+
+    expect(screen.getByLabelText('Label')).toBeInTheDocument()
+  })
 
     expect(screen.getByRole('heading', { name: /TextField/i })).toBeInTheDocument()
 
