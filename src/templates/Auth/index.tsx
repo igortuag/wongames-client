@@ -11,6 +11,8 @@ const Auth = () => (
       <S.Subtitle>
         <strong>WON</strong> is the best and most complete gaming platform.
       </S.Subtitle>
+
+      <S.Footer>Won games 2020 © Todos os direitos Reservados</S.Footer>
     </S.BannerBlock>
   </S.Wrapper>
 )
