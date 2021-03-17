@@ -16,6 +16,9 @@ const Auth = () => (
 
       <S.Content>
         <Logo color="black" size="large" />
+        <Heading color="black" lineColor="secondary" lineLeft>
+          Sign in
+        </Heading>
       </S.Content>
     </S.BannerBlock>
   </S.Wrapper>
