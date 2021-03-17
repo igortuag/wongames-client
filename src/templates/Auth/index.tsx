@@ -13,6 +13,10 @@ const Auth = () => (
       </S.Subtitle>
 
       <S.Footer>Won games 2020 © Todos os direitos Reservados</S.Footer>
+
+      <S.Content>
+        <Logo color="black" size="large" />
+      </S.Content>
     </S.BannerBlock>
   </S.Wrapper>
 )
