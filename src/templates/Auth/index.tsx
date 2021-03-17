@@ -2,7 +2,12 @@ import Heading from 'components/Heading'
 import Logo from 'components/Logo'
 import * as S from './styles'
 
-const Auth = () => (
+type AuthProps = {
+  title: string
+  children: React.ReactNode
+}
+
+const Auth = ({ title, children }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <Logo />
@@ -17,8 +22,9 @@ const Auth = () => (
       <S.Content>
         <Logo color="black" size="large" />
         <Heading color="black" lineColor="secondary" lineLeft>
-          Sign in
+          {title}
         </Heading>
+        {children}
       </S.Content>
     </S.BannerBlock>
   </S.Wrapper>
