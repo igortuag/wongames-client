@@ -18,5 +18,11 @@ describe('<Auth />', () => {
         name: /All your favorite games in one place/i
       })
     ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('heading', {
+        name: /won is the best and most complete gaming platform/i
+      })
+    ).toBeInTheDocument()
   })
 })
