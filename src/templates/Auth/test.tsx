@@ -28,5 +28,7 @@ describe('<Auth />', () => {
     expect(
       screen.getByRole('heading', { name: /auth title/i })
     ).toBeInTheDocument()
+
+    expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
 })
