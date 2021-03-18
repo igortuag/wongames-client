@@ -24,5 +24,9 @@ describe('<Auth />', () => {
         name: /won is the best and most complete gaming platform/i
       })
     ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('heading', { name: /auth title/i })
+    ).toBeInTheDocument()
   })
 })
