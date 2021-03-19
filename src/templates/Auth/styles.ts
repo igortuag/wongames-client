@@ -1,6 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.main``
+import * as HeadingStyles from 'components/Heading/styles'
+import * as LogoStyles from 'components/Logo/styles'
+
+export const Wrapper = styled.main`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+`
 
 export const BannerBlock = styled.div``
 
