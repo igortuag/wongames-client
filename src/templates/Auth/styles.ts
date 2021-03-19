@@ -70,3 +70,15 @@ export const Content = styled.div`
     justify-content: center;
   `}
 `
+
+export const ContentWrapper = styled.div`
+  ${({ theme }) => css`
+    width: 30rem;
+    ${LogoStyles.Wrapper} {
+      margin: 0 auto ${theme.spacings.xxlarge};
+    }
+    ${HeadingStyles.Wrapper} {
+      margin-bottom: ${theme.spacings.medium};
+    }
+  `}
+`
