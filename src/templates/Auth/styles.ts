@@ -54,6 +54,12 @@ export const Subtitle = styled.h3`
   `}
 `
 
-export const Footer = styled.p``
+export const Footer = styled.p`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.xsmall};
+    text-align: center;
+    align-self: end;
+  `}
+`
 
 export const Content = styled.div``
