@@ -31,6 +31,18 @@ export const BannerBlock = styled.div`
   `}
 `
 
+export const BannerContent = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    z-index: ${theme.layers.base};
+  `}
+`
+
 export const Subtitle = styled.h3``
 
 export const Footer = styled.p``
