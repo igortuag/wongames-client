@@ -62,4 +62,11 @@ export const Footer = styled.p`
   `}
 `
 
-export const Content = styled.div``
+export const Content = styled.div`
+  ${({ theme }) => css`
+    background: ${theme.colors.white};
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  `}
+`
