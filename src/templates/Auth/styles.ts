@@ -6,8 +6,12 @@ import media from 'styled-media-query'
 
 export const Wrapper = styled.main`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   height: 100vh;
+
+  ${media.greaterThan('medium')`
+    grid-template-columns: 1fr 1fr;
+  `}
 `
 
 export const BannerBlock = styled.div`
