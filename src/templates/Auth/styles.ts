@@ -83,6 +83,11 @@ export const Content = styled.div`
 export const ContentWrapper = styled.div`
   ${({ theme }) => css`
     width: 30rem;
+
+    ${media.greaterThan('medium')`
+      width: 36rem;
+    `}
+
     ${LogoStyles.Wrapper} {
       margin: 0 auto ${theme.spacings.xxlarge};
     }
