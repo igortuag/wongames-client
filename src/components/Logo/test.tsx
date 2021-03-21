@@ -4,12 +4,14 @@ import { renderWithTheme } from 'utils/tests/helper'
 import Logo from '.'
 
 describe('<Logo />', () => {
-  it('should render a white label by default', () => {
-    // renderizar o componente `render`
-    renderWithTheme(<Logo />)
+  it('should render the logo with id passed', () => {
+    const { container } = renderWithTheme(<Logo id="myId" />)
 
-    // selecionar o elemento a ser testado `screen` (queries) getByLabel ...
-    // expect - assertion - asserção - comparação - análise (espero que renderize a logo branca)
+    expect(container.querySelector('#paint_linear_myId')).toBeInTheDocument()
+  })
+
+  it('should render a white label by default', () => {
+    renderWithTheme(<Logo />)
     expect(screen.getByLabelText(/Won Games/i).parentElement).toHaveStyle({
       color: '#FAFAFA'
     })
