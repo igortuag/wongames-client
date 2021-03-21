@@ -74,7 +74,7 @@ const Logo = ({
       />
       <defs>
         <linearGradient
-          id={`url(#paint_linear_${id})`}
+          id={`paint_linear_${id}`}
           x1="29.159"
           y1="-7.397"
           x2="30.155"
