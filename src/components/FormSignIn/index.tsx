@@ -18,6 +18,7 @@ const FormSignIn = () => (
         type="password"
         icon={<Lock />}
       />
+      <S.ForgetPassword href="#">Forgot your password?</S.ForgetPassword>
     </form>
   </S.Wrapper>
 )
