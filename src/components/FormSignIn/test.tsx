@@ -1,13 +1,16 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 import FormSignIn from '.'
 
 describe('<FormSignIn />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<FormSignIn />)
+  it('should render the form', () => {
+    renderWithTheme(<FormSignIn />)
 
-    expect(screen.getByRole('heading', { name: /FormSignIn/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /sign in now/i })
+    ).toBeInTheDocument()
   })
 })
