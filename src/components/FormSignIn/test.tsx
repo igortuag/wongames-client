@@ -13,4 +13,12 @@ describe('<FormSignIn />', () => {
       screen.getByRole('button', { name: /sign in now/i })
     ).toBeInTheDocument()
   })
+
+  it('should render the forgot password link', () => {
+    renderWithTheme(<FormSignIn />)
+
+    expect(
+      screen.getByRole('link', { name: /forgot your password\?/i })
+    ).toBeInTheDocument()
+  })
 })
