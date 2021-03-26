@@ -17,4 +17,11 @@ describe('<FormSignUp />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render text and link to sign in', () => {
+    renderWithTheme(<FormSignUp />)
+
+    expect(screen.getByRole('link', { name: /sign in/i })).toBeInTheDocument()
+    expect(screen.getByText(/already have an account\?/i)).toBeInTheDocument()
+  })
 })
