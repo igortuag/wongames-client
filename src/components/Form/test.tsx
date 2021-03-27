@@ -1,13 +1,17 @@
-import { render, screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helper'
 
-import Form from '.'
+import { FormLink, FormWrapper } from '.'
 
 describe('<Form />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Form />)
+    const { container } = renderWithTheme(
+      <FormWrapper>
+        <FormLink>
+          My nice <a href="#">link</a>
+        </FormLink>
+      </FormWrapper>
+    )
 
-    expect(screen.getByRole('heading', { name: /Form/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(container.parentElement).toMatchInlineSnapshot()
   })
 })
