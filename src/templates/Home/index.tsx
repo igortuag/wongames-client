@@ -10,6 +10,7 @@ import Menu from 'components/Menu'
 import * as S from './styles'
 import BannerSlider from 'components/BannerSlider'
 import GameCardSlider from 'components/GameCardSlider'
+import Showcase from 'components/Showcase'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -43,13 +44,7 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Container>
-        <Heading lineLeft lineColor="secondary">
-          News
-        </Heading>
-
-        <GameCardSlider items={newGames} color="black" />
-      </Container>
+      <Showcase title="News" games={newGames} />
     </S.SectionNews>
 
     <Container>
