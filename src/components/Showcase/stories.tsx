@@ -10,7 +10,13 @@ export default {
         <Story />
       </div>
     )
-  ]
+  ],
+  parameters: {
+    layout: 'fullscreen',
+    background: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
 export const Default: Story = () => <Showcase />
