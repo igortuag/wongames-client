@@ -53,16 +53,12 @@ const Home = ({
       games={mostPopularGames}
     />
 
-    <Container>
-      <S.SectionUpcoming>
-        <Heading lineLeft lineColor="secondary">
-          Upcomming
-        </Heading>
-        <GameCardSlider items={upcommingGames} />
-        <Highlight {...upcommingHighlight} />
-        <GameCardSlider items={upcommingMoreGames} />
-      </S.SectionUpcoming>
+    <S.SectionUpcoming>
+      <Showcase title="Upcomming" games={upcommingGames} />
+      <Showcase highlight={upcommingHighlight} games={upcommingMoreGames} />
+    </S.SectionUpcoming>
 
+    <Container>
       <S.SectionFreeGames>
         <Heading lineLeft lineColor="secondary">
           Free games
