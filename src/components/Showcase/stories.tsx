@@ -28,3 +28,12 @@ Default.args = {
   highlight: highlightMock,
   games: gamesMock
 }
+
+export const WithoutTitle: Story<ShowcaseProps> = (args) => (
+  <Showcase {...args} />
+)
+
+WithoutTitle.args = {
+  highlight: highlightMock,
+  games: gamesMock
+}
