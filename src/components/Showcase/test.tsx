@@ -29,4 +29,17 @@ describe('<Showcase />', () => {
       screen.getByRole('heading', { name: gamesMock[0].title })
     ).toBeInTheDocument()
   })
+
+  it('should render without title', () => {
+    renderWithTheme(
+      <Showcase games={props.games} highlight={props.highlight} />
+    )
+
+    screen.getByRole('heading', { name: highlightMock.title })
+    screen.getByRole('heading', { name: gamesMock[0].title })
+
+    expect(
+      screen.queryByRole('heading', { name: /most popular/i })
+    ).not.toBeInTheDocument()
+  })
 })
