@@ -1,5 +1,7 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Showcase from '.'
+import Showcase, { ShowcaseProps } from '.'
+import highlightMock from 'components/Highlight/mock'
+import gamesMock from 'components/GameCardSlider/mock'
 
 export default {
   title: 'Showcase',
@@ -19,4 +21,10 @@ export default {
   }
 } as Meta
 
-export const Default: Story = () => <Showcase />
+export const Default: Story<ShowcaseProps> = (args) => <Showcase {...args} />
+
+Default.args = {
+  title: 'Most Popular',
+  highlight: highlightMock,
+  games: gamesMock
+}
