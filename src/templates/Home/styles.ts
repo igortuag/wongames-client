@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
 import * as HeadingStyles from 'components/Heading/styles'
-import * as GameCardSliderStyles from 'components/GameCardSlider/styles'
 import * as HighlightStyles from 'components/Highlight/styles'
 
 export const SectionBanner = styled.section`
@@ -16,7 +15,7 @@ export const SectionBanner = styled.section`
   `}
 `
 
-export const SectionNews = styled(Sections)`
+export const SectionNews = styled.div`
   ${({ theme }) => css`
     margin-bottom: calc(${theme.spacings.xxlarge} * 2);
     ${media.greaterThan('large')`
