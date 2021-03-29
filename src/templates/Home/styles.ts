@@ -34,8 +34,6 @@ export const SectionNews = styled.div`
   `}
 `
 
-export const SectionMostPopular = styled(Sections)``
-
 export const SectionUpcoming = styled(Sections)`
   ${({ theme }) => css`
     ${HighlightStyles.Wrapper} {
