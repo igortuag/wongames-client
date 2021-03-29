@@ -34,15 +34,13 @@ export const SectionNews = styled.div`
   `}
 `
 
-export const SectionUpcoming = styled(Sections)`
+export const SectionUpcoming = styled.div`
   ${({ theme }) => css`
     ${HighlightStyles.Wrapper} {
       margin-top: calc(${theme.spacings.xlarge} * 2);
     }
   `}
 `
-
-export const SectionFreeGames = styled(Sections)``
 
 export const SectionFooter = styled.section`
   ${({ theme }) => css`
