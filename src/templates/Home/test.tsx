@@ -40,9 +40,6 @@ describe('<Home />', () => {
       screen.getByRole('heading', { name: /follow us/i })
     ).toBeInTheDocument()
 
-    // logos (menu/footer)
-    expect(screen.getAllByRole('img', { name: /won games/i })).toHaveLength(2)
-
     expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: /most popular/i })
