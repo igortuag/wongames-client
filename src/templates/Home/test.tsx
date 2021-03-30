@@ -20,6 +20,15 @@ const props = {
   freeHighlight: highlightMock
 }
 
+jest.mock(`components/Menu`, () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Menu"></div>
+    }
+  }
+})
+
 describe('<Home />', () => {
   it('should render menu and footer, sections and section elements', () => {
     renderWithTheme(<Home {...props} />)
