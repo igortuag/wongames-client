@@ -47,6 +47,15 @@ jest.mock(`components/Showcase`, () => {
   }
 })
 
+jest.mock(`components/BannerSlider`, () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Banner Slider"></div>
+    }
+  }
+})
+
 describe('<Home />', () => {
   it('should render menu and footer, sections and section elements', () => {
     renderWithTheme(<Home {...props} />)
@@ -54,8 +63,6 @@ describe('<Home />', () => {
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
     expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
-
-    // banner
-    expect(screen.getAllByText(/defy death 1/i)).toHaveLength(1)
+    expect(screen.getByTestId('Mock Banner Slider')).toBeInTheDocument()
   })
 })
