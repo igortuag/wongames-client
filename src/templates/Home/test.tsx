@@ -33,8 +33,7 @@ describe('<Home />', () => {
   it('should render menu and footer, sections and section elements', () => {
     renderWithTheme(<Home {...props} />)
 
-    // menu
-    expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
 
     // footer
     expect(
