@@ -29,16 +29,21 @@ jest.mock(`components/Menu`, () => {
   }
 })
 
+jest.mock(`components/Footer`, () => {
+  return {
+    __esModule: true,
+    default: function Mock() {
+      return <div data-testid="Mock Footer"></div>
+    }
+  }
+})
+
 describe('<Home />', () => {
   it('should render menu and footer, sections and section elements', () => {
     renderWithTheme(<Home {...props} />)
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
-
-    // footer
-    expect(
-      screen.getByRole('heading', { name: /follow us/i })
-    ).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
 
     expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
     expect(
