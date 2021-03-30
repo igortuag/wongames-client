@@ -55,15 +55,7 @@ describe('<Home />', () => {
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
     expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(5)
 
-    expect(screen.getByRole('heading', { name: /news/i })).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /most popular/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /upcomming/i })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: /free games/i })
-    ).toBeInTheDocument()
+    // banner
+    expect(screen.getAllByText(/defy death 1/i)).toHaveLength(1)
   })
 })
