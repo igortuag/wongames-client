@@ -22,7 +22,7 @@ jest.mock(`components/Footer`, () => {
 })
 
 describe('<Base />', () => {
-  it('should render menu and footer', () => {
+  it('should render menu, footer and children', () => {
     renderWithTheme(
       <Base>
         <h1>Heading</h1>
@@ -31,5 +31,8 @@ describe('<Base />', () => {
 
     expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
     expect(screen.getByTestId('Mock Footer')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /heading/i })
+    ).toBeInTheDocument()
   })
 })
