@@ -1,3 +1,5 @@
+import { Container } from 'components/Container'
+import Menu from 'components/Menu'
 import * as S from './styles'
 
 export type BaseTemplateProps = {
@@ -5,9 +7,11 @@ export type BaseTemplateProps = {
 }
 
 const Base = ({ children }: BaseTemplateProps) => (
-  <S.Wrapper>
-    <h1>Base</h1>
-  </S.Wrapper>
+  <section>
+    <Container>
+      <Menu />
+    </Container>
+  </section>
 )
 
 export default Base
