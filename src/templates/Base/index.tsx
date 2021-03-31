@@ -1,4 +1,5 @@
 import { Container } from 'components/Container'
+import Footer from 'components/Footer'
 import Menu from 'components/Menu'
 import * as S from './styles'
 
@@ -11,6 +12,12 @@ const Base = ({ children }: BaseTemplateProps) => (
     <Container>
       <Menu />
     </Container>
+
+    <S.SectionFooter>
+      <Container>
+        <Footer />
+      </Container>
+    </S.SectionFooter>
   </section>
 )
 
