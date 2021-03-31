@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helper'
 
 import Base from '.'
 
@@ -21,11 +22,13 @@ jest.mock(`components/Footer`, () => {
 })
 
 describe('<Base />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Base />)
+  it('should render menu', () => {
+    renderWithTheme(
+      <Base>
+        <h1>Heading</h1>
+      </Base>
+    )
 
-    expect(screen.getByRole('heading', { name: /Base/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByTestId('Mock Menu')).toBeInTheDocument()
   })
 })
