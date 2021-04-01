@@ -3,6 +3,12 @@ import { renderWithTheme } from 'utils/tests/helper'
 
 import GameInfo from '.'
 
+const props = {
+  title: 'My Game Title',
+  description: 'Game Description',
+  price: '210,00'
+}
+
 describe('<GameInfo />', () => {
   it('should render game information', () => {
     renderWithTheme(<GameInfo {...props} />)
