@@ -1,13 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helper'
 
 import GameInfo from '.'
 
 describe('<GameInfo />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<GameInfo />)
+  it('should render game information', () => {
+    renderWithTheme(<GameInfo {...props} />)
 
-    expect(screen.getByRole('heading', { name: /GameInfo/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    // esperar por um heading (title)
+    // esperar por um description
+    // esperar pelo price
   })
 })
