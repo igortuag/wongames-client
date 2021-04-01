@@ -11,4 +11,11 @@ describe('<GameInfo />', () => {
     // esperar por um description
     // esperar pelo price
   })
+
+  it('should render buttons', () => {
+    renderWithTheme(<GameInfo {...props} />)
+
+    // esperar button add to cart
+    // esperar button wishlist
+  })
 })
