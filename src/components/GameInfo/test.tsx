@@ -23,7 +23,11 @@ describe('<GameInfo />', () => {
   it('should render buttons', () => {
     renderWithTheme(<GameInfo {...props} />)
 
-    // esperar button add to cart
-    // esperar button wishlist
+    expect(
+      screen.getByRole('button', { name: /add to cart/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /wishlist/i })
+    ).toBeInTheDocument()
   })
 })
