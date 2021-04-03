@@ -42,4 +42,24 @@ export const Description = styled.p`
   `}
 `
 
-export const ButtonsWrapper = styled.div``
+export const ButtonsWrapper = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > button {
+      width: 100%;
+      margin-bottom: ${theme.spacings.xxsmall};
+    }
+
+    ${media.greaterThan('medium')`
+      flex-direction: row-reverse;
+
+      > button {
+        width: initial;
+        margin-bottom: 0;
+      }
+    `}
+  `}
+`
