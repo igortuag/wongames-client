@@ -14,7 +14,7 @@ export default {
 } as Meta
 
 export const Default: Story<GameInfoProps> = (args) => (
-  <div style={{ maxWidth: '144rem', padding: '1.5rem' }}>
+  <div style={{ maxWidth: '144rem', padding: '1.5rem', margin: 'auto' }}>
     <GameInfo {...args} />
   </div>
 )
