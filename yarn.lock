@@ -2756,6 +2756,14 @@
     "@babel/runtime" "^7.12.5"
     "@styled-icons/styled-icon" "^10.6.0"
 
+"@styled-icons/fa-brands@^10.26.0":
+  version "10.26.0"
+  resolved "https://registry.yarnpkg.com/@styled-icons/fa-brands/-/fa-brands-10.26.0.tgz#ca20250c86a23df87b9f21acfbe94fc5fa97d8f6"
+  integrity sha512-1J2Pac3QwxArDzI/EAibLlTQ+4mFr7e6ZIVdLT+hmQrTQ+2Ibm403fHwsEBvLYzCI/7XQERPcxy1uBdkSgrKXw==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@styled-icons/styled-icon" "^10.6.0"
+
 "@styled-icons/fa-regular@^10.23.0":
   version "10.23.0"
   resolved "https://registry.yarnpkg.com/@styled-icons/fa-regular/-/fa-regular-10.23.0.tgz#301cba536b156e7d25112af64dec4cacbd48d8a3"
