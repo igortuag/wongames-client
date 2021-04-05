@@ -8,10 +8,10 @@ import * as S from './styles'
 type Platform = 'windows' | 'linux' | 'mac'
 
 export type GameDetailsProps = {
-  platform: Platform
+  platforms: Platform[]
 }
 
-const GameDetails = ({ platform }: GameDetailsProps) => {
+const GameDetails = ({ platforms }: GameDetailsProps) => {
   const platformIcons = {
     linux: <Linux title="Linux" size={18} />,
     mac: <Apple title="Mac" size={18} />,
@@ -39,6 +39,11 @@ const GameDetails = ({ platform }: GameDetailsProps) => {
 
         <S.Block>
           <S.Label>Platforms</S.Label>
+          <S.IconsWrapper>
+            {platforms.map((icon: Platform) => (
+              <S.Icon key={icon}>{platformIcons[icon]} </S.Icon>
+            ))}
+          </S.IconsWrapper>
         </S.Block>
 
         <S.Block>
