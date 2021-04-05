@@ -12,6 +12,12 @@ export type GameDetailsProps = {
 }
 
 const GameDetails = ({ platform }: GameDetailsProps) => {
+  const platformIcons = {
+    linux: <Linux title="Linux" size={18} />,
+    mac: <Apple title="Mac" size={18} />,
+    windows: <Windows title="Windows" size={18} />
+  }
+
   return (
     <S.Wrapper>
       <MediaMatch greaterThan="small">
