@@ -6,7 +6,7 @@ import GameDetails, { GameDetailsProps } from '.'
 const props: GameDetailsProps = {
   developer: 'Diferente Tales',
   platforms: ['windows', 'mac', 'linux'],
-  releaseDate: '2020-11T23:00:00'
+  releaseDate: '2020-11-23T23:00:00'
 }
 
 describe('<GameDetails />', () => {
@@ -45,6 +45,6 @@ describe('<GameDetails />', () => {
   it('should render format date', () => {
     renderWithTheme(<GameDetails {...props} />)
 
-    expect(screen.getByText('Nov 21, 2020')).toBeInTheDocument()
+    expect(screen.getByText('Nov 23, 2020')).toBeInTheDocument()
   })
 })
