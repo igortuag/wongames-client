@@ -35,7 +35,7 @@ const GameDetails = ({ developer, platforms }: GameDetailsProps) => {
 
         <S.Block>
           <S.Label>Release Date</S.Label>
-          <S.Description>Nov 16. 2019</S.Description>
+          <S.Description>Nov 16, 2019</S.Description>
         </S.Block>
 
         <S.Block>
