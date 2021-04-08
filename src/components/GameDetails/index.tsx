@@ -14,13 +14,15 @@ export type GameDetailsProps = {
   platforms: Platform[]
   releaseDate: string
   rating: Rating
+  genres: string[]
 }
 
 const GameDetails = ({
   developer,
   platforms,
   releaseDate,
-  rating
+  rating,
+  genres
 }: GameDetailsProps) => {
   const platformIcons = {
     linux: <Linux title="Linux" size={18} />,
