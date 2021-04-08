@@ -49,6 +49,12 @@ describe('<GameDetails />', () => {
     expect(screen.getByText(/free/i)).toBeInTheDocument()
   })
 
+  it('should render 18+ rating when BR18', () => {
+    renderWithTheme(<GameDetails {...props} rating="BR18" />)
+
+    expect(screen.getByText(/18\+/i)).toBeInTheDocument()
+  })
+
   it('should render format date', () => {
     renderWithTheme(<GameDetails {...props} />)
 
