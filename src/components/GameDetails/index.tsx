@@ -68,7 +68,7 @@ const GameDetails = ({
 
         <S.Block>
           <S.Label>Rating</S.Label>
-          <S.Description>18+</S.Description>
+          <S.Description>Free</S.Description>
         </S.Block>
 
         <S.Block>
