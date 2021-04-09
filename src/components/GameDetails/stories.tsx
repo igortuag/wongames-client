@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
 import GameDetails, { GameDetailsProps } from '.'
+import mockGame from './mock'
 
 export default {
   title: 'GameDetails',
@@ -9,9 +10,7 @@ export default {
       default: 'won-dark'
     }
   },
-  args: {
-    platforms: ['windows', 'linux', 'mac']
-  },
+  args: mockGame,
   argTypes: {
     platforms: {
       control: {
