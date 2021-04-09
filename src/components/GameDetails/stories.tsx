@@ -12,6 +12,9 @@ export default {
   },
   args: mockGame,
   argTypes: {
+    releaseDate: {
+      control: 'date'
+    },
     platforms: {
       control: {
         type: 'inline-check',
