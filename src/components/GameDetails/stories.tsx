@@ -20,6 +20,12 @@ export default {
         type: 'inline-check',
         options: ['windows', 'linux', 'mac']
       }
+    },
+    genres: {
+      control: {
+        type: 'inline-check',
+        options: ['Role-playing', 'Narrative']
+      }
     }
   }
 } as Meta
