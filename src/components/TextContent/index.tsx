@@ -13,6 +13,8 @@ const TextContent = ({ title, content }: TextContentProps) => (
         {title}
       </Heading>
     )}
+
+    <div dangerouslySetInnerHTML={{ __html: content }} />
   </S.Wrapper>
 )
 
