@@ -1,3 +1,4 @@
+import Heading from 'components/Heading'
 import * as S from './styles'
 
 export type TextContentProps = {
@@ -5,9 +6,13 @@ export type TextContentProps = {
   content: string
 }
 
-const TextContent = () => (
+const TextContent = ({ title, content }: TextContentProps) => (
   <S.Wrapper>
-    <h1>TextContent</h1>
+    {!!title && (
+      <Heading lineLeft lineColor="secondary">
+        {title}
+      </Heading>
+    )}
   </S.Wrapper>
 )
 
