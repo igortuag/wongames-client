@@ -9,13 +9,14 @@ const props = {
 }
 
 describe('<TextContent />', () => {
-  it('should render the heading', () => {
-    renderWithTheme(<TextContent />)
+  it('should render the title and content', () => {
+    renderWithTheme(<TextContent {...props} />)
 
     expect(
-      screen.getByRole('heading', { name: /TextContent/i })
+      screen.getByRole('heading', { name: /description/i })
     ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      screen.getByRole('heading', { name: /content/i })
+    ).toBeInTheDocument()
   })
 })
