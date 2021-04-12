@@ -19,4 +19,12 @@ describe('<TextContent />', () => {
       screen.getByRole('heading', { name: /content/i })
     ).toBeInTheDocument()
   })
+
+  it('should render without title', () => {
+    renderWithTheme(<TextContent content={props.content} />)
+
+    expect(
+      screen.queryByRole('heading', { name: /description/i })
+    ).not.toBeInTheDocument()
+  })
 })
