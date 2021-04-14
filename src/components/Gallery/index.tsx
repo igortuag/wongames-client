@@ -53,6 +53,12 @@ const Gallery = ({ items }: GalleryProps) => (
   <S.Wrapper>
     <Slider settings={settings}>
       {items.map((item, index) => (
+        <img
+          key={`gallery-thumb-${index}`}
+          role="button"
+          src={item.src}
+          alt={`Thumb - ${item.label}`}
+        />
       ))}
     </Slider>
   </S.Wrapper>
