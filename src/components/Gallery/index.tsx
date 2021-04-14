@@ -40,8 +40,13 @@ const settings: SliderSettings = {
   prevArrow: <ArrowLeft aria-label="previous images" />
 }
 
+export type GalleryImageProps = {
+  src: string
+  label: string
+}
+
 export type GalleryProps = {
-  items: GameCardProps[]
+  items: GalleryImageProps[]
 }
 
 const Gallery = ({ items }: GalleryProps) => (
