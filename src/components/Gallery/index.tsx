@@ -62,11 +62,14 @@ const Gallery = ({ items }: GalleryProps) => {
             role="button"
             src={item.src}
             alt={`Thumb - ${item.label}`}
+            onClick={() => {
+              setIsOpen(true)
+            }}
           />
         ))}
       </Slider>
 
-      <S.Modal aria-label="modal" aria-hidden={isOpen}></S.Modal>
+      <S.Modal aria-label="modal" aria-hidden={!isOpen}></S.Modal>
     </S.Wrapper>
   )
 }
