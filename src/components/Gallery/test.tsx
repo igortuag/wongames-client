@@ -29,7 +29,9 @@ describe('<Gallery />', () => {
     expect(modal).toHaveStyle({ opacity: 0 })
 
     // clicar no botão de abrir menu e verificar se abriu
-    fireEvent.click(screen.getByLabelText(/open menu/i))
+    fireEvent.click(
+      screen.getByRole('button', { name: /Thumb - Gallery Image 1/i })
+    )
     expect(modal.getAttribute('aria-hidden')).toBe('false')
     expect(modal).toHaveStyle({ opacity: 1 })
 
