@@ -61,6 +61,8 @@ const Gallery = ({ items }: GalleryProps) => (
         />
       ))}
     </Slider>
+
+    <S.Modal aria-label="modal" aria-hidden="true"></S.Modal>
   </S.Wrapper>
 )
 

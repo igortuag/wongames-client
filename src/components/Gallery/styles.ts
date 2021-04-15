@@ -37,3 +37,7 @@ export const Wrapper = styled.div`
     `}
   `}
 `
+
+export const Modal = styled.div`
+  opacity: 0;
+`
