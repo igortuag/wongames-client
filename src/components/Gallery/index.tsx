@@ -69,7 +69,11 @@ const Gallery = ({ items }: GalleryProps) => {
         ))}
       </Slider>
 
-      <S.Modal aria-label="modal" aria-hidden={!isOpen}></S.Modal>
+      <S.Modal
+        isOpen={isOpen}
+        aria-label="modal"
+        aria-hidden={!isOpen}
+      ></S.Modal>
     </S.Wrapper>
   )
 }
