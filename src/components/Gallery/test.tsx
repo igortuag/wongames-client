@@ -18,7 +18,7 @@ describe('<Gallery />', () => {
     ).toHaveAttribute('src', mockItems[1].src)
   })
 
-  it('should handle open/close modal ', () => {
+  it('should handle open modal ', () => {
     renderWithTheme(<Gallery items={mockItems.slice(0, 2)} />)
 
     // selecionar Modal
@@ -26,7 +26,7 @@ describe('<Gallery />', () => {
 
     // verificar se o menu esta escondido
     expect(modal.getAttribute('aria-hidden')).toBe('true')
-    expect(modal).toHaveStyle({ opacity: 0 })
+    expect(modal).toHaveStyle({ opacity: 0, pointerEvents: 'none' })
 
     // clicar no botão de abrir menu e verificar se abriu
     fireEvent.click(
@@ -34,10 +34,5 @@ describe('<Gallery />', () => {
     )
     expect(modal.getAttribute('aria-hidden')).toBe('false')
     expect(modal).toHaveStyle({ opacity: 1 })
-
-    // clica no botão de fechar menu e verificar se fechou
-    fireEvent.click(screen.getByLabelText(/close menu/i))
-    expect(modal.getAttribute('aria-hidden')).toBe('true')
-    expect(modal).toHaveStyle({ opacity: 0 })
   })
 })

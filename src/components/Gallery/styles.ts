@@ -53,6 +53,6 @@ const modalModifiers = {
 
 export const Modal = styled.div<ModalProps>`
   ${({ isOpen }) => css`
-    ${isOpen ? modalModifiers.open() : modalModifiers.open()}
+    ${isOpen ? modalModifiers.open() : modalModifiers.close()}
   `}
 `
