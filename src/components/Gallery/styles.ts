@@ -56,3 +56,5 @@ export const Modal = styled.div<ModalProps>`
     ${isOpen ? modalModifiers.open() : modalModifiers.close()}
   `}
 `
+
+export const Close = styled.div``

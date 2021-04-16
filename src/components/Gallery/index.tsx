@@ -74,6 +74,7 @@ const Gallery = ({ items }: GalleryProps) => {
         aria-label="modal"
         aria-hidden={!isOpen}
       ></S.Modal>
+      <S.Close></S.Close>
     </S.Wrapper>
   )
 }
