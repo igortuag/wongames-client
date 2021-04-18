@@ -84,7 +84,6 @@ const Gallery = ({ items }: GalleryProps) => {
         isOpen={isOpen}
         aria-label="modal"
         aria-hidden={!isOpen}
-        s
       ></S.Modal>
       <S.Close
         role="button"
@@ -94,7 +93,13 @@ const Gallery = ({ items }: GalleryProps) => {
         <Close size={40} />
       </S.Close>
 
-      <S.Content></S.Content>
+      <S.Content>
+        <Slider settings={settings}>
+          {items.map((item, index) => (
+            <img key={`gallery-${index}`} src={item.src} alt={item.label} />
+          ))}
+        </Slider>
+      </S.Content>
     </S.Wrapper>
   )
 }
