@@ -6,13 +6,18 @@ import { Close } from '@styled-icons/material-outlined/Close'
 import Slider, { SliderSettings } from 'components/Slider'
 
 import * as S from './styles'
-import { cleanup } from '@testing-library/react'
 
-const settings: SliderSettings = {
+const commonSettings: SliderSettings = {
   arrows: true,
-  slidesToShow: 4,
   infinite: false,
   lazyLoad: 'ondemand',
+  nextArrow: <ArrowRight aria-label="next images" />,
+  prevArrow: <ArrowLeft aria-label="previous images" />
+}
+
+const settings: SliderSettings = {
+  ...commonSettings,
+  slidesToShow: 4,
   responsive: [
     {
       breakpoint: 1375,
@@ -38,9 +43,12 @@ const settings: SliderSettings = {
         draggable: true
       }
     }
-  ],
-  nextArrow: <ArrowRight aria-label="next images" />,
-  prevArrow: <ArrowLeft aria-label="previous images" />
+  ]
+}
+
+const modalSetting: SliderSettings = {
+  ...commonSettings,
+  slidesToShow: 1
 }
 
 export type GalleryImageProps = {
@@ -94,7 +102,7 @@ const Gallery = ({ items }: GalleryProps) => {
       </S.Close>
 
       <S.Content>
-        <Slider settings={settings}>
+        <Slider settings={modalSetting}>
           {items.map((item, index) => (
             <img key={`gallery-${index}`} src={item.src} alt={item.label} />
           ))}
