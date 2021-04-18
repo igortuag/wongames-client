@@ -84,6 +84,7 @@ const Gallery = ({ items }: GalleryProps) => {
         isOpen={isOpen}
         aria-label="modal"
         aria-hidden={!isOpen}
+        s
       ></S.Modal>
       <S.Close
         role="button"
@@ -92,6 +93,8 @@ const Gallery = ({ items }: GalleryProps) => {
       >
         <Close size={40} />
       </S.Close>
+
+      <S.Content></S.Content>
     </S.Wrapper>
   )
 }
