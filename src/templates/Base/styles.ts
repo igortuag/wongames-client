@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+export const Wrapper = styled.div``
+
 export const SectionFooter = styled.section`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.large};
