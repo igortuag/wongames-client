@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+`
 
 export const SectionFooter = styled.section`
   ${({ theme }) => css`
