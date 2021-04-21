@@ -1,3 +1,5 @@
+import Game from 'templates/Game'
+
 export default function Index() {
-  return <h1>game</h1>
+  return <Game />
 }
