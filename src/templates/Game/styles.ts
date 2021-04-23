@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
-export const Cover = styled.div`
+type CoverProps = {
+  src: string
+}
+
+export const Cover = styled.div<CoverProps>`
   ${({ src }) => css``}
 `
