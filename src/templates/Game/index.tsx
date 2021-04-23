@@ -4,7 +4,7 @@ import * as S from './styles'
 
 const Game = () => (
   <Base>
-    <h1>Game</h1>
+    <S.Cover src={} role="image" aria-label="cover"></S.Cover>
   </Base>
 )
 
