@@ -4,6 +4,13 @@ export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
 }
 
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { slug: 'cyberpunk-2077' } }],
+    fallback: false
+  }
+}
+
 export async function getStaticProps() {
   return {
     props: {
