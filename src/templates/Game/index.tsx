@@ -12,7 +12,9 @@ const Game = ({ cover, gameInfo }: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label="cover"></S.Cover>
     <S.Main>
-      <GameInfo {...gameInfo} />
+      <S.SectionGameInfo>
+        <GameInfo {...gameInfo} />
+      </S.SectionGameInfo>
     </S.Main>
   </Base>
 )
