@@ -11,8 +11,9 @@ export type GameTemplateProps = {
 const Game = ({ cover, gameInfo }: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label="cover"></S.Cover>
-
-    <GameInfo {...gameInfo} />
+    <S.Main>
+      <GameInfo {...gameInfo} />
+    </S.Main>
   </Base>
 )
 

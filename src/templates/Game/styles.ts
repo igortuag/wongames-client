@@ -1,6 +1,14 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+export const Main = styled.main`
+  margin-top: 20rem;
+
+  ${media.greaterThan('medium')`
+    margin-top: 58rem;
+  `}
+`
+
 type CoverProps = {
   src: string
 }
