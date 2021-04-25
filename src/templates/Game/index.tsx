@@ -1,4 +1,4 @@
-import { GameInfoProps } from 'components/GameInfo'
+import GameInfo, { GameInfoProps } from 'components/GameInfo'
 import Base from 'templates/Base'
 
 import * as S from './styles'
@@ -8,9 +8,11 @@ export type GameTemplateProps = {
   gameInfo: GameInfoProps
 }
 
-const Game = ({ cover }: GameTemplateProps) => (
+const Game = ({ cover, gameInfo }: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label="cover"></S.Cover>
+
+    <GameInfo {...gameInfo} />
   </Base>
 )
 
