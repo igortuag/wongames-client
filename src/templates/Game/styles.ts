@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+import { Container } from 'components/Container'
+
 export const Main = styled.main`
   margin-top: 20rem;
 
@@ -28,6 +30,16 @@ export const Cover = styled.div<CoverProps>`
     ${media.greaterThan('medium')`
       height: 70rem;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    `}
+  `}
+`
+
+export const Section = styled(Container).attrs({ as: 'section' })`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.xlarge};
+
+    ${media.greaterThan('medium')`
+      margin-bottom: ${theme.spacings.xlarge * 2};
     `}
   `}
 `
