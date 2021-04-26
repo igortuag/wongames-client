@@ -45,3 +45,5 @@ export const Section = styled(Container).attrs({ as: 'section' })`
 `
 
 export const SectionGameInfo = styled(Section)``
+
+export const SectionGallery = styled(Section)``

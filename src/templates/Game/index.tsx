@@ -1,4 +1,4 @@
-import { GalleryImageProps } from 'components/Gallery'
+import Gallery, { GalleryImageProps } from 'components/Gallery'
 import GameInfo, { GameInfoProps } from 'components/GameInfo'
 import Base from 'templates/Base'
 
@@ -7,7 +7,7 @@ import * as S from './styles'
 export type GameTemplateProps = {
   cover: string
   gameInfo: GameInfoProps
-  gallery?: GalleryImageProps
+  gallery?: GalleryImageProps[]
 }
 
 const Game = ({ cover, gameInfo, gallery }: GameTemplateProps) => (
@@ -17,6 +17,10 @@ const Game = ({ cover, gameInfo, gallery }: GameTemplateProps) => (
       <S.SectionGameInfo>
         <GameInfo {...gameInfo} />
       </S.SectionGameInfo>
+
+      <S.SectionGallery>
+        {!!gallery && <Gallery items={gallery} />}
+      </S.SectionGallery>
     </S.Main>
   </Base>
 )
