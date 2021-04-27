@@ -22,6 +22,8 @@ const Game = ({ cover, gameInfo, gallery, description }: GameTemplateProps) => (
       <S.SectionGallery>
         {!!gallery && <Gallery items={gallery} />}
       </S.SectionGallery>
+
+      <S.SectionDescription></S.SectionDescription>
     </S.Main>
   </Base>
 )

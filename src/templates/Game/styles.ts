@@ -53,3 +53,5 @@ export const SectionGallery = styled(Section)`
     display: block;
   `}
 `
+
+export const SectionDescription = styled(Section)``
