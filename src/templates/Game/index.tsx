@@ -8,9 +8,10 @@ export type GameTemplateProps = {
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
+  description: string
 }
 
-const Game = ({ cover, gameInfo, gallery }: GameTemplateProps) => (
+const Game = ({ cover, gameInfo, gallery, description }: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label="cover"></S.Cover>
     <S.Main>
