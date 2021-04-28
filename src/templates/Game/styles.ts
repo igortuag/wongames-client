@@ -64,4 +64,15 @@ export const SectionDescription = styled(Section)`
   `}
 `
 
-export const SectionGameDetails = styled(Section)``
+export const SectionGameDetails = styled(Section)`
+  ${({ theme }) => css`
+    > div {
+      padding-bottom: ${theme.spacings.xlarge};
+      border-bottom: 0.1rem solid rgba(101, 101, 101, 0.3);
+
+      ${media.greaterThan('medium')`
+        padding-bottom: ${theme.spacings.xxlarge};
+      `}
+    }
+  `}
+`
