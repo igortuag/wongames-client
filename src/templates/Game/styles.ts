@@ -63,3 +63,5 @@ export const SectionDescription = styled(Section)`
     }
   `}
 `
+
+export const SectionGameDetails = styled(Section)``

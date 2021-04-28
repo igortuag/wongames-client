@@ -35,6 +35,10 @@ const Game = ({
       <S.SectionDescription>
         <TextContent title="Description" content={description}></TextContent>
       </S.SectionDescription>
+
+      <S.SectionGameDetails>
+        <GameDetails {...details} />
+      </S.SectionGameDetails>
     </S.Main>
   </Base>
 )
