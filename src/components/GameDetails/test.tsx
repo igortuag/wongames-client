@@ -51,6 +51,12 @@ describe('<GameDetails />', () => {
     expect(screen.getByText(/free/i)).toBeInTheDocument()
   })
 
+  it('should render the developer', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/Diferente Tales/i)).toBeInTheDocument()
+  })
+
   it('should render the publisher', () => {
     renderWithTheme(<GameDetails {...props} />)
 
