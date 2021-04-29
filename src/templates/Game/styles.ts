@@ -7,7 +7,7 @@ export const Main = styled.main`
   margin-top: 20rem;
 
   ${media.greaterThan('medium')`
-    margin-top: 58rem;
+    margin-top: 45rem;
   `}
 `
 
@@ -60,6 +60,19 @@ export const SectionDescription = styled(Section)`
       color: ${theme.colors.gray};
       font-size: ${theme.font.sizes.xsmall};
       margin-top: ${theme.spacings.medium};
+    }
+  `}
+`
+
+export const SectionGameDetails = styled(Section)`
+  ${({ theme }) => css`
+    > div {
+      padding-bottom: ${theme.spacings.xlarge};
+      border-bottom: 0.1rem solid rgba(101, 101, 101, 0.3);
+
+      ${media.greaterThan('medium')`
+        padding-bottom: ${theme.spacings.xxlarge};
+      `}
     }
   `}
 `
