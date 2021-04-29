@@ -54,6 +54,8 @@ const Game = ({
         games={upcommingGames}
         highlight={upcommingHighlight}
       />
+
+      <Showcase title="You may like these games" games={recommendGames} />
     </S.Main>
   </Base>
 )
