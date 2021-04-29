@@ -1,6 +1,8 @@
 import Gallery, { GalleryImageProps } from 'components/Gallery'
 import GameInfo, { GameInfoProps } from 'components/GameInfo'
 import GameDetails, { GameDetailsProps } from 'components/GameDetails'
+import GameCard, { GameCardProps } from 'components/GameCard'
+import { HighlightProps } from 'components/Highlight'
 import TextContent from 'components/TextContent'
 import Base from 'templates/Base'
 
@@ -12,6 +14,9 @@ export type GameTemplateProps = {
   gallery?: GalleryImageProps[]
   description: string
   details: GameDetailsProps
+  upcommingGames: GameCardProps[]
+  upcommingHighlight: HighlightProps[]
+  recommendGames: GameCardProps[]
 }
 
 const Game = ({
