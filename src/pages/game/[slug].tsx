@@ -55,7 +55,8 @@ export async function getStaticProps() {
         genres: ['Action', 'Role-plaing']
       },
       upcommingGames: gamesMock,
-      upcommingHighlight: highlightMock
+      upcommingHighlight: highlightMock,
+      recommendGames: gamesMock
     }
   }
 }
