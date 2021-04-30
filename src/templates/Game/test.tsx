@@ -71,4 +71,20 @@ describe('<Game />', () => {
 
     expect(screen.queryByTestId('Mock Gallery')).not.toBeInTheDocument()
   })
+
+  it('should not render the gallery on mobile', () => {
+    renderWithTheme(<Game {...props} />)
+
+    expect(screen.getByTestId('Mock Gallery').parentElement).toHaveStyle({
+      display: 'none'
+    })
+
+    expect(screen.getByTestId('Mock Gallery').parentElement).toHaveStyleRule(
+      'display',
+      'block',
+      {
+        media: '(min-width: 768px)'
+      }
+    )
+  })
 })
