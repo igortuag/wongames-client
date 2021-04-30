@@ -6,11 +6,23 @@ import gameDetailsMock from 'components/GameDetails/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
-import Game from '.'
+import Game, { GameTemplateProps } from '.'
+import { GameDetailsProps } from 'components/GameDetails'
+
+const props: GameTemplateProps = {
+  cover: 'bg-image.jpg',
+  gameInfo: gameInfoMock,
+  gallery: galleryMock,
+  description: `<h1>Custom HTML</h1>`,
+  details: gameDetailsMock as GameDetailsProps,
+  upcomingGames: gamesMock,
+  upcomingHighlight: highlightMock,
+  recommendedGames: gamesMock
+}
 
 describe('<Game />', () => {
   it('should render the heading', () => {
-    const { container } = render(<Game />)
+    const { container } = render(<Game {...props} />)
 
     expect(screen.getByRole('heading', { name: /Game/i })).toBeInTheDocument()
 
