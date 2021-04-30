@@ -87,4 +87,26 @@ describe('<Game />', () => {
       }
     )
   })
+
+  it('should render the cover image', () => {
+    renderWithTheme(<Game {...props} />)
+
+    const cover = screen.getByRole('image', { name: /cover/i })
+
+    expect(cover).toHaveStyle({
+      backgroundImage: 'url(bg-image.jpg)',
+      height: '39.5rem'
+    })
+
+    expect(cover).toHaveStyleRule('height', '70rem', {
+      media: '(min-width: 768px)'
+    })
+    expect(cover).toHaveStyleRule(
+      'clip-path',
+      'polygon(0 0,100% 0,100% 100%,0 85%)',
+      {
+        media: '(min-width: 768px)'
+      }
+    )
+  })
 })
