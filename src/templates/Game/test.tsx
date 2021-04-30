@@ -1,5 +1,11 @@
 import { render, screen } from '@testing-library/react'
 
+import galleryMock from 'components/Gallery/mock'
+import gameInfoMock from 'components/GameInfo/mock'
+import gameDetailsMock from 'components/GameDetails/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
+
 import Game from '.'
 
 describe('<Game />', () => {
