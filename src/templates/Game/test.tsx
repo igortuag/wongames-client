@@ -8,6 +8,7 @@ import highlightMock from 'components/Highlight/mock'
 
 import Game, { GameTemplateProps } from '.'
 import { GameDetailsProps } from 'components/GameDetails'
+import { renderWithTheme } from 'utils/tests/helper'
 
 const props: GameTemplateProps = {
   cover: 'bg-image.jpg',
@@ -17,15 +18,51 @@ const props: GameTemplateProps = {
   details: gameDetailsMock as GameDetailsProps,
   upcomingGames: gamesMock,
   upcomingHighlight: highlightMock,
-  recommendedGames: gamesMock
+  recommendGames: gamesMock
 }
 
+jest.mock('components/Menu', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Menu" />
+  }
+}))
+
+jest.mock('components/Gallery', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Gallery" />
+  }
+}))
+
+jest.mock('components/GameDetails', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock GameDetails" />
+  }
+}))
+
+jest.mock('components/GameInfo', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock GameInfo" />
+  }
+}))
+
+jest.mock('components/Showcase', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Showcase" />
+  }
+}))
+
 describe('<Game />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Game {...props} />)
-
-    expect(screen.getByRole('heading', { name: /Game/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+  it('should render the template with components', () => {
+    renderWithTheme(<Game {...props} />)
+    expect(screen.getByTestId('Mock Gallery')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock GameDetails')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock GameInfo')).toBeInTheDocument()
+    expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(2)
+    expect(screen.getByText(/custom html/i)).toBeInTheDocument()
   })
 })
