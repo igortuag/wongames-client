@@ -65,4 +65,10 @@ describe('<Game />', () => {
     expect(screen.getAllByTestId('Mock Showcase')).toHaveLength(2)
     expect(screen.getByText(/custom html/i)).toBeInTheDocument()
   })
+
+  it('should not render the gallery if no images', () => {
+    renderWithTheme(<Game {...props} gallery={undefined} />)
+
+    expect(screen.queryByTestId('Mock Gallery')).not.toBeInTheDocument()
+  })
 })
