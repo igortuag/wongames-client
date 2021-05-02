@@ -1,9 +1,11 @@
+import Base from 'templates/Base'
+
 import * as S from './styles'
 
 const Wishlist = () => (
-  <S.Wrapper>
+  <Base>
     <h1>Wishlist</h1>
-  </S.Wrapper>
+  </Base>
 )
 
 export default Wishlist
