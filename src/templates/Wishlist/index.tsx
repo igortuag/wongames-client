@@ -9,11 +9,13 @@ import Showcase from 'components/Showcase'
 import * as S from './styles'
 
 export type WishlistTemplateProps = {
+  games?: GameCardProps[]
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
 }
 
 const Wishlist = ({
+  games,
   recommendedGames,
   recommendedHighlight
 }: WishlistTemplateProps) => (
