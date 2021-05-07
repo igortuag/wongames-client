@@ -1,13 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helper'
 
-import Divider from '.'
+import { Divider } from '.'
 
-describe('<Divider />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Divider />)
+describe('<Grid />', () => {
+  it('should render correctly', () => {
+    const { container } = renderWithTheme(<Divider />)
 
-    expect(screen.getByRole('heading', { name: /Divider/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchInlineSnapshot()
   })
 })
