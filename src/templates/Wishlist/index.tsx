@@ -2,6 +2,7 @@ import Base from 'templates/Base'
 
 import { Container } from 'components/Container'
 import { Grid } from 'components/Grid'
+import { Divider } from 'components/Divider'
 import GameCard, { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
 import Heading from 'components/Heading'
@@ -25,13 +26,15 @@ const Wishlist = ({
       <Heading lineLeft lineColor="secondary">
         Wishlist
       </Heading>
-    </Container>
 
-    <Grid>
-      {games?.map((game, index) => (
-        <GameCard key={`whishlist-${index}`} {...game} />
-      ))}
-    </Grid>
+      <Grid>
+        {games?.map((game, index) => (
+          <GameCard key={`whishlist-${index}`} {...game} />
+        ))}
+      </Grid>
+
+      <Divider />
+    </Container>
 
     <Showcase
       title="You may like these games"
