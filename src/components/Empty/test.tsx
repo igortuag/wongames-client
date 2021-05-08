@@ -28,4 +28,12 @@ describe('<Empty />', () => {
       screen.getByRole('link', { name: /go back to store/i })
     ).toHaveAttribute('href', '/')
   })
+
+  it('should render not link hasLink is not passed', () => {
+    renderWithTheme(<Empty {...props} />)
+
+    expect(
+      screen.queryByRole('link', { name: /go back to store/i })
+    ).not.toBeInTheDocument()
+  })
 })
