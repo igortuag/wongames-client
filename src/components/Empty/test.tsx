@@ -23,5 +23,9 @@ describe('<Empty />', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByText(/a simple description/i)).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('link', { name: /go back to store/i })
+    ).toHaveAttribute('href', '/')
   })
 })
