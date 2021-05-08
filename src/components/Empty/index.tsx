@@ -3,9 +3,10 @@ import * as S from './styles'
 export type EmptyProps = {
   title: string
   description: string
+  hasLink?: boolean
 }
 
-const Empty = ({ title, description }: EmptyProps) => (
+const Empty = ({ title, description, hasLink }: EmptyProps) => (
   <S.Wrapper>
     <S.Image
       src="/img/empty.svg"
