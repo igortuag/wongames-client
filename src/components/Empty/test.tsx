@@ -10,7 +10,7 @@ const props = {
 
 describe('<Empty />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<Empty {...props} />)
+    renderWithTheme(<Empty {...props} hasLink />)
 
     expect(
       screen.getByRole('image', {
