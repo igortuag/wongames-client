@@ -21,5 +21,7 @@ describe('<Empty />', () => {
     expect(
       screen.getByRole('heading', { name: /a simple title/i })
     ).toBeInTheDocument()
+
+    expect(screen.getByText(/a simple description/i)).toBeInTheDocument()
   })
 })
