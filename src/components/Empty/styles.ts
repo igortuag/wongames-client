@@ -7,7 +7,9 @@ export const Wrapper = styled.main`
   text-align: center;
 `
 
-export const Image = styled.img``
+export const Image = styled.img`
+  max-width: 100%;
+`
 
 export const Title = styled.h2``
 
