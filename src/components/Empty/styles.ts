@@ -18,4 +18,11 @@ export const Title = styled.h2`
   `}
 `
 
-export const Description = styled.h2``
+export const Description = styled.h2`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.light};
+    margin-bottom: ${theme.spacings.medium};
+  `}
+`
