@@ -42,7 +42,7 @@ describe('<Wishlist />', () => {
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: /your wishilist is empty/i })
+      screen.getByRole('heading', { name: /your wishlist is empty/i })
     ).toBeInTheDocument()
   })
 })
