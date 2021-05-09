@@ -26,7 +26,7 @@ const Wishlist = ({
         Wishlist
       </Heading>
 
-      {games.length > 0 ? (
+      {games.length ? (
         <Grid>
           {games?.map((game, index) => (
             <GameCard key={`whishlist-${index}`} {...game} />
@@ -36,6 +36,7 @@ const Wishlist = ({
         <Empty
           title="Your wishlist is empty"
           description="Games add to you wishlist will appear here"
+          hasLink
         />
       )}
 
