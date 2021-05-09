@@ -7,6 +7,7 @@ import GameCard, { GameCardProps } from 'components/GameCard'
 import { HighlightProps } from 'components/Highlight'
 import Heading from 'components/Heading'
 import Showcase from 'components/Showcase'
+import Empty from 'components/Empty'
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[]
@@ -15,7 +16,7 @@ export type WishlistTemplateProps = {
 }
 
 const Wishlist = ({
-  games,
+  games = [],
   recommendedGames,
   recommendedHighlight
 }: WishlistTemplateProps) => (
@@ -25,11 +26,19 @@ const Wishlist = ({
         Wishlist
       </Heading>
 
-      <Grid>
-        {games?.map((game, index) => (
-          <GameCard key={`whishlist-${index}`} {...game} />
-        ))}
-      </Grid>
+      {games.length ? (
+        <Grid>
+          {games?.map((game, index) => (
+            <GameCard key={`whishlist-${index}`} {...game} />
+          ))}
+        </Grid>
+      ) : (
+        <Empty
+          title="Your wishlist is empty"
+          description="Games add to you wishlist will appear here"
+          hasLink
+        />
+      )}
 
       <Divider />
     </Container>
