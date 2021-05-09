@@ -10,7 +10,7 @@ const props = {
 
 describe('<Empty />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<Empty {...props} hasLink />)
+    const { container } = renderWithTheme(<Empty {...props} hasLink />)
 
     expect(
       screen.getByRole('image', {
@@ -27,6 +27,8 @@ describe('<Empty />', () => {
     expect(
       screen.getByRole('link', { name: /go back to store/i })
     ).toHaveAttribute('href', '/')
+
+    expect(container.parentElement).toMatchSnapshot()
   })
 
   it('should render not link hasLink is not passed', () => {
