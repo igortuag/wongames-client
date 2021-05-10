@@ -12,6 +12,10 @@ const GameItem = ({ img, title, price }: GameItemProps) => (
       <S.ImageBox>
         <img src={img} alt={title} />
       </S.ImageBox>
+      <S.Content>
+        <S.Title>{title}</S.Title>
+        <S.Price>{price}</S.Price>
+      </S.Content>
     </S.GameContent>
   </S.Wrapper>
 )
