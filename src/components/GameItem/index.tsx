@@ -1,6 +1,12 @@
 import * as S from './styles'
 
-const GameItem = () => (
+type GameItemProps = {
+  img: string
+  title: string
+  price: string
+}
+
+const GameItem = ({ img, title, price }: GameItemProps) => (
   <S.Wrapper>
     <h1>GameItem</h1>
   </S.Wrapper>
