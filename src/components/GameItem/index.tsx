@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-type GameItemProps = {
+export type GameItemProps = {
   img: string
   title: string
   price: string
