@@ -8,7 +8,11 @@ export type GameItemProps = {
 
 const GameItem = ({ img, title, price }: GameItemProps) => (
   <S.Wrapper>
-    <h1>GameItem</h1>
+    <S.GameContent>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </S.GameContent>
   </S.Wrapper>
 )
 
