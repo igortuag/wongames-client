@@ -16,7 +16,26 @@ export const GameContent = styled.div`
   display: flex;
 `
 
-export const ImageBox = styled.div``
+export const ImageBox = styled.div`
+  ${({ theme }) => css`
+    flex-shrink: 0;
+    margin-right: 1.2rem;
+    width: 9.6rem;
+    height: 5.6rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    ${media.greaterThan('medium')`
+      margin-right: ${theme.spacings.xsmall};
+      width: 15rem;
+      height: 7rem;
+    `};
+  `}
+`
 
 export const Content = styled.div``
 
