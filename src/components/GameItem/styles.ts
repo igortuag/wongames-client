@@ -12,7 +12,9 @@ export const Wrapper = styled.div`
   `}
 `
 
-export const GameContent = styled.div``
+export const GameContent = styled.div`
+  display: flex;
+`
 
 export const ImageBox = styled.div``
 
