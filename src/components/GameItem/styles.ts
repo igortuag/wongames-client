@@ -43,6 +43,19 @@ export const Content = styled.div`
   align-items: flex-start;
 `
 
-export const Title = styled.h3``
+export const Title = styled.h3`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.small};
+    line-height: ${theme.font.sizes.small};
+    font-weight: ${theme.font.bold};
+    color: ${theme.colors.black};
+    margin-bottom: ${theme.spacings.xxsmall};
+
+    ${media.greaterThan('medium')`
+      font-size: 2rem;
+      line-height: 2rem;
+    `};
+  `}
+`
 
 export const Price = styled.p``
