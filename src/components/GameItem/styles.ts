@@ -1,6 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.small};
+    border-bottom: 0.1rem solid ${theme.colors.lightGray};
+
+    ${media.greaterThan('medium')`
+      display: flex;
+    `}
+  `}
+`
 
 export const GameContent = styled.div``
 
