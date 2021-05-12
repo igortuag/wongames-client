@@ -19,7 +19,7 @@ const GameItem = ({ img, title, price, downloadLink }: GameItemProps) => (
           {title}
           {!!downloadLink && (
             <S.DownloadLink
-              href="downloadLink"
+              href={downloadLink}
               target="_blank"
               aria-label={`Get ${title} here`}
             >
