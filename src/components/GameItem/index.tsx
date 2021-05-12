@@ -14,7 +14,12 @@ const GameItem = ({ img, title, price, downloadLink }: GameItemProps) => (
         <img src={img} alt={title} />
       </S.ImageBox>
       <S.Content>
-        <S.Title>{title}</S.Title>
+        <S.Title>
+          {title}
+          {!!downloadLink && (
+            <S.DownloadLink href="downloadLink"></S.DownloadLink>
+          )}
+        </S.Title>
         <S.Price>{price}</S.Price>
       </S.Content>
     </S.GameContent>

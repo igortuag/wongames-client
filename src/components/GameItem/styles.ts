@@ -68,3 +68,7 @@ export const Price = styled.div`
     font-weight: ${theme.font.bold};
   `}
 `
+
+export const DownloadLink = styled(Link)`
+  ${({ theme }) => css``}
+`
