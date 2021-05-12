@@ -4,9 +4,10 @@ export type GameItemProps = {
   img: string
   title: string
   price: string
+  downloadLink?: string
 }
 
-const GameItem = ({ img, title, price }: GameItemProps) => (
+const GameItem = ({ img, title, price, downloadLink }: GameItemProps) => (
   <S.Wrapper>
     <S.GameContent>
       <S.ImageBox>
