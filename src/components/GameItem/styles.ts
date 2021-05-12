@@ -69,6 +69,9 @@ export const Price = styled.div`
   `}
 `
 
-export const DownloadLink = styled(Link)`
-  ${({ theme }) => css``}
+export const DownloadLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xxsmall};
+  `}
 `
