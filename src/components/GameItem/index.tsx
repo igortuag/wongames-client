@@ -44,6 +44,16 @@ const GameItem = ({
         <S.Price>{price}</S.Price>
       </S.Content>
     </S.GameContent>
+
+    {!!paymentInfo && (
+      <S.PaymentContent>
+        <p>{paymentInfo.purchaseDate}</p>
+        <S.CardInfo>
+          <span>{paymentInfo.number}</span>
+          <img src={paymentInfo.img} alt={paymentInfo.flag} />
+        </S.CardInfo>
+      </S.PaymentContent>
+    )}
   </S.Wrapper>
 )
 

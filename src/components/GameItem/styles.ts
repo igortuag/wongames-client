@@ -75,3 +75,11 @@ export const DownloadLink = styled.a`
     margin-left: ${theme.spacings.xxsmall};
   `}
 `
+
+export const PaymentContent = styled.div`
+  ${({ theme }) => css``}
+`
+
+export const CardInfo = styled.div`
+  ${({ theme }) => css``}
+`
