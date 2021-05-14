@@ -11,7 +11,9 @@ const CardList = ({ items, total }: CartListProps) => (
     {items.map((item) => (
       <GameItem key={item.title} {...item} />
     ))}
-    <S.Footer></S.Footer>
+    <S.Footer>
+      Total <S.Total>{total}</S.Total>
+    </S.Footer>
   </S.Wrapper>
 )
 
