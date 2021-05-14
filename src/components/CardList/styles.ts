@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
@@ -9,6 +9,20 @@ export const Wrapper = styled.main`
   `}
 `
 
-export const Footer = styled.footer``
+export const Footer = styled.div`
+  ${({ theme }) => css`
+    background: ${tint(0.2, theme.colors.lightGray)};
+    color: ${theme.colors.black};
+    font-weight: ${theme.font.bold};
+    font-size: ${theme.font.sizes.small};
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    ${media.greaterThan('medium')`
+      font-size: ${theme.font.sizes.medium};
+      padding: ${theme.spacings.small};
+    `};
+  `}
+`
 
 export const Total = styled.span``
