@@ -11,6 +11,7 @@ const CardList = ({ items, total }: CartListProps) => (
     {items.map((item) => (
       <GameItem key={item.title} {...item} />
     ))}
+    <S.Footer></S.Footer>
   </S.Wrapper>
 )
 
