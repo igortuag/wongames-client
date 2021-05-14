@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
@@ -25,4 +26,8 @@ export const Footer = styled.div`
   `}
 `
 
-export const Total = styled.span``
+export const Total = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+  `}
+`
