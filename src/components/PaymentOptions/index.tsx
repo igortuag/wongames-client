@@ -1,4 +1,5 @@
 import { Add } from '@styled-icons/material-outlined'
+import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Radio from 'components/Radio'
 import * as S from './styles'
@@ -41,7 +42,11 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => (
         </S.AddCard>
       </S.CardList>
     </S.Body>
-    <S.Footer></S.Footer>
+    <S.Footer>
+      <Button as="a" fullWidth minimal>
+        Continue shopping
+      </Button>
+    </S.Footer>
   </S.Wrapper>
 )
 
