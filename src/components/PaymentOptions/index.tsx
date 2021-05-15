@@ -1,4 +1,4 @@
-import { Add } from '@styled-icons/material-outlined'
+import { Add, ShoppingCart } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Radio from 'components/Radio'
@@ -45,6 +45,9 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => (
     <S.Footer>
       <Button as="a" fullWidth minimal>
         Continue shopping
+      </Button>
+      <Button fullWidth icon={<ShoppingCart />} onClick={handlePayment}>
+        Buy now
       </Button>
     </S.Footer>
   </S.Wrapper>
