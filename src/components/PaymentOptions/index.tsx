@@ -37,7 +37,7 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => (
           </S.CardItem>
         ))}
         <S.AddCard role="button">
-          <Add /> Add a new credit card
+          <Add size={14} /> Add a new credit card
         </S.AddCard>
       </S.CardList>
     </S.Body>
