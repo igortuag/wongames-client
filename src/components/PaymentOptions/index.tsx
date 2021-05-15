@@ -31,10 +31,11 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => (
               name="credit-card"
               id={card.number}
               value={card.number}
-              onCheck={() => {}}
+              onCheck={() => ({})}
             />
           </S.CardItem>
         ))}
+        <S.AddCard role="button"></S.AddCard>
       </S.CardList>
     </S.Body>
     <S.Footer></S.Footer>
