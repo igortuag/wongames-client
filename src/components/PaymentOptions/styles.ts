@@ -5,3 +5,5 @@ export const Wrapper = styled.div``
 export const Body = styled.div``
 
 export const Footer = styled.div``
+
+export const CardList = styled.div``

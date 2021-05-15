@@ -4,9 +4,11 @@ import * as S from './styles'
 const PaymentOptions = () => (
   <S.Wrapper>
     <S.Body>
-      <Heading color="black" lineBottom>
+      <Heading color="black" lineBottom size="small">
         Payment
       </Heading>
+
+      <S.CardList></S.CardList>
     </S.Body>
     <S.Footer></S.Footer>
   </S.Wrapper>
