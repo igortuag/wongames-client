@@ -7,3 +7,5 @@ export const Body = styled.div``
 export const Footer = styled.div``
 
 export const CardList = styled.div``
+
+export const CardItem = styled.div``
