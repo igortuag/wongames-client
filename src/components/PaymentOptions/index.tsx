@@ -1,3 +1,4 @@
+import { Add } from '@styled-icons/material-outlined'
 import Heading from 'components/Heading'
 import Radio from 'components/Radio'
 import * as S from './styles'
@@ -35,7 +36,9 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => (
             />
           </S.CardItem>
         ))}
-        <S.AddCard role="button"></S.AddCard>
+        <S.AddCard role="button">
+          <Add /> Add a new credit card
+        </S.AddCard>
       </S.CardList>
     </S.Body>
     <S.Footer></S.Footer>
