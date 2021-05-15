@@ -1,4 +1,5 @@
 import Heading from 'components/Heading'
+import Radio from 'components/Radio'
 import * as S from './styles'
 
 export type PaymentOptionsProps = {
@@ -26,6 +27,12 @@ const PaymentOptions = ({ cards, handlePayment }: PaymentOptionsProps) => (
               <img src={card.img} alt={card.flag} />
               {card.number}
             </S.CardInfo>
+            <Radio
+              name="credit-card"
+              id={card.number}
+              value={card.number}
+              onCheck={() => {}}
+            />
           </S.CardItem>
         ))}
       </S.CardList>
