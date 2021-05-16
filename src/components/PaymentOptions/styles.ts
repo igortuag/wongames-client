@@ -31,7 +31,20 @@ export const Footer = styled.div`
   `}
 `
 
-export const CardItem = styled.div``
+export const CardsList = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const CardInfo = styled.span`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: ${theme.spacings.xxsmall};
+    }
+  `}
+`
 
 export const CardInfo = styled.div``
 
