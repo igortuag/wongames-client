@@ -67,4 +67,13 @@ export const CardItem = styled.label`
   `}
 `
 
-export const AddCard = styled.div``
+export const AddCard = styled.div`
+  ${({ theme }) => css`
+    ${ItemStyles(theme)};
+    svg {
+      margin-left: ${theme.spacings.xxsmall};
+      margin-right: ${theme.spacings.xsmall};
+      width: 2.4rem;
+    }
+  `}
+`
