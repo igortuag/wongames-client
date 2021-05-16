@@ -15,7 +15,21 @@ export const Body = styled.div`
   `}
 `
 
-export const CardList = styled.div``
+export const Footer = styled.div`
+  ${({ theme }) => css`
+    background: ${tint(0.2, theme.colors.lightGray)};
+    color: ${theme.colors.black};
+    font-weight: ${theme.font.bold};
+    padding: ${theme.spacings.small};
+    display: flex;
+    align-items: center;
+    ${ButtonStyles.Wrapper} {
+      padding-left: ${theme.spacings.xxsmall};
+      padding-right: ${theme.spacings.xxsmall};
+      outline: 0;
+    }
+  `}
+`
 
 export const CardItem = styled.div``
 
