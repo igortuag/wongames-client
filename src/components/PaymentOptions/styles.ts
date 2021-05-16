@@ -9,7 +9,11 @@ export const Wrapper = styled.main`
   `}
 `
 
-export const Footer = styled.div``
+export const Body = styled.div`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.small};
+  `}
+`
 
 export const CardList = styled.div``
 
