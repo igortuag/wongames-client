@@ -23,4 +23,13 @@ describe('<PaymentOptions />', () => {
       expect(screen.getByRole(/radio/, { name: /4325/ })).toBeChecked()
     })
   })
+
+  it('should not call handlePayment when button is disabled', async () => {
+    const handlePayment = jest.fn()
+    renderWithTheme(<PaymentOptions cards={cards} handlePayment={jest.fn} />)
+
+    userEvent.click(screen.getByRole(/button/, { name: /buy now/i }))
+
+    expect(handlePayment).not.toHaveBeenCalled()
+  })
 })
