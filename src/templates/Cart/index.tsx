@@ -13,7 +13,7 @@ export type CartProps = {
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
 } & CartListProps &
-  PaymentOptionsProps
+  Pick<PaymentOptionsProps, 'cards'>
 
 const Cart = ({
   recommendedGames,
