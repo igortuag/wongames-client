@@ -1,4 +1,4 @@
-import { CartListProps } from 'components/CardList'
+import CartList, { CartListProps } from 'components/CardList'
 import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import Heading from 'components/Heading'
@@ -25,7 +25,9 @@ const Cart = ({
         My Cart
       </Heading>
 
-      <S.Content></S.Content>
+      <S.Content>
+        <CartList items={items} total={total} />
+      </S.Content>
       <Divider />
     </Container>
 
