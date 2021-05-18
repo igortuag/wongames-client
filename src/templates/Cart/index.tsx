@@ -1,9 +1,11 @@
+import { Container } from 'next/app'
+import Base from 'templates/Base'
 import * as S from './styles'
 
 const Cart = () => (
-  <S.Wrapper>
-    <h1>Cart</h1>
-  </S.Wrapper>
+  <Base>
+    <Container>Cart</Container>
+  </Base>
 )
 
 export default Cart
