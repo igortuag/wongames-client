@@ -1,3 +1,4 @@
+import { CartListProps } from 'components/CardList'
 import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import Heading from 'components/Heading'
@@ -10,14 +11,21 @@ import * as S from './styles'
 export type CartProps = {
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
-}
+} & CartListProps
 
-const Cart = ({ recommendedGames, recommendedHighlight }: CartProps) => (
+const Cart = ({
+  recommendedGames,
+  recommendedHighlight,
+  items,
+  total
+}: CartProps) => (
   <Base>
     <Container>
       <Heading lineLeft lineColor="secondary">
         My Cart
       </Heading>
+
+      <S.Content></S.Content>
       <Divider />
     </Container>
 
