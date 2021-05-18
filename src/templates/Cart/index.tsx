@@ -20,29 +20,32 @@ const Cart = ({
   recommendedHighlight,
   items,
   total,
-  cards,
-  handlePayment
-}: CartProps) => (
-  <Base>
-    <Container>
-      <Heading lineLeft lineColor="secondary">
-        My Cart
-      </Heading>
+  cards
+}: CartProps) => {
+  const handlePayment = () => ({})
 
-      <S.Content>
-        <CartList items={items} total={total} />
+  return (
+    <Base>
+      <Container>
+        <Heading lineLeft lineColor="secondary">
+          My Cart
+        </Heading>
 
-        <PaymentOptions cards={cards} handlePayment={handlePayment} />
-      </S.Content>
-      <Divider />
-    </Container>
+        <S.Content>
+          <CartList items={items} total={total} />
 
-    <Showcase
-      title="You may like these games"
-      games={recommendedGames}
-      highlight={recommendedHighlight}
-    />
-  </Base>
-)
+          <PaymentOptions cards={cards} handlePayment={handlePayment} />
+        </S.Content>
+        <Divider />
+      </Container>
+
+      <Showcase
+        title="You may like these games"
+        games={recommendedGames}
+        highlight={recommendedHighlight}
+      />
+    </Base>
+  )
+}
 
 export default Cart
