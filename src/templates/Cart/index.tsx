@@ -1,10 +1,15 @@
+import Heading from 'components/Heading'
 import { Container } from 'next/app'
 import Base from 'templates/Base'
 import * as S from './styles'
 
 const Cart = () => (
   <Base>
-    <Container>Cart</Container>
+    <Container>
+      <Heading lineLeft lineColor="secondary">
+        My Cart
+      </Heading>
+    </Container>
   </Base>
 )
 
