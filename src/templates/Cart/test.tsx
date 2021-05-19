@@ -6,6 +6,7 @@ import itemsMock from 'components/CardList/mock'
 import cardsMock from 'components/PaymentOptions/mock'
 
 import Cart from '.'
+import { renderWithTheme } from 'utils/tests/helper'
 
 const props = {
   items: itemsMock,
@@ -51,11 +52,15 @@ jest.mock('components/Empty', () => ({
 }))
 
 describe('<Cart />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Cart />)
+  it('should render sections', () => {
+    renderWithTheme(<Cart {...props} />)
 
-    expect(screen.getByRole('heading', { name: /Cart/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      screen.getByRole('heading', { name: /my cart/i })
+    ).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Cart')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock PaymentOptions')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
+    expect(screen.queryByTestId('Mock Empty')).not.toBeInTheDocument()
   })
 })
