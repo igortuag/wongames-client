@@ -15,6 +15,41 @@ const props = {
   recommendedGames: gamesMock
 }
 
+jest.mock('templates/Base', () => ({
+  __esModule: true,
+  default: function Mock({ children }: { children: React.ReactNode }) {
+    return <div data-testid="Mock Base">{children}</div>
+  }
+}))
+
+jest.mock('components/Showcase', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Showcase" />
+  }
+}))
+
+jest.mock('components/CartList', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Cart" />
+  }
+}))
+
+jest.mock('components/PaymentOptions', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock PaymentOptions" />
+  }
+}))
+
+jest.mock('components/Empty', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Empty" />
+  }
+}))
+
 describe('<Cart />', () => {
   it('should render the heading', () => {
     const { container } = render(<Cart />)
