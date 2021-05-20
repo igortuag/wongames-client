@@ -1,7 +1,8 @@
 import {
   AccountCircle,
   CreditCard,
-  FormatListBulleted
+  FormatListBulleted,
+  ExitToApp
 } from '@styled-icons/material-outlined'
 import Link from 'next/link'
 import * as S from './styles'
@@ -26,6 +27,13 @@ const ProfileMenu = () => (
       <S.Link>
         <FormatListBulleted size={24} />
         <span>My orders</span>
+      </S.Link>
+    </Link>
+
+    <Link href="/logout" passHref>
+      <S.Link>
+        <ExitToApp size={24} />
+        <span>Sign out</span>
       </S.Link>
     </Link>
   </S.Nav>
