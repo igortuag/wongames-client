@@ -1,4 +1,8 @@
-import { AccountCircle, CreditCard } from '@styled-icons/material-outlined'
+import {
+  AccountCircle,
+  CreditCard,
+  FormatListBulleted
+} from '@styled-icons/material-outlined'
 import Link from 'next/link'
 import * as S from './styles'
 
@@ -15,6 +19,13 @@ const ProfileMenu = () => (
       <S.Link>
         <CreditCard size={24} />
         <span>My cards</span>
+      </S.Link>
+    </Link>
+
+    <Link href="/profile/orders" passHref>
+      <S.Link>
+        <FormatListBulleted size={24} />
+        <span>My orders</span>
       </S.Link>
     </Link>
   </S.Nav>
