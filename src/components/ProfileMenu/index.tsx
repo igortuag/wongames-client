@@ -6,7 +6,8 @@ const ProfileMenu = () => (
   <S.Nav>
     <Link href="/profile/me" passHref>
       <S.Link>
-        <AccountCircle />
+        <AccountCircle size={24} />
+        <span>My profile</span>
       </S.Link>
     </Link>
   </S.Nav>
