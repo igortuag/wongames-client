@@ -15,4 +15,28 @@ export const Nav = styled.nav`
   `}
 `
 
-export const Link = styled.a``
+export const Link = styled.a`
+  ${({ theme }) => css`
+    background: ${theme.colors.white};
+    color: ${theme.colors.black};
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: ${theme.spacings.xsmall} ${theme.spacings.small};
+    transition: background, color, ${theme.transition.default};
+    &:hover {
+      background: ${theme.colors.primary};
+      color: ${theme.colors.white};
+    }
+    > span {
+      margin-left: ${theme.spacings.xsmall};
+    }
+    ${media.lessThan('medium')`
+      justify-content: center;
+      flex: 1;
+      > span {
+        display: none;
+      }
+    `}
+  `}
+`
