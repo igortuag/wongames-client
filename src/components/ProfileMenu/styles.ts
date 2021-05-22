@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import media from 'styled-media-query'
 
 export const Nav = styled.nav`
@@ -14,6 +14,18 @@ export const Nav = styled.nav`
     `}
   `}
 `
+
+const linkModifiers = {
+  default: (theme: DefaultTheme) => css`
+    background: ${theme.colors.white};
+    color: ${theme.colors.black};
+  `,
+
+  active: (theme: DefaultTheme) => css`
+    background: ${theme.colors.primary};
+    color: ${theme.colors.white};
+  `
+}
 
 export const Link = styled.a`
   ${({ theme }) => css`
