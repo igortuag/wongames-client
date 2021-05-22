@@ -7,7 +7,11 @@ import {
 import Link from 'next/link'
 import * as S from './styles'
 
-const ProfileMenu = () => (
+export type ProfileMenuProps = {
+  activeLink: '/profile/me' | '/profile/cards' | '/profile/orders' | string
+}
+
+const ProfileMenu = ({ activeLink }: ProfileMenuProps) => (
   <S.Nav>
     <Link href="/profile/me" passHref>
       <S.Link>
