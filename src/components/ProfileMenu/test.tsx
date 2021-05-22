@@ -17,4 +17,8 @@ describe('<ProfileMenu />', () => {
 
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render the menu with an active link define', () => {
+    renderWithTheme(<ProfileMenu activeLink="/profile/cards" />)
+  })
 })
