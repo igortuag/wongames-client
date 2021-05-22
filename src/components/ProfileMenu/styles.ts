@@ -27,10 +27,12 @@ const linkModifiers = {
   `
 }
 
-export const Link = styled.a`
-  ${({ theme }) => css`
-    background: ${theme.colors.white};
-    color: ${theme.colors.black};
+type LinkProps = {
+  isActive?: boolean
+}
+
+export const Link = styled.a<LinkProps>`
+  ${({ theme, isActive }) => css`
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -50,5 +52,8 @@ export const Link = styled.a`
         display: none;
       }
     `}
+
+    ${!isActive && linkModifiers.default(theme)};
+    ${isActive && linkModifiers.active(theme)};
   `}
 `
