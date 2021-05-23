@@ -41,6 +41,7 @@ const TextField = ({
           type="text"
           onChange={onChange}
           value={value}
+          name={name}
           iconPosition={iconPosition}
           disabled={disabled}
           {...(label ? { id: name } : {})}
