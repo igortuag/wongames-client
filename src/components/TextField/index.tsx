@@ -43,6 +43,7 @@ const TextField = ({
           value={value}
           iconPosition={iconPosition}
           disabled={disabled}
+          {...(label ? { id: name } : {})}
           {...props}
         />
       </S.InputWrapper>
