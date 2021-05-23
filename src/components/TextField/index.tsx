@@ -5,7 +5,6 @@ import * as S from './styles'
 export type TextFieldProps = {
   onInput?: (value: string) => void
   label?: string
-  labelFor?: string
   initialValue?: string
   icon?: React.ReactNode
   iconPosition?: 'left' | 'right'
@@ -17,7 +16,6 @@ const TextField = ({
   icon,
   iconPosition = 'left',
   label,
-  labelFor = '',
   initialValue = '',
   error,
   disabled = false,
