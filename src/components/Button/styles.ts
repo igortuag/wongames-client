@@ -44,7 +44,7 @@ const wrapperModifiers = {
   `,
   disabled: () => css`
     &:disabled {
-      color: not-allowed;
+      cursor: not-allowed;
       filter: saturate(30%);
     }
   `

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
-import itemsMock from 'components/CardList/mock'
+import itemsMock from 'components/CartList/mock'
 import cardsMock from 'components/PaymentOptions/mock'
 
 import Cart from '.'

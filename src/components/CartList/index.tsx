@@ -6,7 +6,7 @@ export type CartListProps = {
   total: string
 }
 
-const CardList = ({ items, total }: CartListProps) => (
+const CartList = ({ items, total }: CartListProps) => (
   <S.Wrapper>
     {items.map((item) => (
       <GameItem key={item.title} {...item} />
@@ -17,4 +17,4 @@ const CardList = ({ items, total }: CartListProps) => (
   </S.Wrapper>
 )
 
-export default CardList
+export default CartList

@@ -35,10 +35,12 @@ describe('<PaymentOptions />', () => {
 
   it('should call handlePayment when credit card is selected', async () => {
     const handlePayment = jest.fn()
-    renderWithTheme(<PaymentOptions cards={cards} handlePayment={jest.fn} />)
+    renderWithTheme(
+      <PaymentOptions cards={cards} handlePayment={handlePayment} />
+    )
 
     userEvent.click(screen.getByLabelText(/4325/))
-    userEvent.click(screen.getByRole(/button/, { name: /buy now/i }))
+    userEvent.click(screen.getByRole('button', { name: /buy now/i }))
 
     await waitFor(() => {
       expect(handlePayment).toHaveBeenCalled()
