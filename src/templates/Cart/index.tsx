@@ -1,4 +1,4 @@
-import CartList, { CartListProps } from 'components/CardList'
+import CartList, { CartListProps } from 'components/CartList'
 import { Divider } from 'components/Divider'
 import Empty from 'components/Empty'
 import { GameCardProps } from 'components/GameCard'
