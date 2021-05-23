@@ -6,7 +6,9 @@ import ProfileMenu from '.'
 
 describe('<ProfileMenu />', () => {
   it('should render the menu', () => {
-    const { container } = renderWithTheme(<ProfileMenu />)
+    const { container } = renderWithTheme(
+      <ProfileMenu activeLink="/profile/cards" />
+    )
 
     expect(
       screen.getByRole('link', { name: /my profile/i })
