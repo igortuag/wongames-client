@@ -16,6 +16,7 @@ const TextField = ({
   icon,
   iconPosition = 'left',
   label,
+  name,
   initialValue = '',
   error,
   disabled = false,
@@ -33,7 +34,7 @@ const TextField = ({
 
   return (
     <S.Wrapper disabled={disabled} error={!!error}>
-      {!!label && <S.Label htmlFor={labelFor}>{label}</S.Label>}
+      {!!label && <S.Label htmlFor={name}>{label}</S.Label>}
       <S.InputWrapper>
         {!!icon && <S.Icon iconPosition={iconPosition}>{icon}</S.Icon>}
         <S.Input
