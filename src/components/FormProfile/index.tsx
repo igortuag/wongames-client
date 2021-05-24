@@ -1,8 +1,11 @@
+import Heading from 'components/Heading'
 import * as S from './styles'
 
 const FormProfile = () => (
   <S.Wrapper>
-    <h1>FormProfile</h1>
+    <Heading lineBottom color="black" size="small">
+      My profile
+    </Heading>
   </S.Wrapper>
 )
 
