@@ -6,6 +6,8 @@ const FormProfile = () => (
     <Heading lineBottom color="black" size="small">
       My profile
     </Heading>
+
+    <S.Form></S.Form>
   </S.Wrapper>
 )
 
