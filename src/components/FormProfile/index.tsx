@@ -9,9 +9,21 @@ const FormProfile = () => (
     </Heading>
 
     <S.Form>
-      <TextField name="name" placeholder="Name" label="Name" />
+      <TextField
+        name="name"
+        placeholder="Name"
+        label="Name"
+        initialValue="John Doe"
+      />
 
-      <TextField name="email" placeholder="Email" label="Email" />
+      <TextField
+        type="email"
+        name="email"
+        placeholder="Email"
+        label="Email"
+        initialValue="johndoe@gmail.com"
+        disabled
+      />
     </S.Form>
   </S.Wrapper>
 )
