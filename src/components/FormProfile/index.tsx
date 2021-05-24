@@ -1,4 +1,5 @@
 import Heading from 'components/Heading'
+import TextField from 'components/TextField'
 import * as S from './styles'
 
 const FormProfile = () => (
@@ -7,7 +8,9 @@ const FormProfile = () => (
       My profile
     </Heading>
 
-    <S.Form></S.Form>
+    <S.Form>
+      <TextField name="name" placeholder="Name" label="Name" />
+    </S.Form>
   </S.Wrapper>
 )
 
