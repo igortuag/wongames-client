@@ -24,6 +24,13 @@ const FormProfile = () => (
         initialValue="johndoe@gmail.com"
         disabled
       />
+
+      <TextField
+        type="password"
+        name="password"
+        placeholder="Type your password"
+        label="Password"
+      />
     </S.Form>
   </S.Wrapper>
 )
