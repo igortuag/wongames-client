@@ -10,6 +10,8 @@ const FormProfile = () => (
 
     <S.Form>
       <TextField name="name" placeholder="Name" label="Name" />
+
+      <TextField name="email" placeholder="Email" label="Email" />
     </S.Form>
   </S.Wrapper>
 )
