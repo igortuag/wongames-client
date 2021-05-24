@@ -31,6 +31,13 @@ const FormProfile = () => (
         placeholder="Type your password"
         label="Password"
       />
+
+      <TextField
+        type="password"
+        name="new_password"
+        placeholder="New Password"
+        label="New Password"
+      />
     </S.Form>
   </S.Wrapper>
 )
