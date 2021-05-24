@@ -19,8 +19,8 @@ const FormProfile = () => (
       <TextField
         type="email"
         name="email"
-        placeholder="Email"
-        label="Email"
+        placeholder="E-mail"
+        label="E-mail"
         initialValue="johndoe@gmail.com"
         disabled
       />
