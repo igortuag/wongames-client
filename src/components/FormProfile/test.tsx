@@ -20,5 +20,7 @@ describe('<FormProfile />', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByPlaceholderText(/new password/i)).toBeInTheDocument()
+
+    expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument()
   })
 })
