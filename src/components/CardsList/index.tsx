@@ -7,7 +7,7 @@ export type CardsListProps = {
 }
 
 const CardsList = ({ cards }: CardsListProps) => (
-  <S.Wrapper>
+  <>
     <Heading lineBottom color="black" size="small">
       My Cards
     </Heading>
@@ -17,7 +17,7 @@ const CardsList = ({ cards }: CardsListProps) => (
         <span>{card.number}</span>
       </S.Card>
     ))}
-  </S.Wrapper>
+  </>
 )
 
 export default CardsList
