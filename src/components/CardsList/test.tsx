@@ -16,5 +16,8 @@ describe('<CardsList />', () => {
       'src',
       '/img/visa.png'
     )
+
+    expect(screen.getByText(/4325/)).toBeInTheDocument()
+    expect(screen.getByText(/4326/)).toBeInTheDocument()
   })
 })
