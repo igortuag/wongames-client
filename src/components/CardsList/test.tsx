@@ -11,5 +11,10 @@ describe('<CardsList />', () => {
     expect(
       screen.getByRole('heading', { name: /my cards/i })
     ).toBeInTheDocument()
+
+    expect(screen.getByRole('img', { name: /visa/i })).toHaveAttribute(
+      'src',
+      '/img/visa.png'
+    )
   })
 })
