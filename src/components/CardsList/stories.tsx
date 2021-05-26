@@ -11,4 +11,8 @@ export default {
   }
 } as Meta
 
-export const Default: Story<CardsListProps> = (args) => <CardsList {...args} />
+export const Default: Story<CardsListProps> = (args) => (
+  <div style={{ maxWidth: 850, margin: 'auto' }}>
+    <CardsList {...args} />
+  </div>
+)
