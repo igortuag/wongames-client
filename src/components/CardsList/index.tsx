@@ -1,8 +1,11 @@
+import Heading from 'components/Heading'
 import * as S from './styles'
 
 const CardsList = () => (
   <S.Wrapper>
-    <h1>CardsList</h1>
+    <Heading lineBottom color="black" size="small">
+      My Cards
+    </Heading>
   </S.Wrapper>
 )
 
