@@ -13,6 +13,8 @@ const Profile = () => (
 
       <S.Main>
         <ProfileMenu />
+
+        <S.Content></S.Content>
       </S.Main>
     </Container>
   </Base>
