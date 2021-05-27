@@ -1,4 +1,5 @@
 import Heading from 'components/Heading'
+import ProfileMenu from 'components/ProfileMenu'
 import { Container } from 'next/app'
 import Base from 'templates/Base'
 import * as S from './styles'
@@ -10,7 +11,9 @@ const Profile = () => (
         My profile
       </Heading>
 
-      <S.Main></S.Main>
+      <S.Main>
+        <ProfileMenu />
+      </S.Main>
     </Container>
   </Base>
 )
