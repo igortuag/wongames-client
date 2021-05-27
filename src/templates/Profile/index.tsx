@@ -1,9 +1,10 @@
+import Base from 'templates/Base'
 import * as S from './styles'
 
 const Profile = () => (
-  <S.Wrapper>
+  <Base>
     <h1>Profile</h1>
-  </S.Wrapper>
+  </Base>
 )
 
 export default Profile
