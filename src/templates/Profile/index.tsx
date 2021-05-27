@@ -9,6 +9,8 @@ const Profile = () => (
       <Heading lineLeft lineColor="secondary">
         My profile
       </Heading>
+
+      <S.Main></S.Main>
     </Container>
   </Base>
 )
