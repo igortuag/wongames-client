@@ -4,7 +4,11 @@ import { Container } from 'next/app'
 import Base from 'templates/Base'
 import * as S from './styles'
 
-const Profile = () => (
+export type ProfileTemplateProps = {
+  children: React.ReactNode
+}
+
+const Profile = ({ children }: ProfileTemplateProps) => (
   <Base>
     <Container>
       <Heading lineLeft lineColor="secondary">
@@ -14,7 +18,7 @@ const Profile = () => (
       <S.Main>
         <ProfileMenu />
 
-        <S.Content></S.Content>
+        <S.Content>{children}</S.Content>
       </S.Main>
     </Container>
   </Base>
