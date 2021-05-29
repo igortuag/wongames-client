@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from 'utils/tests/helper'
 
 import OrdersList from '.'
 import mock from './mock'
@@ -18,13 +19,11 @@ jest.mock('components/GameItem', () => ({
 }))
 
 describe('<OrdersList />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<OrdersList />)
+  it('should render the game items', () => {
+    renderWithTheme(<OrdersList />)
 
     expect(
-      screen.getByRole('heading', { name: /OrdersList/i })
+      screen.getByRole('heading', { name: /my orders/i })
     ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })
