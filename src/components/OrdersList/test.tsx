@@ -28,4 +28,10 @@ describe('<OrdersList />', () => {
 
     expect(screen.getAllByTestId('Mock GameItem')).toHaveLength(2)
   })
+
+  it('should render empty state', () => {
+    renderWithTheme(<OrdersList />)
+
+    expect(screen.getByTestId('Mock Empty')).toBeInTheDocument()
+  })
 })
