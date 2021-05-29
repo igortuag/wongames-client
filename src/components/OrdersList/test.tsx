@@ -2,6 +2,13 @@ import { render, screen } from '@testing-library/react'
 
 import OrdersList from '.'
 
+jest.mock('components/Empty', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock Empty" />
+  }
+}))
+
 jest.mock('components/GameItem', () => ({
   __esModule: true,
   default: function Mock({ children }: { children: React.ReactNode }) {
