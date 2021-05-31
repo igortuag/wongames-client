@@ -30,13 +30,11 @@ jest.mock('components/ProfileMenu', () => ({
 }))
 
 describe('<Profile />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Profile />)
+  it('should render sections', () => {
+    renderWithTheme(<Profile>Lorem Ipsum</Profile>)
 
-    expect(
-      screen.getByRole('heading', { name: /Profile/i })
-    ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByText('Lorem Ipsum')).toBeInTheDocument()
+    expect(screen.getByText('My profile')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock ProfileMenu')).toBeInTheDocument()
   })
 })
