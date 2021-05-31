@@ -22,6 +22,13 @@ jest.mock('components/Heading', () => ({
   }
 }))
 
+jest.mock('components/ProfileMenu', () => ({
+  __esModule: true,
+  default: function Mock() {
+    return <div data-testid="Mock ProfileMenu" />
+  }
+}))
+
 describe('<Profile />', () => {
   it('should render the heading', () => {
     const { container } = render(<Profile />)
