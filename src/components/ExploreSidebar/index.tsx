@@ -36,6 +36,10 @@ const ExploreSidebar = () => (
     <Heading lineBottom lineColor="secondary" size="small">
       System
     </Heading>
+    <Checkbox name="windows" label="Windows" labelFor="windows" />
+    <Checkbox name="mac" label="Mac" labelFor="mac" />
+    <Checkbox name="linux" label="Linux" labelFor="linux" />
+
     <Heading lineBottom lineColor="secondary" size="small">
       Genre
     </Heading>
