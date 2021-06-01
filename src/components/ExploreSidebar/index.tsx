@@ -2,6 +2,7 @@ import Heading from 'components/Heading'
 import Checkbox from 'components/Checkbox'
 import * as S from './styles'
 import Radio from 'components/Radio'
+import Button from 'components/Button'
 
 const ExploreSidebar = () => (
   <S.Wrapper>
@@ -47,6 +48,10 @@ const ExploreSidebar = () => (
     <Checkbox name="adventure" label="Adventure" labelFor="adventure" />
     <Checkbox name="fps" label="FPS" labelFor="fps" />
     <Checkbox name="mmorpg" label="MMORPG" labelFor="mmorpg" />
+
+    <Button fullWidth size="medium">
+      Filter
+    </Button>
   </S.Wrapper>
 )
 
