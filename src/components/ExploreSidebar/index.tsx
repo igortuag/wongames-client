@@ -6,6 +6,9 @@ const ExploreSidebar = () => (
     <Heading lineBottom lineColor="secondary" size="small">
       Price
     </Heading>
+    <Heading lineBottom lineColor="secondary" size="small">
+      Sort by
+    </Heading>
   </S.Wrapper>
 )
 
