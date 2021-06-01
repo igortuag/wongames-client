@@ -43,6 +43,10 @@ const ExploreSidebar = () => (
     <Heading lineBottom lineColor="secondary" size="small">
       Genre
     </Heading>
+    <Checkbox name="action" label="Action" labelFor="action" />
+    <Checkbox name="adventure" label="Adventure" labelFor="adventure" />
+    <Checkbox name="fps" label="FPS" labelFor="fps" />
+    <Checkbox name="mmorpg" label="MMORPG" labelFor="mmorpg" />
   </S.Wrapper>
 )
 
