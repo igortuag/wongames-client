@@ -19,11 +19,19 @@ const ExploreSidebar = () => (
       Sort by
     </Heading>
     <Radio
-      id="hight-to=low"
+      id="hight-to-low"
       name="sort-by"
       label="High to low"
-      labelFor="hight-to=low"
+      labelFor="hight-to-low"
       value="high-to-low"
+    />
+
+    <Radio
+      id="low-to-hight"
+      name="sort-by"
+      label="Low to hight"
+      labelFor="low-to-hight"
+      value="low-to-hight"
     />
 
     <Heading lineBottom lineColor="secondary" size="small">
