@@ -25,7 +25,6 @@ const ExploreSidebar = () => (
       labelFor="hight-to-low"
       value="high-to-low"
     />
-
     <Radio
       id="low-to-hight"
       name="sort-by"
