@@ -1,4 +1,5 @@
 import { GameCardProps } from 'components/GameCard'
+import Base from 'templates/Base'
 import * as S from './styles'
 
 export type GamesTemplateProps = {
@@ -6,9 +7,9 @@ export type GamesTemplateProps = {
 }
 
 const GamesTemplate = ({ games = [] }: GamesTemplateProps) => (
-  <S.Wrapper>
+  <Base>
     <h1>Games</h1>
-  </S.Wrapper>
+  </Base>
 )
 
 export default GamesTemplate
