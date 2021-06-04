@@ -8,7 +8,7 @@ export type GamesTemplateProps = {
 
 const GamesTemplate = ({ games = [] }: GamesTemplateProps) => (
   <Base>
-    <h1>Games</h1>
+    <S.Main>Games</S.Main>
   </Base>
 )
 
