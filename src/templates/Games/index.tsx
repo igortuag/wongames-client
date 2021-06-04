@@ -1,7 +1,9 @@
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
+import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 import GameCard, { GameCardProps } from 'components/GameCard'
 import { Grid } from 'components/Grid'
 import Base from 'templates/Base'
+
 import * as S from './styles'
 
 export type GamesTemplateProps = {
@@ -24,7 +26,10 @@ const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
           ))}
         </Grid>
 
-        <S.ShowMore role="button" onClick={() => {}}></S.ShowMore>
+        <S.ShowMore role="button" onClick={() => console.log('show more')}>
+          <p>Show More</p>
+          <ArrowDown />
+        </S.ShowMore>
       </section>
     </S.Main>
   </Base>
