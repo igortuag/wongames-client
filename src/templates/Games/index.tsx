@@ -1,5 +1,6 @@
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import { GameCardProps } from 'components/GameCard'
+import { Grid } from 'components/Grid'
 import Base from 'templates/Base'
 import * as S from './styles'
 
@@ -15,6 +16,8 @@ const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
         items={filterItems}
         onFilter={() => console.log('filter')}
       />
+
+      <Grid></Grid>
     </S.Main>
   </Base>
 )
