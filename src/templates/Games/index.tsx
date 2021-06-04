@@ -23,6 +23,8 @@ const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
             <GameCard key={item.title} {...item} />
           ))}
         </Grid>
+
+        <S.ShowMore role="button" onClick={() => {}}></S.ShowMore>
       </section>
     </S.Main>
   </Base>

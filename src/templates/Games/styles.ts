@@ -8,3 +8,5 @@ export const Main = styled(Container)`
     gap: ${theme.grid.gutter};
   `}
 `
+
+export const ShowMore = styled.button``
