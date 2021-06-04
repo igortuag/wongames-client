@@ -28,7 +28,7 @@ const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
 
         <S.ShowMore role="button" onClick={() => console.log('show more')}>
           <p>Show More</p>
-          <ArrowDown />
+          <ArrowDown size={35} />
         </S.ShowMore>
       </section>
     </S.Main>
