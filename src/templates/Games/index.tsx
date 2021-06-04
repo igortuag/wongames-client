@@ -17,11 +17,13 @@ const GamesTemplate = ({ games = [], filterItems }: GamesTemplateProps) => (
         onFilter={() => console.log('filter')}
       />
 
-      <Grid>
-        {games.map((item) => (
-          <GameCard key={item.title} {...item} />
-        ))}
-      </Grid>
+      <section>
+        <Grid>
+          {games.map((item) => (
+            <GameCard key={item.title} {...item} />
+          ))}
+        </Grid>
+      </section>
     </S.Main>
   </Base>
 )
