@@ -27,11 +27,16 @@ jest.mock('components/GameCard', () => ({
 }))
 
 describe('<Games />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Games />)
+  it('should render sections', () => {
+    renderWithTheme(
+      <Games filterItems={filterItemsMock} games={[gamesMock[0]]} />
+    )
 
-    expect(screen.getByRole('heading', { name: /Games/i })).toBeInTheDocument()
+    expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
+    expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(
+      screen.getByRole('button', { name: /show more/i })
+    ).toBeInTheDocument()
   })
 })
