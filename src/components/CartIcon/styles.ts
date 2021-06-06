@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     color: ${theme.colors.white};
     width: 2.4rem;
     height: 2.4rem;
+    position: relative;
   `}
 `
 
