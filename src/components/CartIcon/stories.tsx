@@ -3,7 +3,12 @@ import CartIcon from '.'
 
 export default {
   title: 'CartIcon',
-  component: CartIcon
+  component: CartIcon,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
 export const Default: Story = () => <CartIcon />
