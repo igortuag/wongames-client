@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  position: relative;
+  width: max-content;
+`
 
 export const Title = styled.div`
   ${({ theme }) => css`
