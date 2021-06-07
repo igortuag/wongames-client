@@ -7,7 +7,8 @@ export type DropdownProps = {
 
 const Dropdown = ({ title, children }: DropdownProps) => (
   <S.Wrapper>
-    <h1>Dropdown</h1>
+    <S.Title>{title}</S.Title>
+    <S.Content>{children}</S.Content>
   </S.Wrapper>
 )
 
