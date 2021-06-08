@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import Button from 'components/Button'
 import GameItem, { GameItemProps } from 'components/GameItem'
 import * as S from './styles'
 
@@ -13,7 +15,11 @@ const CartList = ({ items, total, hasButton = false }: CartListProps) => (
       <GameItem key={item.title} {...item} />
     ))}
     <S.Footer>
-      Total <S.Total>{total}</S.Total>
+      <span>Total:</span>
+      <S.Total>{total}</S.Total>
+      <Link href="/cart">
+        <Button as="a">Buy it now</Button>
+      </Link>
     </S.Footer>
   </S.Wrapper>
 )
