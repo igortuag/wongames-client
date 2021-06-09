@@ -6,8 +6,14 @@ describe('<Dropdown />', () => {
   it('should render the heading', () => {
     const { container } = render(<Dropdown />)
 
-    expect(screen.getByRole('heading', { name: /Dropdown/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: /Dropdown/i })
+    ).toBeInTheDocument()
 
     expect(container.firstChild).toMatchSnapshot()
+  })
+
+  it('should render title', () => {
+    expect(screen.getByLabelText(/toogle dropdown/)).toBeInTheDocument()
   })
 })
