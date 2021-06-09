@@ -1,17 +1,18 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { renderWithTheme } from 'utils/tests/helper'
 
 import Dropdown from '.'
 
 describe('<Dropdown />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<Dropdown />)
+  beforeEach(() => {
+    const title = <h1 aria-label="toogle dropdown">Click here</h1>
 
-    expect(
-      screen.getByRole('heading', { name: /Dropdown/i })
-    ).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    renderWithTheme(
+      <Dropdown title={title}>
+        <span>content</span>
+      </Dropdown>
+    )
   })
 
   it('should render title', () => {
