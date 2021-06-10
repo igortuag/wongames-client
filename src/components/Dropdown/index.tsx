@@ -12,7 +12,7 @@ const Dropdown = ({ title, children }: DropdownProps) => {
   return (
     <S.Wrapper>
       <S.Title onClick={() => setIsOpen(!isOpen)}>{title}</S.Title>
-      <S.Content>{children}</S.Content>
+      <S.Content aria-hidden={!isOpen}>{children}</S.Content>
     </S.Wrapper>
   )
 }
