@@ -53,6 +53,8 @@ export const Wrapper = styled.div<WrapperProps>`
     width: max-content;
 
     ${Content} {
+      transition: opacity ${theme.transition.default};
+
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
     }
