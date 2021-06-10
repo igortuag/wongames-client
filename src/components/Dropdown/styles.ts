@@ -40,10 +40,12 @@ const wrapperModifiers = {
   open: () => css`
     opacity: 1;
     pointer-events: auto;
+    transform: translateY(0);
   `,
   close: () => css`
     opacity: 0;
     pointer-events: none;
+    transform: translateY(-2rem);
   `
 }
 
@@ -53,7 +55,7 @@ export const Wrapper = styled.div<WrapperProps>`
     width: max-content;
 
     ${Content} {
-      transition: opacity ${theme.transition.default};
+      transition: transform 0.2s easi-in, opacity ${theme.transition.default};
 
       ${isOpen && wrapperModifiers.open()}
       ${!isOpen && wrapperModifiers.close()}
