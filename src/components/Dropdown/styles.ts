@@ -1,10 +1,5 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
-  position: relative;
-  width: max-content;
-`
-
 export const Title = styled.div`
   ${({ theme }) => css`
     cursor: pointer;
@@ -35,4 +30,13 @@ export const Content = styled.div`
       right: 2.4rem;
     }
   `}
+`
+
+type WrapperProps = {
+  isOpen?: boolean
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  position: relative;
+  width: max-content;
 `
