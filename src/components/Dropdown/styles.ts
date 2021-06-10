@@ -36,7 +36,25 @@ type WrapperProps = {
   isOpen?: boolean
 }
 
+const wrapperModifiers = {
+  open: () => css`
+    opacity: 1;
+    pointer-events: auto;
+  `,
+  close: () => css`
+    opacity: 0;
+    pointer-events: none;
+  `
+}
+
 export const Wrapper = styled.div<WrapperProps>`
-  position: relative;
-  width: max-content;
+  ${({ theme, isOpen }) => css`
+    position: relative;
+    width: max-content;
+
+    ${Content} {
+      ${isOpen && wrapperModifiers.open()}
+      ${!isOpen && wrapperModifiers.close()}
+    }
+  `}
 `
