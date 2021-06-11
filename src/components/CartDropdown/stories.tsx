@@ -9,6 +9,11 @@ export default {
   args: {
     items,
     total: 'R$ 300,00'
+  },
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
   }
 } as Meta
 
