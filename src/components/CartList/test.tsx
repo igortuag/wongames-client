@@ -17,9 +17,9 @@ describe('<CartList />', () => {
   })
 
   it('should render the button', () => {
-    renderWithTheme(<CartList items={mockItems} total="R$ 330,00" />)
+    renderWithTheme(<CartList items={mockItems} hasButton total="R$ 330,00" />)
 
-    expect(screen.getByText(/buy it now/i)).toBeInTheDocument()
+    expect(screen.getByText(/Buy it now/i)).toBeInTheDocument()
   })
 
   it('should render empty if there are no games', () => {
