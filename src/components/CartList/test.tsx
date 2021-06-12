@@ -20,6 +20,7 @@ describe('<CartList />', () => {
     renderWithTheme(<CartList items={mockItems} hasButton total="R$ 330,00" />)
 
     expect(screen.getByText(/Buy it now/i)).toBeInTheDocument()
+    expect(screen.queryByText(/total/i)).not.toBeInTheDocument()
   })
 
   it('should render empty if there are no games', () => {
