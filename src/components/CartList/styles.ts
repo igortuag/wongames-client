@@ -2,8 +2,11 @@ import { tint } from 'polished'
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
-export const Wrapper = styled.main`
-  ${({ theme }) => css`
+type WrapperProps = {
+  isEmpty: boolean
+}
+export const Wrapper = styled.main<WrapperProps>`
+  ${({ theme, isEmpty }) => css`
     background: ${theme.colors.white};
     display: flex;
     flex-direction: column;
