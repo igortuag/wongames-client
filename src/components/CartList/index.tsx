@@ -11,7 +11,7 @@ export type CartListProps = {
 }
 
 const CartList = ({ items = [], total, hasButton = false }: CartListProps) => (
-  <S.Wrapper isEmpty={!items}>
+  <S.Wrapper isEmpty={!items.length}>
     {items.length ? (
       <>
         {' '}
