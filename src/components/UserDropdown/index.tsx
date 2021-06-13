@@ -24,19 +24,19 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
     }
   >
     <S.Nav>
-      <Link href="/profile/me">
+      <Link href="/profile/me" passHref>
         <S.Link title="My profile">
           <AccountCircle />
           <span>My profile</span>
         </S.Link>
       </Link>
-      <Link href="/wishlist">
+      <Link href="/wishlist" passHref>
         <S.Link title="Wishlist">
           <FavoriteBorder />
           <span>My profile</span>
         </S.Link>
       </Link>
-      <Link href="/logout">
+      <Link href="/logout" passHref>
         <S.Link title="Sign out">
           <ExitToApp />
           <span>Sign out</span>
