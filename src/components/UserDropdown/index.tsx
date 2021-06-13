@@ -1,3 +1,6 @@
+import { AccountCircle } from '@styled-icons/material-outlined'
+import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
+
 import Dropdown from 'components/Dropdown'
 import * as S from './styles'
 
