@@ -21,7 +21,12 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
       }
     >
       <S.Nav>
-        <Link></Link>
+        <Link>
+          <S.Link>
+            <AccountCircle />
+            <span>My profile</span>
+          </S.Link>
+        </Link>
       </S.Nav>
     </Dropdown>
   </S.Wrapper>
