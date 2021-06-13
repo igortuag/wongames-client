@@ -10,26 +10,24 @@ export type UserDropdownProps = {
 }
 
 const UserDropdown = ({ username }: UserDropdownProps) => (
-  <S.Wrapper>
-    <Dropdown
-      title={
-        <>
-          <AccountCircle size={24} />
-          {username}
-          <ChevronDown size={24} />
-        </>
-      }
-    >
-      <S.Nav>
-        <Link>
-          <S.Link>
-            <AccountCircle />
-            <span>My profile</span>
-          </S.Link>
-        </Link>
-      </S.Nav>
-    </Dropdown>
-  </S.Wrapper>
+  <Dropdown
+    title={
+      <>
+        <AccountCircle size={24} />
+        {username}
+        <ChevronDown size={24} />
+      </>
+    }
+  >
+    <S.Nav>
+      <Link>
+        <S.Link>
+          <AccountCircle />
+          <span>My profile</span>
+        </S.Link>
+      </Link>
+    </S.Nav>
+  </Dropdown>
 )
 
 export default UserDropdown
