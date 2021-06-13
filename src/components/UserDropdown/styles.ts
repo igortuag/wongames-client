@@ -12,4 +12,28 @@ export const Nav = styled.nav`
   `}
 `
 
-export const Link = styled.a``
+export const Link = styled.a`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: ${theme.colors.white};
+    color: ${theme.colors.black};
+    padding: ${theme.spacings.xsmall} ${theme.spacings.small};
+    transition: background, color, ${theme.transition.default};
+
+    &:hover {
+      background: ${theme.colors.primary};
+      color: ${theme.colors.white};
+    }
+
+    > svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    > span {
+      margin-left: ${theme.spacings.xsmall};
+    }
+  `}
+`
