@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { AccountCircle } from '@styled-icons/material-outlined'
 import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
@@ -19,7 +20,9 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
         </>
       }
     >
-      content
+      <S.Nav>
+        <Link></Link>
+      </S.Nav>
     </Dropdown>
   </S.Wrapper>
 )
