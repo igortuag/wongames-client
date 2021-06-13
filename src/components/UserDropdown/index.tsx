@@ -1,9 +1,13 @@
 import Dropdown from 'components/Dropdown'
 import * as S from './styles'
 
-const UserDropdown = () => (
+export type UserDropdownProps = {
+  username: string
+}
+
+const UserDropdown = ({ username }: UserDropdownProps) => (
   <S.Wrapper>
-    <Dropdown title="title">content</Dropdown>
+    <Dropdown title={username}>content</Dropdown>
   </S.Wrapper>
 )
 
