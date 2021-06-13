@@ -3,7 +3,12 @@ import UserDropdown from '.'
 
 export default {
   title: 'UserDropdown',
-  component: UserDropdown
+  component: UserDropdown,
+  parameters: {
+    background: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
 export const Default: Story = () => <UserDropdown />
