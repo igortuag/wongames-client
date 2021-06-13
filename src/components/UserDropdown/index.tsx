@@ -1,8 +1,9 @@
+import Dropdown from 'components/Dropdown'
 import * as S from './styles'
 
 const UserDropdown = () => (
   <S.Wrapper>
-    <h1>UserDropdown</h1>
+    <Dropdown title="title">content</Dropdown>
   </S.Wrapper>
 )
 
