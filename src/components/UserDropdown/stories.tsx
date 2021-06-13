@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import UserDropdown from '.'
+import UserDropdown, { UserDropdownProps } from '.'
 
 export default {
   title: 'UserDropdown',
@@ -11,8 +11,12 @@ export default {
   }
 } as Meta
 
-export const Default: Story = () => (
+export const Default: Story<UserDropdownProps> = (args) => (
   <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
-    <UserDropdown />
+    <UserDropdown {...args} />
   </div>
 )
+
+Default.args = {
+  username: 'Igor Tuag'
+}
