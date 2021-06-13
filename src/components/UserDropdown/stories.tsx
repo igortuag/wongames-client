@@ -11,4 +11,8 @@ export default {
   }
 } as Meta
 
-export const Default: Story = () => <UserDropdown />
+export const Default: Story = () => (
+  <div style={{ maxWidth: '98%', display: 'flex', justifyContent: 'flex-end' }}>
+    <UserDropdown />
+  </div>
+)
