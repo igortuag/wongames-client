@@ -1,5 +1,9 @@
 import Link from 'next/link'
-import { AccountCircle } from '@styled-icons/material-outlined'
+import {
+  AccountCircle,
+  FavoriteBorder,
+  ExitToApp
+} from '@styled-icons/material-outlined'
 import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown'
 
 import Dropdown from 'components/Dropdown'
@@ -21,9 +25,21 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
   >
     <S.Nav>
       <Link href="/profile/me">
-        <S.Link>
+        <S.Link title="My profile">
           <AccountCircle />
           <span>My profile</span>
+        </S.Link>
+      </Link>
+      <Link href="/wishlist">
+        <S.Link title="Wishlist">
+          <FavoriteBorder />
+          <span>My profile</span>
+        </S.Link>
+      </Link>
+      <Link href="/logout">
+        <S.Link title="Sign out">
+          <ExitToApp />
+          <span>Sign out</span>
         </S.Link>
       </Link>
     </S.Nav>
