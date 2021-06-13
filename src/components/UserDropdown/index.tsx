@@ -18,7 +18,7 @@ const UserDropdown = ({ username }: UserDropdownProps) => (
     title={
       <>
         <AccountCircle size={24} />
-        {username}
+        <S.Username>{username}</S.Username>
         <ChevronDown size={24} />
       </>
     }

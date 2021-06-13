@@ -12,6 +12,12 @@ export const Nav = styled.nav`
   `}
 `
 
+export const Username = styled.span`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.xxsmall};
+  `}
+`
+
 export const Link = styled.a`
   ${({ theme }) => css`
     display: flex;
