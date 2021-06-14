@@ -1,13 +1,13 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+
+import { renderWithTheme } from 'utils/tests/helper'
 
 import UserDropdown from '.'
 
 describe('<UserDropdown />', () => {
-  it('should render the heading', () => {
-    const { container } = render(<UserDropdown />)
+  it('should render the username', () => {
+    renderWithTheme(<UserDropdown username="Igor Tuag" />)
 
-    expect(screen.getByRole('heading', { name: /UserDropdown/i })).toBeInTheDocument()
-
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByText(/Igor Tuag/i)).toBeInTheDocument()
   })
 })
