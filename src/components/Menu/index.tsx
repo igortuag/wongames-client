@@ -85,7 +85,9 @@ const Menu = ({ username }: MenuProps) => {
 
           {!!username && (
             <>
-              <S.MenuLink href="#">My account</S.MenuLink>
+              <Link href="/profiles/me" passHref>
+                <S.MenuLink>My account</S.MenuLink>
+              </Link>
               <S.MenuLink href="#">Wishlist</S.MenuLink>
             </>
           )}
