@@ -9,6 +9,7 @@ import * as S from './styles'
 import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
 import CartDropdown from 'components/CartDropdown'
+import CartIcon from 'components/CartIcon'
 
 export type MenuProps = {
   username?: string
@@ -48,6 +49,13 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <MediaMatch greaterThan="medium">
             <CartDropdown />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Link href="/cart" passHref>
+              <a>
+                <CartIcon />
+              </a>
+            </Link>
           </MediaMatch>
         </S.IconWrapper>
         <S.IconWrapper>
