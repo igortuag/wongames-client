@@ -1,4 +1,6 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
+
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
