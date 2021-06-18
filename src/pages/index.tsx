@@ -6,6 +6,11 @@ import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: HomeTemplateProps) {
+  const client = new ApolloClient({
+    uri: 'http://localhost:1337/graphql',
+    cache: new InMemoryCache()
+  })
+
   return <Home {...props} />
 }
 
