@@ -14,7 +14,7 @@ export default function Index(props: HomeTemplateProps) {
   client.query({
     query: gql`
       query getGames {
-        games: {
+        games {
           name
         }
       }
