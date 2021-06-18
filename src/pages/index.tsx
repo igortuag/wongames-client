@@ -1,5 +1,5 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
-import { ApolloClient, InMemoryCache } from '@apollo/client'
+import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
 
 import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
@@ -9,6 +9,16 @@ export default function Index(props: HomeTemplateProps) {
   const client = new ApolloClient({
     uri: 'http://localhost:1337/graphql',
     cache: new InMemoryCache()
+  })
+
+  client.query({
+    query: gql`
+      query getGames {
+        games: {
+          name
+        }
+      }
+    `
   })
 
   return <Home {...props} />
