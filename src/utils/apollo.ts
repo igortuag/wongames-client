@@ -14,3 +14,8 @@ function createApolloClient() {
     cache: new InMemoryCache()
   })
 }
+
+export function initializedApollo(initialState = {}) {
+  // serve para verificar se já existe uma instância para não criar outra
+  const apolloClientGlobal = apolloClient ?? createApolloClient()
+}
