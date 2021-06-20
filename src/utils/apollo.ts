@@ -22,4 +22,6 @@ export function initializedApollo(initialState = {}) {
   if (initialState) {
     apolloClientGlobal.cache.restore(initialState)
   }
+
+  if (typeof window === 'undefined') return apolloClientGlobal
 }
