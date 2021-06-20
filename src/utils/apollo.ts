@@ -27,4 +27,6 @@ export function initializedApollo(initialState = {}) {
   // sempre iniciando no SSR com cache limpo
   if (typeof window === 'undefined') return
   apolloClient = apolloClient ?? apolloClientGlobal
+
+  return apolloClient
 }
