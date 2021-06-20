@@ -19,9 +19,12 @@ export function initializedApollo(initialState = {}) {
   // serve para verificar se já existe uma instância para não criar outra
   const apolloClientGlobal = apolloClient ?? createApolloClient()
 
+  // recuperando os dados de cache
   if (initialState) {
     apolloClientGlobal.cache.restore(initialState)
   }
 
-  if (typeof window === 'undefined') return apolloClientGlobal
+  // sempre iniciando no SSR com cache limpo
+  if (typeof window === 'undefined') return
+  apolloClient = apolloClient ?? apolloClientGlobal
 }
