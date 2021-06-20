@@ -4,6 +4,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject
 } from '@apollo/client'
+import { useMemo } from 'react'
 
 let apolloClient: ApolloClient<NormalizedCacheObject>
 
@@ -29,4 +30,9 @@ export function initializedApollo(initialState = {}) {
   apolloClient = apolloClient ?? apolloClientGlobal
 
   return apolloClient
+}
+
+export function useApollo(initialState = {}) {
+  const store = useMemo(() => initializedApollo(initialState), [initialState])
+  return store
 }
