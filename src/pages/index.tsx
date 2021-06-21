@@ -26,13 +26,14 @@ export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
 }
 
-export function getServerSideProps() {
+export async function getServerSideProps() {
   const apolloClient = initializeApollo()
 
-  apolloClient.query({ query: GET_GAMES })
+  const data = await apolloClient.query({ query: GET_GAMES })
 
   return {
     props: {
+      data: data,
       banners: bannersMock,
       newGames: gamesMock,
       mostPopularHighlight: highlightMock,
