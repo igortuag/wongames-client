@@ -1,6 +1,5 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ApolloClient, InMemoryCache } from '@apollo/client'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
 import { ThemeProvider } from 'styled-components'
