@@ -34,6 +34,7 @@ export async function getServerSideProps() {
   return {
     props: {
       data: data,
+      initialApolloState: apolloClient.cache.extract(),
       banners: bannersMock,
       newGames: gamesMock,
       mostPopularHighlight: highlightMock,
