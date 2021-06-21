@@ -16,23 +16,25 @@ function createApolloClient() {
   })
 }
 
-export function initializedApollo(initialState = {}) {
-  // serve para verificar se já existe uma instância para não criar outra
+export function initializeApollo(initialState = {}) {
+  // serve para verificar se já existe uma instância, para não criar outra
   const apolloClientGlobal = apolloClient ?? createApolloClient()
 
-  // recuperando os dados de cache
+  // se a página usar o apolloClient no lado client
+  // hidratamos o estado inicial aqui
   if (initialState) {
     apolloClientGlobal.cache.restore(initialState)
   }
 
-  // sempre iniciando no SSR com cache limpo
-  if (typeof window === 'undefined') return
+  // sempre inicializando no SSR com cache limpo
+  if (typeof window === 'undefined') return apolloClientGlobal
+  // cria o apolloClient se estiver no client side
   apolloClient = apolloClient ?? apolloClientGlobal
 
   return apolloClient
 }
 
 export function useApollo(initialState = {}) {
-  const store = useMemo(() => initializedApollo(initialState), [initialState])
+  const store = useMemo(() => initializeApollo(initialState), [initialState])
   return store
 }
