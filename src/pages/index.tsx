@@ -16,7 +16,7 @@ export default function Index(props: HomeTemplateProps) {
 
   if (loading) return <p>Loading...</p>
 
-  if (error) return <p>{error}</p>
+  if (error) return <p>{JSON.stringify(error, null, 2)}</p>
 
   if (data) return <p>{JSON.stringify(data, null, 2)}</p>
 
