@@ -1,6 +1,5 @@
 import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
 import filterItemsMock from 'components/ExploreSidebar/mock'
-import gamesMock from 'components/GameCardSlider/mock'
 import { initializeApollo } from 'utils/apollo'
 import { gql } from '@apollo/client'
 
@@ -32,7 +31,12 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 60,
-      games: gamesMock,
+      games: data.games.map((game) => ({
+        title: game.name,
+        developers: game.developers[0].name,
+        img: game.cover.url,
+        price: game.price
+      })),
       filterItems: filterItemsMock
     }
   }
