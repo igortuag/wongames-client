@@ -22,12 +22,12 @@ export interface QueryGames_games {
   name: string;
   slug: string;
   cover: QueryGames_games_cover | null;
-  developers: (QueryGames_games_developers | null)[] | null;
+  developers: QueryGames_games_developers[];
   price: number;
 }
 
 export interface QueryGames {
-  games: (QueryGames_games | null)[] | null;
+  games: QueryGames_games[];
 }
 
 export interface QueryGamesVariables {
