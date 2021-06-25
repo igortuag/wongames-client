@@ -12,16 +12,11 @@
     "test:watch": "yarn test --watch",
     "schema:download": "apollo client:download-schema --endpoint=http://localhost:1337/graphql schema-temp.gql",
     "schema:convert": "node convertToNonNull.js",
-    "codegen": "apollo codegen:generate --target typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile schema.gql --tagName=gql --outputFlat src/graphql/generated",
+    "codegen": "apollo codegen:generate --target typescript --excludes=node_modules/ --includes=src/graphql/**/*.ts --localSchemaFile schema-temp.gql --tagName=gql --outputFlat src/graphql/generated",
     "types:generate": "yarn schema:download && yarn schema:convert && yarn codegen",
     "generate": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "src/**/*": [
