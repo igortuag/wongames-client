@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import {
   AddShoppingCart,
   Favorite,
@@ -9,6 +11,7 @@ import Button from 'components/Button'
 import * as S from './styles'
 
 export type GameCardProps = {
+  slug: string
   title: string
   developer: string
   img: string
@@ -22,6 +25,7 @@ export type GameCardProps = {
 }
 
 const GameCard = ({
+  slug,
   title,
   developer,
   img,
@@ -39,9 +43,11 @@ const GameCard = ({
         {ribbon}
       </Ribbon>
     )}
-    <S.ImageBox>
-      <img src={img} alt={title} />
-    </S.ImageBox>
+    <Link href={`/game/${slug}`}>
+      <S.ImageBox>
+        <img src={img} alt={title} />
+      </S.ImageBox>
+    </Link>
     <S.Content>
       <S.Info>
         <S.Title>{title}</S.Title>
