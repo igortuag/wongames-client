@@ -52,6 +52,7 @@ export const Content = styled.div`
 
 export const Info = styled.a`
   max-width: calc(100% - 2.5rem);
+  text-decoration: none;
 `
 
 export const Title = styled.h3`
