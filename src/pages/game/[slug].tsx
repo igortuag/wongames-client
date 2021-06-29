@@ -6,7 +6,9 @@ import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: GameTemplateProps) {
-  const router = useRouter
+  const router = useRouter()
+
+  if (router.isFallback) return null
 
   return <Game {...props} />
 }
