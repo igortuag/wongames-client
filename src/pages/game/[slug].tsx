@@ -23,6 +23,12 @@ export async function getStaticPaths() {
     query: QUERY_GAMES,
     variables: { limit: 9 }
   })
+
+  const paths = data.games.map(({ slug }) => ({
+    params: { slug }
+  }))
+
+  return { paths, fallback: true }
 }
 
 export async function getStaticProps() {
