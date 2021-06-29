@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import Game, { GameTemplateProps } from 'templates/Game'
 
 import galleryMock from 'components/Gallery/mock'
@@ -5,15 +6,12 @@ import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 export default function Index(props: GameTemplateProps) {
+  const router = useRouter
+
   return <Game {...props} />
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: [{ params: { slug: 'cyberpunk-2077' } }],
-    fallback: false
-  }
-}
+export async function getStaticPaths() {}
 
 export async function getStaticProps() {
   const descriptionHTML = `
