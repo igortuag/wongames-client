@@ -1,9 +1,14 @@
 import { useRouter } from 'next/router'
 import Game, { GameTemplateProps } from 'templates/Game'
+import { initializeApollo } from 'utils/apollo'
 
 import galleryMock from 'components/Gallery/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
+import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
+import { QUERY_GAMES } from 'graphql/queries/games'
+
+const apolloClient = initializeApollo()
 
 export default function Index(props: GameTemplateProps) {
   const router = useRouter()
@@ -13,7 +18,12 @@ export default function Index(props: GameTemplateProps) {
   return <Game {...props} />
 }
 
-export async function getStaticPaths() {}
+export async function getStaticPaths() {
+  const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
+    query: QUERY_GAMES,
+    variables: { limit: 9 }
+  })
+}
 
 export async function getStaticProps() {
   const descriptionHTML = `
