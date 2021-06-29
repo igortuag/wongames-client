@@ -42,6 +42,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     QueryGameBySlugVariables
   >({ query: QUERY_GAME_BY_SLUG, variables: { slug: `${params?.slug}` } })
 
+  if (!data.games.length) {
+    return { notFound: true }
+  }
+
   const descriptionHTML = `
       <img src="https://items.gog.com/not_a_cp/ENG_product-page-addons-2020_yellow_on_black.png"><br>
       * Exclusive Digital Comic - Cyberpunk 2077: Big City Dreams will be available in English only.
