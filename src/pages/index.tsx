@@ -13,13 +13,14 @@ export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
 }
 
-export async function getServerSideProps() {
+export async function getStaticSideProps() {
   const apolloClient = initializeApollo()
 
   const { data } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   return {
     props: {
+      revalidate: 60,
       banners: data.banners.map(
         ({ image, title, subtitle, button, ribbon }) => ({
           img: image?.url,
