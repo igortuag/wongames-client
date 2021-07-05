@@ -23,14 +23,14 @@ export async function getStaticSideProps() {
       revalidate: 60,
       banners: data.banners.map(
         ({ image, title, subtitle, button, ribbon }) => ({
-          img: image?.url,
+          img: image?.url || null,
           title,
           subtitle,
-          buttonLabel: button?.label,
-          buttonLink: button?.link,
-          ribbon: ribbon?.text,
-          ribbonColor: ribbon?.color,
-          ribbonSize: ribbon?.size
+          buttonLabel: button?.label || null,
+          buttonLink: button?.link || null,
+          ribbon: ribbon?.text || null,
+          ribbonColor: ribbon?.color || null,
+          ribbonSize: ribbon?.size || null
         })
       ),
       newGames: gamesMock,
