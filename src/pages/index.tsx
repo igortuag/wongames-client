@@ -16,11 +16,22 @@ export default function Index(props: HomeTemplateProps) {
 export async function getServerSideProps() {
   const apolloClient = initializeApollo()
 
-  apolloClient.query<QueryHome>({ query: QUERY_HOME })
+  const { data } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   return {
     props: {
-      banners: bannersMock,
+      banners: data.banners.map(
+        ({ image, title, subtitle, button, ribbon }) => ({
+          img: image?.url,
+          title,
+          subtitle,
+          buttonLabel: button?.label,
+          buttonLink: button?.link,
+          ribbon: ribbon?.text,
+          ribbonColor: ribbon?.color,
+          ribbonSize: ribbon?.size
+        })
+      ),
       newGames: gamesMock,
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
