@@ -28,9 +28,11 @@ export async function getStaticSideProps() {
           subtitle,
           buttonLabel: button?.label || null,
           buttonLink: button?.link || null,
-          ribbon: ribbon?.text || null,
-          ribbonColor: ribbon?.color || null,
-          ribbonSize: ribbon?.size || null
+          ...(ribbon && {
+            ribbon: ribbon.text,
+            ribbonColor: ribbon.color,
+            ribbonSize: ribbon.size
+          })
         })
       ),
       newGames: gamesMock,
