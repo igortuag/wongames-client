@@ -4,6 +4,8 @@ import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
+import { QueryHome } from 'graphql/generated/QueryHome'
+import { QUERY_HOME } from 'graphql/queries/home'
 
 export default function Index(props: HomeTemplateProps) {
   if (props.data) return <p>{JSON.stringify(props.data, null, 2)}</p>
@@ -13,6 +15,8 @@ export default function Index(props: HomeTemplateProps) {
 
 export async function getServerSideProps() {
   const apolloClient = initializeApollo()
+
+  apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   return {
     props: {
