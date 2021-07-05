@@ -23,7 +23,7 @@ export async function getStaticSideProps() {
       revalidate: 60,
       banners: data.banners.map(
         ({ image, title, subtitle, button, ribbon }) => ({
-          img: image?.url || null,
+          img: `http://localhost:1337${image?.url}`,
           title,
           subtitle,
           buttonLabel: button?.label || null,
