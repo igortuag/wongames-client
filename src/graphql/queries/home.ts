@@ -40,5 +40,17 @@ export const QUERY_HOME = gql`
       }
       price
     }
+
+    freeGames: games(where: { price: 0 }, sort: "release_date:desc", limit: 8) {
+      name
+      slug
+      cover {
+        url
+      }
+      developers {
+        name
+      }
+      price
+    }
   }
 `
