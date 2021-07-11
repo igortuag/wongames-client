@@ -16,26 +16,32 @@ export default function Index(props: HomeTemplateProps) {
 export async function getStaticSideProps() {
   const apolloClient = initializeApollo()
 
-  const { data } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
+  const {
+    data: { banners, newGames }
+  } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
 
   return {
     props: {
       revalidate: 60,
-      banners: data.banners.map(
-        ({ image, title, subtitle, button, ribbon }) => ({
-          img: `http://localhost:1337${image?.url}`,
-          title,
-          subtitle,
-          buttonLabel: button?.label || null,
-          buttonLink: button?.link || null,
-          ...(ribbon && {
-            ribbon: ribbon.text,
-            ribbonColor: ribbon.color,
-            ribbonSize: ribbon.size
-          })
+      banners: banners.map(({ image, title, subtitle, button, ribbon }) => ({
+        img: `http://localhost:1337${image?.url}`,
+        title,
+        subtitle,
+        buttonLabel: button?.label || null,
+        buttonLink: button?.link || null,
+        ...(ribbon && {
+          ribbon: ribbon.text,
+          ribbonColor: ribbon.color,
+          ribbonSize: ribbon.size
         })
-      ),
-      newGames: gamesMock,
+      })),
+      newGames: newGames.map((game) => ({
+        title: game.name,
+        slug: game.slug,
+        developer: game.developers[0].name,
+        img: game.cover?.url,
+        price: game.price
+      })),
       mostPopularHighlight: highlightMock,
       mostPopularGames: gamesMock,
       upcomingGames: gamesMock,
