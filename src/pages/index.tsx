@@ -1,6 +1,5 @@
 import Home, { HomeTemplateProps } from 'templates/Home'
 
-import bannersMock from 'components/BannerSlider/mock'
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
@@ -8,17 +7,17 @@ import { QueryHome } from 'graphql/generated/QueryHome'
 import { QUERY_HOME } from 'graphql/queries/home'
 
 export default function Index(props: HomeTemplateProps) {
-  if (props.data) return <p>{JSON.stringify(props.data, null, 2)}</p>
-
   return <Home {...props} />
 }
 
-export async function getStaticSideProps() {
+export async function getStaticProps() {
   const apolloClient = initializeApollo()
 
   const {
     data: { banners, newGames }
   } = await apolloClient.query<QueryHome>({ query: QUERY_HOME })
+
+  console.log('BANNERS :>>', banners)
 
   return {
     props: {
