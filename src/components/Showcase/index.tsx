@@ -9,7 +9,7 @@ export type ShowcaseProps = {
   title?: string
   highlight?: HighlightProps
   games?: GameCardProps[]
-  color: 'black' | 'white'
+  color?: 'black' | 'white'
 }
 
 const Showcase = ({
