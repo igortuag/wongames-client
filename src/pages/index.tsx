@@ -51,7 +51,6 @@ export async function getStaticProps() {
         price: game.price
       })),
       upcomingHighlight: highlightMock,
-      upcomingMoreGames: gamesMock,
       freeGames: freeGames.map((game) => ({
         title: game.name,
         slug: game.slug,
