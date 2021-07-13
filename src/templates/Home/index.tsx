@@ -49,8 +49,11 @@ const Home = ({
     />
 
     <S.SectionUpcoming>
-      <Showcase title="Upcoming" games={upcomingGames} />
-      <Showcase highlight={upcomingHighlight} games={upcomingMoreGames} />
+      <Showcase
+        title="Upcoming"
+        games={upcomingGames}
+        highlight={upcomingHighlight}
+      />
     </S.SectionUpcoming>
 
     <Showcase title="Free games" highlight={freeHighlight} games={freeGames} />
