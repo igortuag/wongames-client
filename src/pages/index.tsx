@@ -50,7 +50,13 @@ export async function getStaticProps() {
         img: `http://localhost:1337${game.cover?.url}`,
         price: game.price
       })),
-      mostPopularGames: gamesMock,
+      mostPopularGames: sections?.popularGames!.games.map((game) => ({
+        title: game.name,
+        slug: game.slug,
+        developer: game.developers[0].name,
+        img: `http://localhost:1337${game.cover?.url}`,
+        price: game.price
+      })),
       upcomingGamesTitle: sections.upcomingGames?.title,
       upcomingGames: upcomingGames.map((game) => ({
         title: game.name,
