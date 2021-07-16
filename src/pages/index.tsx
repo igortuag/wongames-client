@@ -43,13 +43,14 @@ export async function getStaticProps() {
         price: game.price
       })),
       mostPopularGamesTitle: sections.popularGames?.title,
-      mostPopularHighlight: sections!.popularGames!.games.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
+      mostPopularHighlight: {
+        title: sections?.popularGames?.highlight?.title,
+        subtitle: sections?.popularGames?.highlight?.subtitle,
+        backgroundImage: `http://localhost:1337${sections?.popularGames?.highlight?.background.url}`,
+        floatImage: `http://localhost:1337${sections?.popularGames?.highlight?.floatImage.url}`,
+        buttonLabel: sections?.popularGames?.highlight?.buttonLabel,
+        buttonLink: sections?.popularGames?.highlight?.buttonLink
+      },
       mostPopularGames: sections?.popularGames!.games.map((game) => ({
         title: game.name,
         slug: game.slug,
