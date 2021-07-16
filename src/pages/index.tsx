@@ -84,7 +84,15 @@ export async function getStaticProps() {
         img: `http://localhost:1337${game.cover?.url}`,
         price: game.price
       })),
-      freeHighlight: highlightMock
+      freeHighlight: {
+        title: sections?.freeGames?.highlight?.title,
+        subtitle: sections?.freeGames?.highlight?.subtitle,
+        backgroundImage: `http://localhost:1337${sections?.freeGames?.highlight?.background.url}`,
+        floatImage: `http://localhost:1337${sections?.freeGames?.highlight?.floatImage.url}`,
+        buttonLabel: sections?.freeGames?.highlight?.buttonLabel,
+        buttonLink: sections?.freeGames?.highlight?.buttonLink,
+        aligment: sections?.freeGames?.highlight?.alignment
+      }
     }
   }
 }
