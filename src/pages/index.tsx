@@ -5,7 +5,7 @@ import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
 import { QueryHome } from 'graphql/generated/QueryHome'
 import { QUERY_HOME } from 'graphql/queries/home'
-import { bannerMapper, gamesMapper } from 'utils/mappers'
+import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -24,41 +24,17 @@ export async function getStaticProps() {
     props: {
       revalidate: 60,
       banners: bannerMapper(banners),
-      newGamesTitle: sections.newGames?.title,
+      newGamesTitle: sections?.newGames?.title,
       newGames: gamesMapper(newGames),
-      mostPopularGamesTitle: sections.popularGames?.title,
-      mostPopularHighlight: {
-        title: sections?.popularGames?.highlight?.title,
-        subtitle: sections?.popularGames?.highlight?.subtitle,
-        backgroundImage: `http://localhost:1337${sections?.popularGames?.highlight?.background.url}`,
-        floatImage: `http://localhost:1337${sections?.popularGames?.highlight?.floatImage.url}`,
-        buttonLabel: sections?.popularGames?.highlight?.buttonLabel,
-        buttonLink: sections?.popularGames?.highlight?.buttonLink,
-        aligment: sections?.popularGames?.highlight?.alignment
-      },
-      mostPopularGames: gamesMapper(sections.upcomingGames?.games),
-      upcomingGamesTitle: sections.upcomingGames?.title,
+      mostPopularGamesTitle: sections?.popularGames?.title,
+      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
+      mostPopularGames: gamesMapper(sections?.upcomingGames?.games),
+      upcomingGamesTitle: sections?.upcomingGames?.title,
       upcomingGames: gamesMapper(upcomingGames),
-      upcomingHighlight: {
-        title: sections?.upcomingGames?.highlight?.title,
-        subtitle: sections?.upcomingGames?.highlight?.subtitle,
-        backgroundImage: `http://localhost:1337${sections?.upcomingGames?.highlight?.background.url}`,
-        floatImage: `http://localhost:1337${sections?.upcomingGames?.highlight?.floatImage.url}`,
-        buttonLabel: sections?.upcomingGames?.highlight?.buttonLabel,
-        buttonLink: sections?.upcomingGames?.highlight?.buttonLink,
-        aligment: sections?.upcomingGames?.highlight?.alignment
-      },
-      freeGamesTitle: sections.freeGames?.title,
+      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
+      freeGamesTitle: sections?.freeGames?.title,
       freeGames: gamesMapper(freeGames),
-      freeHighlight: {
-        title: sections?.freeGames?.highlight?.title,
-        subtitle: sections?.freeGames?.highlight?.subtitle,
-        backgroundImage: `http://localhost:1337${sections?.freeGames?.highlight?.background.url}`,
-        floatImage: `http://localhost:1337${sections?.freeGames?.highlight?.floatImage.url}`,
-        buttonLabel: sections?.freeGames?.highlight?.buttonLabel,
-        buttonLink: sections?.freeGames?.highlight?.buttonLink,
-        aligment: sections?.freeGames?.highlight?.alignment
-      }
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }
   }
 }
