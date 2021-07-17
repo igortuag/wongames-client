@@ -5,6 +5,7 @@ import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
 import { QueryHome } from 'graphql/generated/QueryHome'
 import { QUERY_HOME } from 'graphql/queries/home'
+import { bannerMapper } from 'utils/mappers'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -22,18 +23,7 @@ export async function getStaticProps() {
   return {
     props: {
       revalidate: 60,
-      banners: banners.map(({ image, title, subtitle, button, ribbon }) => ({
-        img: `http://localhost:1337${image?.url}`,
-        title,
-        subtitle,
-        buttonLabel: button?.label || null,
-        buttonLink: button?.link || null,
-        ...(ribbon && {
-          ribbon: ribbon.text,
-          ribbonColor: ribbon.color,
-          ribbonSize: ribbon.size
-        })
-      })),
+      banners: bannerMapper(banners),
       newGamesTitle: sections.newGames?.title,
       newGames: newGames.map((game) => ({
         title: game.name,
