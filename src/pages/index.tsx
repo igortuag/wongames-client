@@ -5,7 +5,7 @@ import highlightMock from 'components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo'
 import { QueryHome } from 'graphql/generated/QueryHome'
 import { QUERY_HOME } from 'graphql/queries/home'
-import { bannerMapper } from 'utils/mappers'
+import { bannerMapper, gamesMapper } from 'utils/mappers'
 
 export default function Index(props: HomeTemplateProps) {
   return <Home {...props} />
@@ -25,13 +25,7 @@ export async function getStaticProps() {
       revalidate: 60,
       banners: bannerMapper(banners),
       newGamesTitle: sections.newGames?.title,
-      newGames: newGames.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
+      newGames: gamesMapper(newGames),
       mostPopularGamesTitle: sections.popularGames?.title,
       mostPopularHighlight: {
         title: sections?.popularGames?.highlight?.title,
@@ -42,21 +36,9 @@ export async function getStaticProps() {
         buttonLink: sections?.popularGames?.highlight?.buttonLink,
         aligment: sections?.popularGames?.highlight?.alignment
       },
-      mostPopularGames: sections?.popularGames!.games.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
+      mostPopularGames: gamesMapper(sections.upcomingGames?.games),
       upcomingGamesTitle: sections.upcomingGames?.title,
-      upcomingGames: upcomingGames.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
+      upcomingGames: gamesMapper(upcomingGames),
       upcomingHighlight: {
         title: sections?.upcomingGames?.highlight?.title,
         subtitle: sections?.upcomingGames?.highlight?.subtitle,
@@ -67,13 +49,7 @@ export async function getStaticProps() {
         aligment: sections?.upcomingGames?.highlight?.alignment
       },
       freeGamesTitle: sections.freeGames?.title,
-      freeGames: freeGames.map((game) => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
+      freeGames: gamesMapper(freeGames),
       freeHighlight: {
         title: sections?.freeGames?.highlight?.title,
         subtitle: sections?.freeGames?.highlight?.subtitle,

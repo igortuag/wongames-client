@@ -1,3 +1,4 @@
+import { QueryGames_games } from 'graphql/generated/QueryGames'
 import { QueryHome_banners } from 'graphql/generated/QueryHome'
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
@@ -13,4 +14,17 @@ export const bannerMapper = (banners: QueryHome_banners[]) => {
       ribbonSize: ribbon.size
     })
   }))
+}
+
+export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
+  return (
+    games &&
+    games.map((game) => ({
+      title: game.name,
+      slug: game.slug,
+      developer: game.developers[0].name,
+      img: `http://localhost:1337${game.cover?.url}`,
+      price: game.price
+    }))
+  )
 }
