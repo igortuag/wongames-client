@@ -10,6 +10,7 @@ import highlightMock from 'components/Highlight/mock'
 const props = {
   games: gamesMock,
   recommendedHighlight: highlightMock,
+  recommendTitle: 'You may like this games',
   recommendedGames: gamesMock
 }
 
@@ -37,6 +38,7 @@ describe('<Wishlist />', () => {
       <Wishlist
         recommendedHighlight={highlightMock}
         recommendedGames={gamesMock}
+        recommendTitle="You may like this games"
       />
     )
 
