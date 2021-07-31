@@ -34,7 +34,7 @@ describe('<Games />', () => {
 })
 
 describe('<Games />', () => {
-  it('should render sections', () => {
+  it('should render sections', async () => {
     renderWithTheme(
       <MockedProvider
         mocks={[
@@ -69,11 +69,11 @@ describe('<Games />', () => {
 
     expect(screen.getByText(/loading.../i)).toBeInTheDocument()
 
-    // expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-    // expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
+    expect(await screen.findByTestId('Mock ExploreSidebar')).toBeInTheDocument()
+    expect(await screen.findByText(/sample/i)).toBeInTheDocument()
 
-    // expect(
-    //   screen.getByRole('button', { name: /show more/i })
-    // ).toBeInTheDocument()
+    expect(
+      await screen.findByRole('button', { name: /show more/i })
+    ).toBeInTheDocument()
   })
 })
