@@ -5,6 +5,7 @@ import { renderWithTheme } from 'utils/tests/helper'
 import filterItemsMock from 'components/ExploreSidebar/mock'
 
 import Games from '.'
+import { QUERY_GAMES } from 'graphql/queries/games'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -20,13 +21,6 @@ jest.mock('components/ExploreSidebar', () => ({
   }
 }))
 
-jest.mock('components/GameCard', () => ({
-  __esModule: true,
-  default: function Mock() {
-    return <div data-testid="Mock GameCard" />
-  }
-}))
-
 describe('<Games />', () => {
   it('should render loading when starting the template', () => {
     renderWithTheme(
@@ -39,19 +33,47 @@ describe('<Games />', () => {
   })
 })
 
-// describe('<Games />', () => {
-//   it('should render sections', () => {
-//     renderWithTheme(
-//       <MockedProvider mocks={[]} addTypename={false}>
-//         <Games filterItems={filterItemsMock} />
-//       </MockedProvider>
-//     )
+describe('<Games />', () => {
+  it('should render sections', () => {
+    renderWithTheme(
+      <MockedProvider
+        mocks={[
+          {
+            request: {
+              query: QUERY_GAMES,
+              variables: { limit: 15 }
+            },
+            result: {
+              data: {
+                games: [
+                  {
+                    name: 'Sample Game',
+                    slug: 'sample-game',
+                    cover: {
+                      src: 'sample-game.jpg'
+                    },
+                    developers: [{ name: 'sample developer' }],
+                    price: 518.39,
+                    __typename: 'Game'
+                  }
+                ]
+              }
+            }
+          }
+        ]}
+        addTypename={false}
+      >
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
 
-//     expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-//     expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
 
-//     expect(
-//       screen.getByRole('button', { name: /show more/i })
-//     ).toBeInTheDocument()
-//   })
-// })
+    // expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
+    // expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
+
+    // expect(
+    //   screen.getByRole('button', { name: /show more/i })
+    // ).toBeInTheDocument()
+  })
+})
