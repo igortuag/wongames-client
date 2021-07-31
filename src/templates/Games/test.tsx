@@ -28,18 +28,30 @@ jest.mock('components/GameCard', () => ({
 }))
 
 describe('<Games />', () => {
-  it('should render sections', () => {
+  it('should render loading when starting the template', () => {
     renderWithTheme(
-      <MockedProvider>
+      <MockedProvider mocks={[]} addTypename={false}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
 
-    expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
-    expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
-
-    expect(
-      screen.getByRole('button', { name: /show more/i })
-    ).toBeInTheDocument()
+    expect(screen.getByText(/loading.../i)).toBeInTheDocument()
   })
 })
+
+// describe('<Games />', () => {
+//   it('should render sections', () => {
+//     renderWithTheme(
+//       <MockedProvider mocks={[]} addTypename={false}>
+//         <Games filterItems={filterItemsMock} />
+//       </MockedProvider>
+//     )
+
+//     expect(screen.getByTestId('Mock ExploreSidebar')).toBeInTheDocument()
+//     expect(screen.getByTestId('Mock GameCard')).toBeInTheDocument()
+
+//     expect(
+//       screen.getByRole('button', { name: /show more/i })
+//     ).toBeInTheDocument()
+//   })
+// })
