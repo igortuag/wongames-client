@@ -3,9 +3,9 @@ import { MockedProvider } from '@apollo/client/testing'
 
 import { renderWithTheme } from 'utils/tests/helper'
 import filterItemsMock from 'components/ExploreSidebar/mock'
+import { gamesMock } from './mocks'
 
 import Games from '.'
-import { QUERY_GAMES } from 'graphql/queries/games'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -37,30 +37,7 @@ describe('<Games />', () => {
   it('should render sections', async () => {
     renderWithTheme(
       <MockedProvider
-        mocks={[
-          {
-            request: {
-              query: QUERY_GAMES,
-              variables: { limit: 15 }
-            },
-            result: {
-              data: {
-                games: [
-                  {
-                    name: 'Sample Game',
-                    slug: 'sample-game',
-                    cover: {
-                      src: 'sample-game.jpg'
-                    },
-                    developers: [{ name: 'sample developer' }],
-                    price: 518.39,
-                    __typename: 'Game'
-                  }
-                ]
-              }
-            }
-          }
-        ]}
+        mocks={[gamesMock]}
         addTypename={false}
       >
         <Games filterItems={filterItemsMock} />
