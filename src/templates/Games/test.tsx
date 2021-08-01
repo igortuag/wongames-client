@@ -38,7 +38,7 @@ describe('<Games />', () => {
 describe('<Games />', () => {
   it('should render sections', async () => {
     renderWithTheme(
-      <MockedProvider mocks={[gamesMock]} addTypename={false}>
+      <MockedProvider mocks={[gamesMock]}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
@@ -55,11 +55,7 @@ describe('<Games />', () => {
 
   it('should render more games when sho more is cliecked', async () => {
     renderWithTheme(
-      <MockedProvider
-        mocks={[gamesMock, fetchMoreMock]}
-        addTypename={false}
-        cache={apolloCache}
-      >
+      <MockedProvider mocks={[gamesMock, fetchMoreMock]} cache={apolloCache}>
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
