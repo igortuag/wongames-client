@@ -7,6 +7,7 @@ import { fetchMoreMock, gamesMock } from './mocks'
 
 import Games from '.'
 import userEvent from '@testing-library/user-event'
+import apolloCache from 'utils/apolloCache'
 
 jest.mock('templates/Base', () => ({
   __esModule: true,
@@ -54,7 +55,11 @@ describe('<Games />', () => {
 
   it('should render more games when sho more is cliecked', async () => {
     renderWithTheme(
-      <MockedProvider mocks={[gamesMock, fetchMoreMock]} addTypename={false}>
+      <MockedProvider
+        mocks={[gamesMock, fetchMoreMock]}
+        addTypename={false}
+        cache={apolloCache}
+      >
         <Games filterItems={filterItemsMock} />
       </MockedProvider>
     )
