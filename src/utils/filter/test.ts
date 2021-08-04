@@ -10,7 +10,8 @@ const filterItems = [
 const queryString = {
   price_lte: 1000,
   platform: ['windows', 'linux'],
-  developers: 'Rockstar Games'
+  developers: 'Rockstar Games',
+  sort: 'price:asc'
 }
 
 describe('parserQueryStringToWhere', () => {
