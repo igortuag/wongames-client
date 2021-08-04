@@ -9,4 +9,13 @@ type ParseArgs = {
 export const parseQueryStringToWhere = ({
   queryString,
   filterItems
-}: ParseArgs) => {}
+}: ParseArgs) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const obj: any = {}
+
+  Object.keys(queryString).forEach((key) => {
+    obj[key] = queryString[key]
+  })
+
+  return obj
+}
