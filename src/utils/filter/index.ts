@@ -13,15 +13,17 @@ export const parseQueryStringToWhere = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const obj: any = {}
 
-  Object.keys(queryString).forEach((key) => {
-    const item = filterItems?.find((item) => item.name === key)
-    const type = item?.type
+  Object.keys(queryString)
+    .filter((item) => item !== 'sort')
+    .forEach((key) => {
+      const item = filterItems?.find((item) => item.name === key)
+      const type = item?.type
 
-    obj[key] =
-      type !== 'checkbox'
-        ? queryString[key]
-        : { name_contains: queryString[key] }
-  })
+      obj[key] =
+        type !== 'checkbox'
+          ? queryString[key]
+          : { name_contains: queryString[key] }
+    })
 
   return obj
 }
