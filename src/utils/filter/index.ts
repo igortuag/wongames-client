@@ -14,7 +14,13 @@ export const parseQueryStringToWhere = ({
   const obj: any = {}
 
   Object.keys(queryString).forEach((key) => {
-    obj[key] = queryString[key]
+    const item = filterItems?.find((item) => item.name === key)
+    const type = item?.type
+
+    obj[key] =
+      type !== 'checkbox'
+        ? queryString[key]
+        : { name_contains: queryString[key] }
   })
 
   return obj
