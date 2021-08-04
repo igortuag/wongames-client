@@ -14,5 +14,9 @@ const queryString = {
 describe('parserQueryStringToWhere', () => {
   it('shoud parse queryString to where format', () => {
     const parseQuery = parseQueryStringToWhere({ queryString, filterItems })
+
+    expect(parseQuery).toStrictEqual({
+      price_lte: 100
+    })
   })
 })
