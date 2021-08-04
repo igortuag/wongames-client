@@ -8,7 +8,8 @@ const filterItems = [
 ]
 
 const queryString = {
-  price_lte: 1000
+  price_lte: 1000,
+  platform: ['windows', 'linux']
 }
 
 describe('parserQueryStringToWhere', () => {
