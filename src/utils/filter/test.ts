@@ -1,4 +1,4 @@
-import { parseQueryStringToWhere } from '.'
+import { parseQueryStringToWhere, parseQueryStringToFilter } from '.'
 
 const filterItems = [
   { name: 'price_lte', type: 'radio' },
@@ -22,6 +22,19 @@ describe('parserQueryStringToWhere', () => {
       price_lte: 100,
       platform: { name_contains: ['windows', 'linux'] },
       developers: { name_contains: ['Rockstar Games'] }
+    })
+  })
+})
+
+describe('parseQueryStringToFilter', () => {
+  it('shoud parse queryString to filter values format', () => {
+    const parseQuery = parseQueryStringToFilter({ queryString, filterItems })
+
+    expect(parseQuery).toStrictEqual({
+      price_lte: 100,
+      platform: ['windows', 'linux'],
+      developers: ['Rockstar Games'],
+      sort: 'price:asc'
     })
   })
 })
