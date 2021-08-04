@@ -9,7 +9,8 @@ const filterItems = [
 
 const queryString = {
   price_lte: 1000,
-  platform: ['windows', 'linux']
+  platform: ['windows', 'linux'],
+  developers: 'Rockstar Games'
 }
 
 describe('parserQueryStringToWhere', () => {
@@ -18,7 +19,8 @@ describe('parserQueryStringToWhere', () => {
 
     expect(parseQuery).toStrictEqual({
       price_lte: 100,
-      platform: { name_contains: ['windows', 'linux'] }
+      platform: { name_contains: ['windows', 'linux'] },
+      developers: { name_contains: ['Rockstar Games'] }
     })
   })
 })
