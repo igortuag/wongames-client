@@ -27,3 +27,13 @@ export const parseQueryStringToWhere = ({
 
   return obj
 }
+
+export const parseQueryStringToFilter = ({
+  queryString,
+  filterItems
+}: ParseArgs) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const obj: any = {}
+
+  return obj
+}
