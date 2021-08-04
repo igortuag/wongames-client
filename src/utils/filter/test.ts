@@ -17,7 +17,8 @@ describe('parserQueryStringToWhere', () => {
     const parseQuery = parseQueryStringToWhere({ queryString, filterItems })
 
     expect(parseQuery).toStrictEqual({
-      price_lte: 100
+      price_lte: 100,
+      platform: { name_contains: ['windows', 'linux'] }
     })
   })
 })
