@@ -85,7 +85,9 @@ const ExploreSidebar = ({
                   name={item.name}
                   label={field.label}
                   labelFor={field.name}
-                  defaultChecked={field.name === values[item.name]}
+                  defaultChecked={
+                    String(field.name) === String(values[item.name])
+                  }
                   onChange={() => handleChange(item.name, field.name)}
                 />
               ))}
