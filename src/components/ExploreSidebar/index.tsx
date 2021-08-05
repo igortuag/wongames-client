@@ -8,6 +8,7 @@ import Checkbox from 'components/Checkbox'
 import Radio from 'components/Radio'
 
 import * as S from './styles'
+import { ParsedUrlQueryInput } from 'querystring'
 
 export type ItemProps = {
   title: string
@@ -21,9 +22,7 @@ type Field = {
   name: string
 }
 
-type Values = {
-  [field: string]: boolean | string
-}
+type Values = ParsedUrlQueryInput
 
 export type ExploreSidebarProps = {
   items: ItemProps[]
