@@ -69,7 +69,9 @@ const ExploreSidebar = ({
                   name={field.name}
                   label={field.label}
                   labelFor={field.name}
-                  isChecked={!!values[field.name]}
+                  isChecked={(values[item.name] as string[])?.includes(
+                    field.name
+                  )}
                   onCheck={(v) => handleChange(field.name, v)}
                 />
               ))}
