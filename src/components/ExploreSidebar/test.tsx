@@ -122,5 +122,11 @@ describe('<ExploreSidebar />', () => {
     userEvent.click(screen.getByLabelText(/close filters/))
 
     expect(Element).not.toHaveStyleRule('opacity', '1', variant)
+
+    userEvent.click(screen.getByLabelText(/open filters/))
+
+    userEvent.click(screen.getByRole('button', { name: /filter/i }))
+
+    expect(Element).not.toHaveStyleRule('opacity', '1', variant)
   })
 })
