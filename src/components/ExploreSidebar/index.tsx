@@ -53,8 +53,7 @@ const ExploreSidebar = ({
     setValues((s) => ({ ...s, [name]: xor(currentList, [value]) }))
   }
 
-  const handleFilter = () => {
-    onFilter(values)
+  const handleFilterMenu = () => {
     setIsOpen(false)
   }
 
@@ -107,7 +106,7 @@ const ExploreSidebar = ({
       </S.Content>
 
       <S.Footer>
-        <Button fullWidth size="medium" onClick={handleFilter}>
+        <Button fullWidth size="medium" onClick={handleFilterMenu}>
           Filter
         </Button>
       </S.Footer>
