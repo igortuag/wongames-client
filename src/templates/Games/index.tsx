@@ -13,6 +13,7 @@ import {
   parseQueryStringToFilter,
   parseQueryStringToWhere
 } from 'utils/filter'
+import { ParsedUrlQueryInput } from 'querystring'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -29,7 +30,11 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     }
   })
 
-  const handleFilter = () => {
+  const handleFilter = (items: ParsedUrlQueryInput) => {
+    push({
+      pathname: '/games',
+      query: items
+    })
     return
   }
 
