@@ -80,7 +80,8 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
       limit: 9,
       where: {
         limit: 15,
-        where: parseQueryStringToWhere({ queryString: query, filterItems })
+        where: parseQueryStringToWhere({ queryString: query, filterItems }),
+        sort: query.sort as string | null
       }
     }
   })
