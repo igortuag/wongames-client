@@ -7,14 +7,22 @@ import { Grid } from 'components/Grid'
 
 import * as S from './styles'
 import { useQueryGames } from 'graphql/queries/games'
+import { useRouter } from 'next/router'
+import { parseQueryStringToWhere } from 'utils/filter'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
 }
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { push, query } = useRouter()
+
   const { data, fetchMore, loading } = useQueryGames({
-    variables: { limit: 15 }
+    variables: {
+      limit: 15,
+      where: parseQueryStringToWhere({ queryString: query, filterItems }),
+      sort: query.sort as string | null
+    }
   })
 
   const handleFilter = () => {
