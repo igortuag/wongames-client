@@ -7,17 +7,34 @@ import { Grid } from 'components/Grid'
 
 import * as S from './styles'
 import { useQueryGames } from 'graphql/queries/games'
+import { useRouter } from 'next/router'
+import {
+  parseQueryStringToFilter,
+  parseQueryStringToFilter,
+  parseQueryStringToWhere
+} from 'utils/filter'
+import { ParsedUrlQueryInput } from 'querystring'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
 }
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { push, query } = useRouter()
+
   const { data, fetchMore, loading } = useQueryGames({
-    variables: { limit: 15 }
+    variables: {
+      limit: 15,
+      where: parseQueryStringToWhere({ queryString: query, filterItems }),
+      sort: query.sort as string | null
+    }
   })
 
-  const handleFilter = () => {
+  const handleFilter = (items: ParsedUrlQueryInput) => {
+    push({
+      pathname: '/games',
+      query: items
+    })
     return
   }
 
@@ -28,7 +45,14 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   return (
     <Base>
       <S.Main>
-        <ExploreSidebar items={filterItems} onFilter={handleFilter} />
+        <ExploreSidebar
+          initialValues={parseQueryStringToFilter({
+            queryString: query,
+            filterItems
+          })}
+          items={filterItems}
+          onFilter={handleFilter}
+        />
         {loading ? (
           <p>loading...</p>
         ) : (
