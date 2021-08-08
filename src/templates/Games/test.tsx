@@ -70,4 +70,19 @@ describe('<Games />', () => {
 
     expect(await screen.findByText(/Fetch More Game/i)).toBeInTheDocument()
   })
+
+  it('should change push router when select a filter', async () => {
+    renderWithTheme(
+      <MockedProvider mocks={[gamesMock, fetchMoreMock]} cache={apolloCache}>
+        <Games filterItems={filterItemsMock} />
+      </MockedProvider>
+    )
+
+    userEvent.click(await screen.findByRole('checkbox', { name: /window/i }))
+
+    expect(push).toHaveBeenCalledWith({
+      pathname: 'games',
+      query: { platforms: ['windows'] }
+    })
+  })
 })
