@@ -49,7 +49,7 @@ describe('<Games />', () => {
 
     expect(screen.getByText(/loading.../i)).toBeInTheDocument()
 
-    expect(await screen.findByTestId('Mock ExploreSidebar')).toBeInTheDocument()
+    expect(await screen.findByText(/Price/i)).toBeInTheDocument()
     expect(await screen.findByText(/Sample Game/i)).toBeInTheDocument()
 
     expect(
