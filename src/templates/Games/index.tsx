@@ -14,6 +14,7 @@ import {
   parseQueryStringToWhere
 } from 'utils/filter'
 import { ParsedUrlQueryInput } from 'querystring'
+import Empty from 'components/Empty'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -57,19 +58,28 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           <p>loading...</p>
         ) : (
           <section>
-            <Grid>
-              {data?.games.map((game) => (
-                <GameCard
-                  key={game.slug}
-                  title={game.name}
-                  slug={game.slug}
-                  developer={game.developers[0].name}
-                  img={`http://localhost:1337${game.cover!.url}`}
-                  price={game.price}
-                />
-              ))}
-            </Grid>
-
+            {data?.games.length ? (
+              <>
+                <Grid>
+                  {data?.games.map((game) => (
+                    <GameCard
+                      key={game.slug}
+                      title={game.name}
+                      slug={game.slug}
+                      developer={game.developers[0].name}
+                      img={`http://localhost:1337${game.cover!.url}`}
+                      price={game.price}
+                    />
+                  ))}
+                </Grid>
+              </>
+            ) : (
+              <Empty
+                title=":("
+                description="We didn't find any games with this filter"
+                hasLink
+              />
+            )}
             <S.ShowMore role="button" onClick={handleShowMore}>
               <p>Show More</p>
               <ArrowDown size={35} />
