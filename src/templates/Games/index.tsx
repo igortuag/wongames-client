@@ -24,6 +24,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { push, query } = useRouter()
 
   const { data, fetchMore, loading } = useQueryGames({
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 15,
       where: parseQueryStringToWhere({ queryString: query, filterItems }),
