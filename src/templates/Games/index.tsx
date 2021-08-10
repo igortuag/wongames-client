@@ -81,9 +81,18 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                 hasLink
               />
             )}
-            <S.ShowMore role="button" onClick={handleShowMore}>
-              <p>Show More</p>
-              <ArrowDown size={35} />
+            <S.ShowMore>
+              {loading ? (
+                <S.ShowMoreLoading
+                  src="img/dots.svg"
+                  alt="Loading more games..."
+                />
+              ) : (
+                <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                  <p>Show More</p>
+                  <ArrowDown size={35} />
+                </S.ShowMoreButton>
+              )}
             </S.ShowMore>
           </section>
         )}
