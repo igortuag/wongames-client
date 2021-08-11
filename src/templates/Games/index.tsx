@@ -32,6 +32,8 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     }
   })
 
+  const hasMoreGames = data?.games.length < data?.gamesConnection?.values?.length
+
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({
       pathname: '/games',
