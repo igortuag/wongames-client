@@ -32,6 +32,12 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     }
   })
 
+  if (!data) return <p>loading...</p>
+
+  const { games, gamesConnection } = data
+
+  const hasMoreGames = games.length < gamesConnection?.values?.length || 0
+
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({
       pathname: '/games',
@@ -41,7 +47,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   }
 
   const handleShowMore = () => {
-    fetchMore({ variables: { limit: 15, start: data?.games.length } })
+    fetchMore({ variables: { limit: 15, start: games.length } })
   }
 
   return (
@@ -59,10 +65,10 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           <p>loading...</p>
         ) : (
           <section>
-            {data?.games.length ? (
+            {games.length ? (
               <>
                 <Grid>
-                  {data?.games.map((game) => (
+                  {games.map((game) => (
                     <GameCard
                       key={game.slug}
                       title={game.name}
@@ -81,19 +87,21 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                 hasLink
               />
             )}
-            <S.ShowMore>
-              {loading ? (
-                <S.ShowMoreLoading
-                  src="img/dots.svg"
-                  alt="Loading more games..."
-                />
-              ) : (
-                <S.ShowMoreButton role="button" onClick={handleShowMore}>
-                  <p>Show More</p>
-                  <ArrowDown size={35} />
-                </S.ShowMoreButton>
-              )}
-            </S.ShowMore>
+            {hasMoreGames && (
+              <S.ShowMore>
+                {loading ? (
+                  <S.ShowMoreLoading
+                    src="img/dots.svg"
+                    alt="Loading more games..."
+                  />
+                ) : (
+                  <S.ShowMoreButton role="button" onClick={handleShowMore}>
+                    <p>Show More</p>
+                    <ArrowDown size={35} />
+                  </S.ShowMoreButton>
+                )}
+              </S.ShowMore>
+            )}
           </section>
         )}
       </S.Main>
