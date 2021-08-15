@@ -19,10 +19,9 @@ export async function getStaticProps() {
     query: QUERY_HOME,
     variables: {
       date: TODAY
-    }
+    },
+    fetchPolicy: 'no-cache' // garantir sempre dado novo na geração do estático
   })
-
-  console.log('BANNERS :>>', banners)
 
   return {
     revalidate: 60,
