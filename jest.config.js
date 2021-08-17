@@ -8,6 +8,7 @@ module.exports = {
     '!src/pages/**/*.tsx',
     '!src/styles/**/*.ts',
     '!src/utils/apollo.ts',
+    '!src/utils/apolloCache.ts',
     '!src/types/**/*.d.ts',
     '!src/graphql/**/*.d.ts',
     '!src/**/mock.ts'
