@@ -1,3 +1,4 @@
+import { QueryGames_games } from 'graphql/generated/QueryGames'
 import { QueryHome_banners } from 'graphql/generated/QueryHome'
 
 import { bannerMapper, bannerMapperm, gamesMapper, highlightMapper } from '.'
@@ -41,5 +42,30 @@ describe('gamesMapper()', () => {
     expect(gamesMapper(null)).toStrictEqual([])
   })
 
-  it('should return the correct format when mapped', () => {})
+  it('should return the correct format when mapped', () => {
+    const games = {
+      id: '1',
+      name: 'game',
+      developers: [
+        {
+          name: 'developer'
+        }
+      ],
+      slug: 'game',
+      cover: {
+        url: '/image.jpg'
+      },
+      price: 10
+    } as QueryGames_games
+
+    expect(gamesMapper([games])).toStrictEqual([
+      {
+        title: 'game',
+        slug: 'game',
+        developer: 'developer',
+        img: 'http://localhost:1337/image.jpg',
+        price: 10
+      }
+    ])
+  })
 })
