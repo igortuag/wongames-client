@@ -35,3 +35,11 @@ describe('bannerMapper()', () => {
     ])
   })
 })
+
+describe('gamesMapper()', () => {
+  it('should return an empty array if there are no games', () => {
+    expect(gamesMapper(null)).toStrictEqual([])
+  })
+
+  it('should return the correct format when mapped', () => {})
+})
