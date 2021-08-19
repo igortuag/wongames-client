@@ -32,6 +32,8 @@ export const Content = styled.div`
   `}
 `
 
+export const Overlay = styled.div``
+
 type WrapperProps = {
   isOpen?: boolean
 }
