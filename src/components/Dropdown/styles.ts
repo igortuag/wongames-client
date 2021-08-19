@@ -20,6 +20,7 @@ export const Content = styled.div`
     margin-top: ${theme.spacings.small};
     position: absolute;
     right: 0;
+    z-index: ${theme.layers.alwaysOnTop};
 
     &:before {
       content: '';
