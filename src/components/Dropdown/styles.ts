@@ -8,6 +8,7 @@ export const Title = styled.div`
     display: flex;
     align-items: center;
     padding-right: 2.4rem;
+    z-index: ${theme.layers.alwaysOnTop};
   `}
 `
 
