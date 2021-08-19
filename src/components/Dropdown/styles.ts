@@ -66,7 +66,8 @@ export const Wrapper = styled.div<WrapperProps>`
     position: relative;
     width: max-content;
 
-    ${Content} {
+    ${Content},
+    ${Overlay} {
       transition: transform 0.2s easi-in, opacity ${theme.transition.default};
 
       ${isOpen && wrapperModifiers.open()}
