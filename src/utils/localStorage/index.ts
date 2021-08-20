@@ -7,4 +7,4 @@ export function getStorageItem(key: string) {
   return JSON.parse(data!)
 }
 
-export function setStorageItem() {}
+export function setStorageItem(key: string, value: string[]) {}
