@@ -1,6 +1,9 @@
 import { getStorageItem, setStorageItem } from '.'
 
 describe('getStorageItem', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
   it('should return the item from localStorage', () => {
     window.localStorage.setItem(
       'WONGAMES_cartItems',
@@ -12,6 +15,9 @@ describe('getStorageItem', () => {
 })
 
 describe('setStorageItem', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+  })
   it('should add the item to localStorage', () => {
     setStorageItem('cartItems', ['1', '2'])
 
