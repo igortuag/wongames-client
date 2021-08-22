@@ -1,7 +1,9 @@
 import { useContext } from 'react'
 import { createContext } from 'react'
 
-export type CartContextData = {}
+export type CartContextData = {
+  items: string[]
+}
 
 export const CartContextDefaultValues = {}
 
