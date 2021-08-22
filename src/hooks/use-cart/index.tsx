@@ -1,5 +1,9 @@
-import { useContext } from 'react'
+import { useEffect } from 'react'
+import { useState, useContext } from 'react'
 import { createContext } from 'react'
+import { getStorageItem } from 'utils/localStorage'
+
+const CART_KEY = 'cartItems'
 
 export type CartContextData = {
   items: string[]
@@ -16,7 +20,25 @@ export type CartProviderProps = {
 }
 
 const CartProvider = ({ children }: CartProviderProps) => {
-  return <CartContext.Provider value={{}}>{children}</CartContext.Provider>
+  const [cartItems, setCartItems] = useState<string[]>([])
+
+  useEffect(() => {
+    const data = getStorageItem(CART_KEY)
+
+    if (data) {
+      setCartItems(data)
+    }
+  }, [])
+
+  return (
+    <CartContext.Provider
+      value={{
+        items: cartItems
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  )
 }
 
 const useCart = () => useContext(CartContext)
