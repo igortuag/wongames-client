@@ -1,3 +1,4 @@
+import { useQueryGames } from 'graphql/queries/games'
 import { useEffect } from 'react'
 import { useState, useContext } from 'react'
 import { createContext } from 'react'
@@ -29,6 +30,13 @@ const CartProvider = ({ children }: CartProviderProps) => {
       setCartItems(data)
     }
   }, [])
+
+  const = { data } = useQueryGames({
+    skip: !cartItems.length,
+    variables: {
+      where: cartItems
+    }
+  })
 
   return (
     <CartContext.Provider
