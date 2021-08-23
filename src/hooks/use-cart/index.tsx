@@ -6,8 +6,15 @@ import { getStorageItem } from 'utils/localStorage'
 
 const CART_KEY = 'cartItems'
 
+type CartItem = {
+  id: string
+  img: string
+  title: string
+  price: string
+}
+
 export type CartContextData = {
-  items: string[]
+  items: CartItem[]
 }
 
 export const CartContextDefaultValues = {}
@@ -32,7 +39,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   }, [])
 
   const = { data } = useQueryGames({
-    skip: !cartItems.length,
+    skip: !cartItems?.length,
     variables: {
       where: cartItems
     }
@@ -41,7 +48,7 @@ const CartProvider = ({ children }: CartProviderProps) => {
   return (
     <CartContext.Provider
       value={{
-        items: cartItems
+        items: data!.games
       }}
     >
       {children}
