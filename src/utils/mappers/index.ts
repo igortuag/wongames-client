@@ -3,6 +3,7 @@ import {
   QueryHome_banners,
   QueryHome_sections_freeGames_highlight
 } from 'graphql/generated/QueryHome'
+import formatPrice from 'utils/format-price'
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
   return banners.map(({ image, title, subtitle, button, ribbon }) => ({
@@ -46,4 +47,15 @@ export const highlightMapper = (
       aligment: highlight?.alignment
     }
   )
+}
+
+export const cartMapper = (games: QueryGames_games[] | undefined) => {
+  return games
+    ? games.map((game) => ({
+        id: game.id,
+        img: `http://localhost:1337${game?.cover?.url}`,
+        title: game?.title,
+        price: formatPrice(game.price)
+      }))
+    : []
 }
