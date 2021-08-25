@@ -18,11 +18,13 @@ type CartItem = {
 export type CartContextData = {
   items: CartItem[]
   quantity: number
+  total: string
 }
 
 export const CartContextDefaultValues = {
   items: [],
-  quantity: 0
+  quantity: 0,
+  total: '$0.00'
 }
 
 export const CartContext = createContext<CartContextData>(
