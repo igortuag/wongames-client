@@ -21,6 +21,7 @@ export type CartContextData = {
   total: string
   isInCart: (id: string) => boolean
   addToCart: (id: string) => void
+  removeFromCart: (id: string) => void
 }
 
 export const CartContextDefaultValues = {
@@ -28,7 +29,8 @@ export const CartContextDefaultValues = {
   quantity: 0,
   total: '$0.00',
   isInCart: () => false,
-  addToCart: () => null
+  addToCart: () => null,
+  removeFromCart: () => null
 }
 
 export const CartContext = createContext<CartContextData>(
@@ -66,9 +68,15 @@ const CartProvider = ({ children }: CartProviderProps) => {
   const isInCart = (id: string) => (id ? cartItems.includes(id) : false)
 
   const addToCart = (id: string) => {
-    const newItems = [...cartItems, id]
-    setCartItems(newItems)
-    setStorageItem(CART_KEY, newItems)
+    const newCartItems = [...cartItems, id]
+    setCartItems(newCartItems)
+    setStorageItem(CART_KEY, newCartItems)
+  }
+
+  const removeFromCart = (id: string) => {
+    const newCartItems = cartItems.filter((item: string) => item !== id)
+    setCartItems(newCartItems)
+    setStorageItem(CART_KEY, newCartItems)
   }
 
   return (
@@ -78,7 +86,8 @@ const CartProvider = ({ children }: CartProviderProps) => {
         quantity: cartItems?.length,
         total: formatPrice(total || 0),
         isInCart,
-        addToCart
+        addToCart,
+        removeFromCart
       }}
     >
       {children}
