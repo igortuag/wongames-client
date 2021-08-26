@@ -1,5 +1,5 @@
 import { MockedProvider } from '@apollo/client/testing'
-import { renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react-hooks'
 import { setStorageItem } from 'utils/localStorage'
 
 import { useCart, CartProvider, CartProviderProps } from '.'
@@ -48,5 +48,30 @@ describe('useCart', () => {
 
     expect(result.current.isInCart('1')).toBe(true)
     expect(result.current.isInCart('2')).toBe(false)
+  })
+
+  it('should add item in the cart', () => {
+    beforeEach(() => {
+      window.localStorage.clear()
+    })
+
+    const wrapper = ({ children }: CartProviderProps) => (
+      <MockedProvider mocks={[gamesMock]}>
+        <CartProvider>{children}</CartProvider>
+      </MockedProvider>
+    )
+
+    const { result } = renderHook(() => useCart(), {
+      wrapper
+    })
+
+    act(() => {
+      result.current.addToCart('1')
+    })
+
+    expect(result.current.quantity).toBe(1)
+    expect(window.localStorage.getItem('WONGAMES_cartItems')).toBe(
+      JSON.stringify(['1'])
+    )
   })
 })
