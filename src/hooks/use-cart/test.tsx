@@ -74,4 +74,31 @@ describe('useCart', () => {
       JSON.stringify(['1'])
     )
   })
+
+  it('should remove an item from the cart', () => {
+    beforeEach(() => {
+      window.localStorage.clear()
+    })
+
+    const wrapper = ({ children }: CartProviderProps) => (
+      <MockedProvider mocks={[gamesMock]}>
+        <CartProvider>{children}</CartProvider>
+      </MockedProvider>
+    )
+
+    setStorageItem('cartItem', ['1'])
+
+    const { result } = renderHook(() => useCart(), {
+      wrapper
+    })
+
+    act(() => {
+      result.current.removeFromCart('1')
+    })
+
+    expect(result.current.quantity).toBe(0)
+    expect(window.localStorage.getItem('WONGAMES_cartItems')).toBe(
+      JSON.stringify([])
+    )
+  })
 })
