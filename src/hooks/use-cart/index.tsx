@@ -67,16 +67,18 @@ const CartProvider = ({ children }: CartProviderProps) => {
 
   const isInCart = (id: string) => (id ? cartItems.includes(id) : false)
 
+  const saveCart = (cartItems: string[]) => {
+    setCartItems(cartItems)
+    setStorageItem(CART_KEY, cartItems)
+  }
+
   const addToCart = (id: string) => {
-    const newCartItems = [...cartItems, id]
-    setCartItems(newCartItems)
-    setStorageItem(CART_KEY, newCartItems)
+    saveCart([...cartItems, id])
   }
 
   const removeFromCart = (id: string) => {
     const newCartItems = cartItems.filter((item: string) => item !== id)
-    setCartItems(newCartItems)
-    setStorageItem(CART_KEY, newCartItems)
+    saveCart(newCartItems)
   }
 
   return (
