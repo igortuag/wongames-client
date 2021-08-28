@@ -1,9 +1,10 @@
 import { ShoppingCart } from '@styled-icons/material-outlined/ShoppingCart'
+import { useCart } from 'hooks/use-cart'
 
 import * as S from './styles'
 
 const CartIcon = () => {
-  const quantity = 0
+  const { quantity } = useCart()
 
   return (
     <S.Wrapper>
