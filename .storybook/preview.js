@@ -1,4 +1,5 @@
 import { addDecorator } from '@storybook/react'
+import { CartContext, CartContextDefaultValues } from 'hooks/use-cart'
 import { withNextRouter } from 'storybook-addon-next-router'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
@@ -23,10 +24,18 @@ export const parameters = {
 }
 
 export const decorators = [
-  (Story) => (
+  (Story, context) => (
     <ThemeProvider theme={theme}>
-      <GlobalStyles removeBg />
-      <Story />
+      <CartContext.Provider
+        value={{
+          ...CartContextDefaultValues,
+          ...CartContext(context?.args?.cartContextValue || {}),
+          ...context.args
+        }}
+      >
+        <GlobalStyles removeBg />
+        <Story />
+      </CartContext.Provider>
     </ThemeProvider>
   )
 ]
