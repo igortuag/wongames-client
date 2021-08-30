@@ -38,6 +38,11 @@ export const withButton: Story = (args) => (
   </div>
 )
 
+withButton.args = {
+  total: 'R$: 330,00',
+  cartContextValue: { items }
+}
+
 export const Empty: Story = (args) => (
   <div style={{ maxWidth: 800 }}>
     <CartList />
