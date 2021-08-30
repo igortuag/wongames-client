@@ -6,11 +6,10 @@ import mockItems from './mock'
 export default {
   title: 'CartList',
   component: CartList,
-  args: {
-    items: mockItems,
-    total: 'R$ 330,00'
-  },
   argTypes: {
+    cartContextValue: {
+      type: ''
+    },
     items: {
       type: ''
     }
