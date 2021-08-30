@@ -20,12 +20,17 @@ describe('<CartList />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  // it('should render the button', () => {
-  //   render(<CartList hasButton />)
+  it('should render the button', () => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      items
+    }
 
-  //   expect(screen.getByText(/Buy it now/i)).toBeInTheDocument()
-  //   expect(screen.queryByText(/total/i)).not.toBeInTheDocument()
-  // })
+    render(<CartList hasButton />, { cartProviderProps })
+
+    expect(screen.getByText(/Buy it now/i)).toBeInTheDocument()
+    expect(screen.queryByText(/total/i)).not.toBeInTheDocument()
+  })
 
   // it('should render empty if there are no games', () => {
   //   render(<CartList />)
