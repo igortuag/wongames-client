@@ -3,12 +3,15 @@ import Button from 'components/Button'
 import GameItem from 'components/GameItem'
 import * as S from './styles'
 import Empty from 'components/Empty'
+import { useCart } from 'hooks/use-cart'
 
 export type CartListProps = {
   hasButton?: boolean
 }
 
 const CartList = ({ hasButton = false }: CartListProps) => {
+  const { items, total } = useCart()
+
   return (
     <S.Wrapper isEmpty={!items.length}>
       {items.length ? (
