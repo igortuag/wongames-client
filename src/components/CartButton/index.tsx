@@ -10,7 +10,9 @@ type CartButtonProps = {
 const CartButton = ({ id }: CartButtonProps) => {
   const { isInCart, addToCart, removeFromCart } = useCart()
 
-  return <Button icon={<AddShoppingCart />} size="small" />
+  return (
+    <Button icon={<AddShoppingCart />} aria-label="Add to cart" size="small" />
+  )
 }
 
 export default CartButton
