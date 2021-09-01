@@ -11,7 +11,12 @@ const CartButton = ({ id }: CartButtonProps) => {
   const { isInCart, addToCart, removeFromCart } = useCart()
 
   return (
-    <Button icon={<AddShoppingCart />} aria-label="Add to cart" size="small" />
+    <Button
+      icon={<AddShoppingCart />}
+      aria-label="Add to cart"
+      size="small"
+      onClick={() => (isInCart(id) ? removeFromCart(id) : addToCart(id))}
+    />
   )
 }
 
