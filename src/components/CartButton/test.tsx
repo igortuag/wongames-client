@@ -1,5 +1,6 @@
 import { screen, render } from 'utils/test-utils'
 import { CartContextDefaultValues } from 'hooks/use-cart'
+import userEvent from '@testing-library/user-event'
 
 import CartButton from '.'
 
@@ -16,5 +17,9 @@ describe('<CartButton />', () => {
     const button = screen.getByLabelText(/add ti cart/i)
 
     expect(button).toBeInTheDocument()
+
+    userEvent.click(button)
+
+    expect(cartProviderProps.addToCart).toHaveBeenCalledWith('1')
   })
 })
