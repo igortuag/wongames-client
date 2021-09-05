@@ -58,3 +58,7 @@ export const Total = styled.span`
     color: ${theme.colors.primary};
   `}
 `
+
+export const Loading = styled.div`
+  ${({ theme }) => css``}
+`
