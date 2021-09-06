@@ -53,6 +53,11 @@ export const Footer = styled.div`
   `}
 `
 
+export const GameList = styled.div`
+  max-height: 40rem;
+  overflow-y: auto;
+`
+
 export const Total = styled.span`
   ${({ theme }) => css`
     color: ${theme.colors.primary};
