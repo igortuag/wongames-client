@@ -10,6 +10,7 @@ export type PaymentInfoProps = {
 }
 
 export type GameItemProps = {
+  id: string
   img: string
   title: string
   price: string
@@ -18,6 +19,7 @@ export type GameItemProps = {
 }
 
 const GameItem = ({
+  id,
   img,
   title,
   price,
@@ -45,7 +47,12 @@ const GameItem = ({
               </S.DownloadLink>
             )}
           </S.Title>
-          <S.Price>{price}</S.Price>
+          <S.Group>
+            <S.Price>{price}</S.Price>
+            {isInCart(id) && (
+              <S.Remove onClick={() => removeFromCart(id)}>Remove</S.Remove>
+            )}
+          </S.Group>
         </S.Content>
       </S.GameContent>
 
