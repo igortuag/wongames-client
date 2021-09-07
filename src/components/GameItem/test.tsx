@@ -1,5 +1,6 @@
-import { screen } from '@testing-library/react'
-import { renderWithTheme } from 'utils/tests/helper'
+import { render, screen } from 'utils/test-utils'
+import userEvent from '@testing-library/user-event'
+import { CartContextDefaultValues } from 'hooks/use-cart'
 
 import GameItem from '.'
 
@@ -12,7 +13,7 @@ const props = {
 
 describe('<GameItem />', () => {
   it('should render the item', () => {
-    renderWithTheme(<GameItem {...props} />)
+    render(<GameItem {...props} />)
 
     expect(
       screen.getByRole('heading', { name: props.title })
@@ -26,9 +27,24 @@ describe('<GameItem />', () => {
     expect(screen.getByText('R$ 215,00')).toBeInTheDocument()
   })
 
+  it('should render remove if the item is inside the cart and call remove', () => {
+    const cartProviderProps = {
+      ...CartContextDefaultValues,
+      isInCart: () => true,
+      removeFromCart: jest.fn()
+    }
+    render(<GameItem {...props} />, { cartProviderProps })
+
+    const removeLink = screen.getByText(/remove/i)
+    expect(removeLink).toBeInTheDocument()
+
+    userEvent.click(removeLink)
+    expect(cartProviderProps.removeFromCart).toHaveBeenCalledWith('1')
+  })
+
   it('should render the item with download link', () => {
     const downloadLink = 'https://link'
-    renderWithTheme(<GameItem {...props} downloadLink={downloadLink} />)
+    render(<GameItem {...props} downloadLink={downloadLink} />)
 
     expect(
       screen.getByRole('link', { name: `Get ${props.title} here` })
@@ -42,7 +58,7 @@ describe('<GameItem />', () => {
       number: '**** **** **** 4326',
       purchaseDate: 'Purchase made on 07/20/2020 at 20:32'
     }
-    renderWithTheme(<GameItem {...props} paymentInfo={paymentInfo} />)
+    render(<GameItem {...props} paymentInfo={paymentInfo} />)
 
     expect(screen.getByRole('img', { name: paymentInfo.flag })).toHaveAttribute(
       'src',
