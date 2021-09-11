@@ -24,7 +24,7 @@ describe('bannerMapper()', () => {
 
     expect(bannerMapper([banner])).toStrictEqual([
       {
-        img: 'http://localhost:1337/image.jpg',
+        img: 'http://localhost:1338/image.jpg',
         title: 'Banner Title',
         subtitle: 'Banner Subtitle',
         buttonLabel: 'button label',
@@ -64,7 +64,7 @@ describe('gamesMapper()', () => {
         title: 'game',
         slug: 'game',
         developer: 'developer',
-        img: 'http://localhost:1337/image.jpg',
+        img: 'http://localhost:1338/image.jpg',
         price: 10
       }
     ])
@@ -89,7 +89,7 @@ describe('cartMapper()', () => {
     expect(gamesMapper([games])).toStrictEqual([
       {
         id: '1',
-        img: 'http://localhost:1337/image.jpg',
+        img: 'http://localhost:1338/image.jpg',
         title: 'game',
         price: 10
       }

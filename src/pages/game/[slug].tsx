@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     revalidate: 60,
     props: {
-      cover: `http://localhost:1337${game.cover?.src}`,
+      cover: `http://localhost:1338${game.cover?.src}`,
       gameInfo: {
         id: game.id,
         title: game.name,
@@ -84,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         description: game.short_description
       },
       gallery: game.gallery.map(({ label, url }) => ({
-        src: `http://localhost:1337${url}`,
+        src: `http://localhost:1338${url}`,
         label
       })),
       description: game.description,
