@@ -50,18 +50,21 @@ const FormSignUp = () => {
           name="email"
           placeholder="Email"
           type="email"
+          onInputChange={(v) => handleInput('email', v)}
           icon={<Email />}
         />
         <TextField
           name="password"
           placeholder="Password"
           type="password"
+          onInputChange={(v) => handleInput('password', v)}
           icon={<Lock />}
         />
         <TextField
           name="confirm-password"
           placeholder="Confirm password"
           type="password"
+          onInputChange={(v) => handleInput('confirm-password', v)}
           icon={<Lock />}
         />
 
