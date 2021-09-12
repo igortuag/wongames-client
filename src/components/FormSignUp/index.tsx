@@ -32,6 +32,10 @@ const FormSignUp = () => {
     })
   }
 
+  const handleInput = (field: string, value: string) => {
+    setValues((s) => ({ ...s, [field]: value }))
+  }
+
   return (
     <FormWrapper>
       <form onSubmit={handleSubmit}>
@@ -39,6 +43,7 @@ const FormSignUp = () => {
           name="username"
           placeholder="Username"
           type="text"
+          onInputChange={(v) => handleInput('username', v)}
           icon={<AccountCircle />}
         />
         <TextField
