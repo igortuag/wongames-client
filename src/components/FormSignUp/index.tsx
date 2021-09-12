@@ -18,9 +18,23 @@ const FormSignUp = () => {
 
   const [createUser] = useMutation(MUTATION_REGISTER)
 
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+
+    createUser({
+      variables: {
+        input: {
+          username: values.username,
+          email: values.email,
+          password: values.password
+        }
+      }
+    })
+  }
+
   return (
     <FormWrapper>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TextField
           name="name"
           placeholder="Name"
