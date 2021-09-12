@@ -36,9 +36,9 @@ const FormSignUp = () => {
     <FormWrapper>
       <form onSubmit={handleSubmit}>
         <TextField
-          name="name"
-          placeholder="Name"
-          type="name"
+          name="username"
+          placeholder="Username"
+          type="text"
           icon={<AccountCircle />}
         />
         <TextField
