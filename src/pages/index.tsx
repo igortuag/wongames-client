@@ -27,17 +27,22 @@ export async function getStaticProps() {
     revalidate: 60,
     props: {
       banners: bannerMapper(banners),
-      newGamesTitle: sections?.newGames?.title,
+      newGamesTitle: sections?.newGames?.title || 'New game',
       newGames: gamesMapper(newGames),
-      mostPopularGamesTitle: sections?.popularGames?.title,
-      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
-      mostPopularGames: gamesMapper(sections?.upcomingGames?.games),
-      upcomingGamesTitle: sections?.upcomingGames?.title,
+      mostPopularGamesTitle:
+        sections?.popularGames?.title || 'Most Popular games',
+      mostPopularHighlight:
+        highlightMapper(sections?.popularGames?.highlight) || [],
+      mostPopularGames: gamesMapper(
+        sections?.upcomingGames?.games || 'Most Popular Games'
+      ),
+      upcomingGamesTitle: sections?.upcomingGames?.title || 'Upcoming Games',
       upcomingGames: gamesMapper(upcomingGames),
-      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
-      freeGamesTitle: sections?.freeGames?.title,
+      upcomingHighlight:
+        highlightMapper(sections?.upcomingGames?.highlight) || [],
+      freeGamesTitle: sections?.freeGames?.title || 'Free games',
       freeGames: gamesMapper(freeGames),
-      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight) || []
     }
   }
 }
