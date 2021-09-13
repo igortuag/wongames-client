@@ -35,6 +35,12 @@ exports[`<TextField /> Renders with error 1`] = `
   width: 100%;
 }
 
+.c6:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 2.4rem #EAEAEA inset;
+  -webkit-filter: none;
+  filter: none;
+}
+
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -61,7 +67,7 @@ exports[`<TextField /> Renders with error 1`] = `
 }
 
 .c0 .c3,
-.c0 .sc-dlfnbm {
+.c0 .sc-dlnjPT {
   color: #FF6347;
 }
 
