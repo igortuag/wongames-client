@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { signIn } from 'next-auth/client'
+import { useRouter } from 'next/router'
+
 import Link from 'next/link'
 import { Email, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
@@ -6,28 +9,26 @@ import Button from 'components/Button'
 import { FormWrapper, FormLink } from 'components/Form'
 import TextField from 'components/TextField'
 import * as S from './styles'
-import { useMutation } from '@apollo/client'
 
 const FormSignIn = () => {
-  const [values, setValues] = useState<>({
+  const [values, setValues] = useState({
     email: '',
     password: ''
   })
-
-  const [createUser] = useMutation()
+  const { push } = useRouter()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    createUser({
-      variables: {
-        input: {
-          username: values.username,
-          email: values.email,
-          password: values.password
-        }
-      }
+    const result = await signIn('credentials', {
+      ...values,
+      redirect: false,
+      callbackUrl: '/'
     })
+
+    if (result?.url) {
+      return push(result?.url)
+    }
   }
 
   const handleInput = (field: string, value: string) => {
