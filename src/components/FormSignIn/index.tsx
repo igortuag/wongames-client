@@ -29,6 +29,8 @@ const FormSignIn = () => {
     if (result?.url) {
       return push(result?.url)
     }
+
+    console.error('email ou senha invalida')
   }
 
   const handleInput = (field: string, value: string) => {
