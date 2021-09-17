@@ -20,4 +20,6 @@ declare module 'next-auth/client' {
     },
     authorizationParams?: string | string[][] | GenericObject | URLSearchParams
   ): Promise<SignInResponse>
+
+  export const signIn: typeof signin
 }
