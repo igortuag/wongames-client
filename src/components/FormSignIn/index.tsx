@@ -15,6 +15,7 @@ const FormSignIn = () => {
     email: '',
     password: ''
   })
+  const [loading, setLoading] = useState(false)
   const { push } = useRouter()
 
   const handleSubmit = async (event: React.FormEvent) => {
