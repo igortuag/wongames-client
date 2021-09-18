@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Email, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 
-import { FormWrapper, FormLink } from 'components/Form'
+import { FormWrapper, FormLink, FormLoading } from 'components/Form'
 import TextField from 'components/TextField'
 import * as S from './styles'
 
@@ -60,13 +60,13 @@ const FormSignIn = () => {
         <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
 
         <Button type="submit" size="large" fullWidth>
-          Sign in now
+          {loading ? <FormLoading /> : <span>Sign in now</span>}
         </Button>
 
         <FormLink>
           Don’t have an account?{' '}
           <Link href="/sign-up">
-            <a>Sign up</a>
+            <s>Sign up</s>
           </Link>
         </FormLink>
       </form>
