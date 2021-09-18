@@ -20,6 +20,7 @@ const FormSignIn = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+    setLoading(true)
 
     const result = await signIn('credentials', {
       ...values,
@@ -30,6 +31,7 @@ const FormSignIn = () => {
     if (result?.url) {
       return push(result?.url)
     }
+    setLoading(false)
 
     console.error('email ou senha invalida')
   }
