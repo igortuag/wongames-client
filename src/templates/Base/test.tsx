@@ -3,6 +3,15 @@ import { renderWithTheme } from 'utils/tests/helper'
 
 import Base from '.'
 
+jest.mock(`templates/base`, () => {
+  return {
+    __esModule: true,
+    default: function Mock({ children }: { children: React.ReactNode }) {
+      return <div data-testid="Mock Base">{children}</div>
+    }
+  }
+})
+
 jest.mock('next-auth/client', () => ({
   useSession: jest.fn(() => [{ session: null }])
 }))
