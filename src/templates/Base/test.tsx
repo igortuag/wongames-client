@@ -3,7 +3,7 @@ import { renderWithTheme } from 'utils/tests/helper'
 
 import Base from '.'
 
-jest.mock(`templates/base`, () => {
+jest.mock(`templates/Base`, () => {
   return {
     __esModule: true,
     default: function Mock({ children }: { children: React.ReactNode }) {
