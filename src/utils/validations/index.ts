@@ -11,4 +11,9 @@ const fieldsValidation = {
 export function signUpValidate(values: UsersPermissionsRegisterInput) {}
 
 type SignInValues = Omit<UsersPermissionsRegisterInput, 'username'>
-export function signInValidate(values: SignInValues) {}
+export function signInValidate(values: SignInValues) {
+  const { email, password } = fieldsValidation
+  const schema = Joi.object({ email, password })
+
+  return schema.validate(values, { abortEarly: false })
+}
