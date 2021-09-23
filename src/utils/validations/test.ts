@@ -9,8 +9,8 @@ describe('validations', () => {
       }
 
       expect(signInValidate(values)).toMatchObject({
-        email: 'email is not allowed to be empty',
-        password: 'password is not allowed to be empty'
+        email: '"email" is not allowed to be empty',
+        password: '"password" is not allowed to be empty'
       })
     })
     it('should return invalid email error', () => {
