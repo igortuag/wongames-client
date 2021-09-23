@@ -30,5 +30,5 @@ export function signInValidate(values: SignInValues) {
   const { email, password } = fieldsValidation
   const schema = Joi.object({ email, password })
 
-  return schema.validate(values, { abortEarly: false })
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
 }
