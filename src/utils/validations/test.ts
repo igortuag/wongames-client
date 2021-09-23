@@ -40,5 +40,18 @@ describe('validations', () => {
         confirm_password: expect.any(String)
       })
     })
+
+    it('should return short username error', () => {
+      const values = {
+        username: 'hi',
+        email: '',
+        password: '',
+        confirm_password: ''
+      }
+
+      expect(signUpValidate(values).username).toMatchInlineSnapshot(
+        `"\\"username\\" length must be at least 5 characters long"`
+      )
+    })
   })
 })
