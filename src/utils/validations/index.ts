@@ -1,5 +1,7 @@
+import { UsersPermissionsRegisterInput } from 'graphql/generated/globalTypes'
 import Joi from 'joi'
 
 export function signUpValidate() {}
 
-export function signInValidate() {}
+type SignInValues = Omit<UsersPermissionsRegisterInput, 'username'>
+export function signInValidate(values: SignInValues) {}
