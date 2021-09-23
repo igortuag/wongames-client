@@ -10589,6 +10589,11 @@ jose@^1.27.2, jose@^1.28.0:
   dependencies:
     "@panva/asn1.js" "^1.0.0"
 
+joy@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/joy/-/joy-0.1.1.tgz#69a7f201739ebf69dd063e6d109e0865746fffd4"
+  integrity sha1-aafyAXOev2ndBj5tEJ4IZXRv/9Q=
+
 js-string-escape@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
