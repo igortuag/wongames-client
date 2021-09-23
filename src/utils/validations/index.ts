@@ -7,7 +7,7 @@ const fieldsValidation = {
     .email({ tlds: { allow: false } })
     .required(),
   password: Joi.string().required(),
-  confirm_password: Joi.string().required()
+  confirm_password: Joi.string().valid(Joi.ref('password')).required()
 }
 
 export type FieldErros = {
@@ -25,7 +25,11 @@ function getFieldErrors(objError: Joi.ValidationResult) {
   return errors
 }
 
-export function signUpValidate(values: UsersPermissionsRegisterInput) {}
+export function signUpValidate(values: UsersPermissionsRegisterInput) {
+  const schema = Joi.object(fieldsValidation)
+
+  return getFieldErrors(schema.validate(values, { abortEarly: false }))
+}
 
 type SignInValues = Omit<UsersPermissionsRegisterInput, 'username'>
 export function signInValidate(values: SignInValues) {
