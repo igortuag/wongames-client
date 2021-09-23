@@ -24,4 +24,21 @@ describe('validations', () => {
       )
     })
   })
+
+  describe('signUpValidate', () => {
+    it('should validate empty fields', () => {
+      const values = {
+        username: '',
+        email: '',
+        password: ''
+      }
+
+      expect(signUpValidate(values)).toMatchObject({
+        username: expect.any(String),
+        email: expect.any(String),
+        password: expect.any(String),
+        confirm_password: expect.any(String)
+      })
+    })
+  })
 })
