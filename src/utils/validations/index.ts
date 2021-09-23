@@ -7,7 +7,12 @@ const fieldsValidation = {
     .email({ tlds: { allow: false } })
     .required(),
   password: Joi.string().required(),
-  confirm_password: Joi.string().valid(Joi.ref('password')).required()
+  confirm_password: Joi.string()
+    .valid(Joi.ref('password'))
+    .required()
+    .messages({
+      'any.only': 'Password and confirm password must be the same'
+    })
 }
 
 export type FieldErros = {

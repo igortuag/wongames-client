@@ -62,8 +62,21 @@ describe('validations', () => {
         confirm_password: '1234'
       }
 
-      expect(signInValidate(values).email).toMatchInlineSnapshot(
+      expect(signUpValidate(values).email).toMatchInlineSnapshot(
         `"\\"email\\" must be a valid email"`
+      )
+    })
+
+    it('should return error if password does not match with confirm password', () => {
+      const values = {
+        username: 'username',
+        email: 'invalid-email',
+        password: '1234',
+        confirm_password: '4321'
+      }
+
+      expect(signUpValidate(values).confirm_password).toMatchInlineSnapshot(
+        `"Password and confirm password must be the same"`
       )
     })
   })
