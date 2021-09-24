@@ -56,6 +56,7 @@ const FormSignIn = () => {
 
   return (
     <FormWrapper>
+      {!!formError && <span>{formError}</span>}
       <form onSubmit={handleSubmit}>
         <TextField
           name="email"
