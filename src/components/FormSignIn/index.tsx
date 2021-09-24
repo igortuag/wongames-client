@@ -12,6 +12,7 @@ import * as S from './styles'
 import { FieldErros, signInValidate } from 'utils/validations'
 
 const FormSignIn = () => {
+  const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErros>({
     email: '',
     password: ''
