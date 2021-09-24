@@ -9,10 +9,13 @@ import Button from 'components/Button'
 import { FormWrapper, FormLink, FormLoading } from 'components/Form'
 import TextField from 'components/TextField'
 import * as S from './styles'
-import { FieldErros } from 'utils/validations'
+import { FieldErros, signInValidate } from 'utils/validations'
 
 const FormSignIn = () => {
-  const [fieldError, setFieldError] = useState<FieldErros>({})
+  const [fieldError, setFieldError] = useState<FieldErros>({
+    email: '',
+    password: ''
+  })
   const [values, setValues] = useState({
     email: '',
     password: ''
@@ -23,6 +26,14 @@ const FormSignIn = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setLoading(true)
+
+    const errors = signInValidate(values)
+
+    if (Object.keys(errors).length > 0) {
+      setFieldError(errors)
+      setLoading(false)
+      return
+    }
 
     const result = await signIn('credentials', {
       ...values,
