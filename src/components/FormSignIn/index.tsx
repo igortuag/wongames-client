@@ -34,7 +34,7 @@ const FormSignIn = () => {
       setLoading(false)
       return
     }
-
+    setFieldError({ email: '', password: '' })
     const result = await signIn('credentials', {
       ...values,
       redirect: false,
