@@ -47,7 +47,7 @@ const FormSignIn = () => {
     }
     setLoading(false)
 
-    console.error('email ou senha invalida')
+    setFormError('Username or password is invalid')
   }
 
   const handleInput = (field: string, value: string) => {
