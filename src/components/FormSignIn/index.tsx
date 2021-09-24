@@ -60,6 +60,7 @@ const FormSignIn = () => {
           name="email"
           placeholder="Email"
           type="email"
+          error={fieldError.email}
           onInputChange={(v) => handleInput('email', v)}
           icon={<Email />}
         />
@@ -67,6 +68,7 @@ const FormSignIn = () => {
           name="password"
           placeholder="Password"
           type="password"
+          error={fieldError.password}
           onInputChange={(v) => handleInput('password', v)}
           icon={<Lock />}
         />
