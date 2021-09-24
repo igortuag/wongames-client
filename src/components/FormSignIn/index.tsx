@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Email, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 
-import { FormWrapper, FormLink, FormLoading } from 'components/Form'
+import { FormWrapper, FormLink, FormLoading, FormError } from 'components/Form'
 import TextField from 'components/TextField'
 import * as S from './styles'
 import { FieldErros, signInValidate } from 'utils/validations'
@@ -56,7 +56,7 @@ const FormSignIn = () => {
 
   return (
     <FormWrapper>
-      {!!formError && <span>{formError}</span>}
+      {!!formError && <FormError>{formError}</FormError>}
       <form onSubmit={handleSubmit}>
         <TextField
           name="email"
