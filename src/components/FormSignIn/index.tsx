@@ -9,8 +9,10 @@ import Button from 'components/Button'
 import { FormWrapper, FormLink, FormLoading } from 'components/Form'
 import TextField from 'components/TextField'
 import * as S from './styles'
+import { FieldErros } from 'utils/validations'
 
 const FormSignIn = () => {
+  const [fieldError, setFieldError] = useState<FieldErros>({})
   const [values, setValues] = useState({
     email: '',
     password: ''
