@@ -3,7 +3,7 @@ import { signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
 
 import Link from 'next/link'
-import { Email, Lock } from '@styled-icons/material-outlined'
+import { Email, Lock, ErrorOutline } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 
 import { FormWrapper, FormLink, FormLoading, FormError } from 'components/Form'
@@ -56,7 +56,13 @@ const FormSignIn = () => {
 
   return (
     <FormWrapper>
-      {!!formError && <FormError>{formError}</FormError>}
+      {!!formError && (
+        <FormError>
+          {' '}
+          <ErrorOutline />
+          {formError}
+        </FormError>
+      )}
       <form onSubmit={handleSubmit}>
         <TextField
           name="email"
