@@ -87,7 +87,8 @@ const FormSignUp = () => {
         <TextField
           name="email"
           placeholder="Email"
-          type="email"
+          type="text"
+          error={fieldError?.email}
           onInputChange={(v) => handleInput('email', v)}
           icon={<Email />}
         />
@@ -95,14 +96,16 @@ const FormSignUp = () => {
           name="password"
           placeholder="Password"
           type="password"
+          error={fieldError?.password}
           onInputChange={(v) => handleInput('password', v)}
           icon={<Lock />}
         />
         <TextField
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm password"
           type="password"
-          onInputChange={(v) => handleInput('confirm-password', v)}
+          error={fieldError?.confirm_password}
+          onInputChange={(v) => handleInput('confirm_password', v)}
           icon={<Lock />}
         />
 
