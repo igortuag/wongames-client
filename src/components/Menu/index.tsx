@@ -14,9 +14,10 @@ import UserDropdown from 'components/UserDropdown'
 
 export type MenuProps = {
   username?: string | null
+  loading?: boolean
 }
 
-const Menu = ({ username }: MenuProps) => {
+const Menu = ({ username, loading }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
