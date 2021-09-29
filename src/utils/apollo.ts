@@ -7,7 +7,7 @@ let apolloClient: ApolloClient<NormalizedCacheObject | null>
 function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: new HttpLink({ uri: 'http://localhost:1338/graphql' }),
+    link: new HttpLink({ uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql` }),
     cache: apolloCache
   })
 }
