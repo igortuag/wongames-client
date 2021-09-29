@@ -5,9 +5,13 @@ import apolloCache from './apolloCache'
 let apolloClient: ApolloClient<NormalizedCacheObject | null>
 
 function createApolloClient() {
+  const httpLink = new HttpLink({
+    uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`
+  })
+
   return new ApolloClient({
     ssrMode: typeof window === 'undefined',
-    link: new HttpLink({ uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql` }),
+    link: httpLink,
     cache: apolloCache
   })
 }
