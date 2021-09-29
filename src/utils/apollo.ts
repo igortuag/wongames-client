@@ -1,10 +1,12 @@
 import { ApolloClient, HttpLink, NormalizedCacheObject } from '@apollo/client'
+import { setContext } from '@apollo/client/link/context'
 import { useMemo } from 'react'
 import apolloCache from './apolloCache'
+import { session } from 'next-auth/client'
 
 let apolloClient: ApolloClient<NormalizedCacheObject | null>
 
-function createApolloClient() {
+function createApolloClient(session?: session | null) {
   const httpLink = new HttpLink({
     uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`
   })
@@ -16,9 +18,12 @@ function createApolloClient() {
   })
 }
 
-export function initializeApollo(initialState = null) {
+export function initializeApollo(
+  initialState = null,
+  session?: session | null
+) {
   // serve para verificar se já existe uma instância, para não criar outra
-  const apolloClientGlobal = apolloClient ?? createApolloClient()
+  const apolloClientGlobal = apolloClient ?? createApolloClient(session)
 
   // se a página usar o apolloClient no lado client
   // hidratamos o estado inicial aqui
