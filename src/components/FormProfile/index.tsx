@@ -8,7 +8,7 @@ export type FormProfileProps = {
   email?: string
 }
 
-const FormProfile = () => (
+const FormProfile = ({ email, username }: FormProfileProps) => (
   <>
     <Heading lineBottom color="black" size="small">
       My profile
@@ -16,10 +16,10 @@ const FormProfile = () => (
 
     <S.Form>
       <TextField
-        name="name"
-        placeholder="Name"
-        label="Name"
-        initialValue="John Doe"
+        name="username"
+        placeholder="Username"
+        label="Username"
+        initialValue={username}
       />
 
       <TextField
@@ -27,7 +27,7 @@ const FormProfile = () => (
         name="email"
         placeholder="E-mail"
         label="E-mail"
-        initialValue="johndoe@gmail.com"
+        initialValue={email}
         disabled
       />
 
