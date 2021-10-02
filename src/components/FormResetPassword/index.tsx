@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { signIn } from 'next-auth/client'
 import { useRouter } from 'next/router'
-
-import { Email, ErrorOutline } from '@styled-icons/material-outlined'
+import { ErrorOutline, Lock } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 
 import { FormWrapper, FormLoading, FormError } from 'components/Form'
@@ -12,11 +11,11 @@ import { FieldErros } from 'utils/validations'
 const ResetPassword = () => {
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErros>({
-    email: ''
+    password: ''
   })
   const [values, setValues] = useState({
-    email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   })
   const [loading, setLoading] = useState(false)
   const routes = useRouter()
@@ -62,12 +61,20 @@ const ResetPassword = () => {
       )}
       <form onSubmit={handleSubmit}>
         <TextField
-          name="email"
-          placeholder="Email"
-          type="email"
-          error={fieldError.email}
-          onInputChange={(v) => handleInput('email', v)}
-          icon={<Email />}
+          name="password"
+          placeholder="Password"
+          type="password"
+          error={fieldError?.password}
+          onInputChange={(v) => handleInput('password', v)}
+          icon={<Lock />}
+        />
+        <TextField
+          name="confirm_password"
+          placeholder="Confirm password"
+          type="password"
+          error={fieldError?.confirm_password}
+          onInputChange={(v) => handleInput('confirm_password', v)}
+          icon={<Lock />}
         />
 
         <Button type="submit" size="large" fullWidth disabled={loading}>
