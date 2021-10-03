@@ -119,6 +119,17 @@ describe('validations', () => {
       })
     })
 
+    it('should return error if confirm_password is empty', () => {
+      const values = {
+        password: '1234',
+        confirm_password: ''
+      }
+
+      expect(resetPasswordValidate(values)).toMatchObject({
+        confirm_password: expect.any(String)
+      })
+    })
+
     it('should return error if password does not match with confirm password', () => {
       const values = {
         password: '1234',
