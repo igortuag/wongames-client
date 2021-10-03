@@ -6,7 +6,7 @@ import Button from 'components/Button'
 
 import { FormWrapper, FormLoading, FormError } from 'components/Form'
 import TextField from 'components/TextField'
-import { FieldErros } from 'utils/validations'
+import { FieldErros, resetPasswordValidate } from 'utils/validations'
 
 const ResetPassword = () => {
   const [formError, setFormError] = useState('')
@@ -15,7 +15,7 @@ const ResetPassword = () => {
   })
   const [values, setValues] = useState({
     password: '',
-    confirmPassword: ''
+    confirm_password: ''
   })
   const [loading, setLoading] = useState(false)
   const routes = useRouter()
@@ -25,7 +25,7 @@ const ResetPassword = () => {
     event.preventDefault()
     setLoading(true)
 
-    const errors = {}
+    const errors = resetPasswordValidate(values)
 
     if (Object.keys(errors).length > 0) {
       setFieldError(errors)
