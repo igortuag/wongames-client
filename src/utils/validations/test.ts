@@ -108,15 +108,14 @@ describe('validations', () => {
   })
 
   describe('resetPasswordValidate', () => {
-    it('should validate empty fields', () => {
+    it('should validate empty password', () => {
       const values = {
         password: '',
         confirm_password: ''
       }
 
       expect(resetPasswordValidate(values)).toMatchObject({
-        password: expect.any(String),
-        confirm_password: expect.any(String)
+        password: expect.any(String)
       })
     })
 
