@@ -7,7 +7,7 @@ import Button from 'components/Button'
 
 import { FormWrapper, FormLoading, FormError } from 'components/Form'
 import TextField from 'components/TextField'
-import { FieldErros } from 'utils/validations'
+import { FieldErros, forgotPasswordValidate } from 'utils/validations'
 
 const FormForgotPassword = () => {
   const [formError, setFormError] = useState('')
@@ -26,7 +26,7 @@ const FormForgotPassword = () => {
     event.preventDefault()
     setLoading(true)
 
-    const errors = {}
+    const errors = forgotPasswordValidate(values)
 
     if (Object.keys(errors).length > 0) {
       setFieldError(errors)
