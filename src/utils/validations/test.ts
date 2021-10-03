@@ -101,4 +101,31 @@ describe('validations', () => {
       )
     })
   })
+
+  describe('resetValidate', () => {
+    it('should validate empty fields', () => {
+      const values = {
+        password: '',
+        confirm_password: ''
+      }
+
+      expect(resetValidate(values)).toMatchObject({
+        password: expect.any(String),
+        confirm_password: expect.any(String)
+      })
+    })
+
+    it('should return error if password does not match with confirm password', () => {
+      const values = {
+        username: 'username',
+        email: 'invalid-email',
+        password: '1234',
+        confirm_password: '4321'
+      }
+
+      expect(resetValidate(values).confirm_password).toMatchInlineSnapshot(
+        `"Password and confirm password must be the same"`
+      )
+    })
+  })
 })
