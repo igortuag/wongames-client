@@ -45,7 +45,7 @@ const FormForgotPassword = () => {
       `${process.env.NEXT_PUBLIC_API_URL}/auth/forgot-password`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'aplication/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values)
       }
     )
