@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { signIn } from 'next-auth/client'
-import { useRouter } from 'next/router'
 
 import { Email, ErrorOutline } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
@@ -15,12 +13,9 @@ const FormForgotPassword = () => {
     email: ''
   })
   const [values, setValues] = useState({
-    email: '',
-    password: ''
+    email: ''
   })
   const [loading, setLoading] = useState(false)
-  const routes = useRouter()
-  const { push, query } = routes
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -47,6 +42,12 @@ const FormForgotPassword = () => {
 
     const data = await response.json()
     setLoading(false)
+
+    if (data.error) {
+      console.log('Error ::>>', data)
+    } else {
+      console.log('Success ::>>', data)
+    }
   }
 
   const handleInput = (field: string, value: string) => {
