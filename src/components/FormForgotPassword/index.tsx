@@ -44,6 +44,9 @@ const FormForgotPassword = () => {
         body: JSON.stringify(values)
       }
     )
+
+    const data = await response.json()
+    setLoading(false)
   }
 
   const handleInput = (field: string, value: string) => {
