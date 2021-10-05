@@ -45,6 +45,8 @@ const FormForgotPassword = () => {
 
     if (data.error) {
       console.log('Error ::>>', data)
+      console.log(values)
+      setFormError(data.message[0].messages[0].message)
     } else {
       console.log('Success ::>>', data)
     }
