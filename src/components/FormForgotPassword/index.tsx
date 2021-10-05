@@ -1,13 +1,23 @@
 import { useState } from 'react'
 
-import { Email, ErrorOutline } from '@styled-icons/material-outlined'
+import {
+  CheckCircleOutline,
+  Email,
+  ErrorOutline
+} from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 
-import { FormWrapper, FormLoading, FormError } from 'components/Form'
+import {
+  FormWrapper,
+  FormLoading,
+  FormError,
+  FormSuccess
+} from 'components/Form'
 import TextField from 'components/TextField'
 import { FieldErros, forgotPasswordValidate } from 'utils/validations'
 
 const FormForgotPassword = () => {
+  const [formSuccess, setFormSuccess] = useState(false)
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErros>({
     email: ''
@@ -44,11 +54,9 @@ const FormForgotPassword = () => {
     setLoading(false)
 
     if (data.error) {
-      console.log('Error ::>>', data)
-      console.log(values)
       setFormError(data.message[0].messages[0].message)
     } else {
-      console.log('Success ::>>', data)
+      setFormSuccess(true)
     }
   }
 
@@ -58,26 +66,35 @@ const FormForgotPassword = () => {
 
   return (
     <FormWrapper>
-      {!!formError && (
-        <FormError>
-          <ErrorOutline />
-          {formError}
-        </FormError>
-      )}
-      <form onSubmit={handleSubmit}>
-        <TextField
-          name="email"
-          placeholder="Email"
-          type="text"
-          error={fieldError.email}
-          onInputChange={(v) => handleInput('email', v)}
-          icon={<Email />}
-        />
+      {formSuccess ? (
+        <FormSuccess>
+          <CheckCircleOutline />
+          You just received an email!
+        </FormSuccess>
+      ) : (
+        <>
+          {!!formError && (
+            <FormError>
+              <ErrorOutline />
+              {formError}
+            </FormError>
+          )}
+          <form onSubmit={handleSubmit}>
+            <TextField
+              name="email"
+              placeholder="Email"
+              type="text"
+              error={fieldError.email}
+              onInputChange={(v) => handleInput('email', v)}
+              icon={<Email />}
+            />
 
-        <Button type="submit" size="large" fullWidth disabled={loading}>
-          {loading ? <FormLoading /> : <span>Send email</span>}
-        </Button>
-      </form>
+            <Button type="submit" size="large" fullWidth disabled={loading}>
+              {loading ? <FormLoading /> : <span>Send email</span>}
+            </Button>
+          </form>
+        </>
+      )}
     </FormWrapper>
   )
 }
