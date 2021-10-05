@@ -33,19 +33,17 @@ const FormForgotPassword = () => {
       setLoading(false)
       return
     }
-    setFieldError({ email: '', password: '' })
-    const result = await signIn('credentials', {
-      ...values,
-      redirect: false,
-      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
-    })
 
-    if (result?.url) {
-      return push(result?.url)
-    }
-    setLoading(false)
+    setFieldError({})
 
-    setFormError('Username or password is invalid')
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/forgot-password`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'aplication/json' },
+        body: JSON.stringify(values)
+      }
+    )
   }
 
   const handleInput = (field: string, value: string) => {
@@ -64,7 +62,7 @@ const FormForgotPassword = () => {
         <TextField
           name="email"
           placeholder="Email"
-          type="email"
+          type="text"
           error={fieldError.email}
           onInputChange={(v) => handleInput('email', v)}
           icon={<Email />}
