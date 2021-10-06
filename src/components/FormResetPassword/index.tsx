@@ -9,7 +9,6 @@ import TextField from 'components/TextField'
 import { FieldErros, resetPasswordValidate } from 'utils/validations'
 
 const ResetPassword = () => {
-  const [formSuccess, setFormSuccess] = useState(false)
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErros>({
     password: ''
@@ -53,7 +52,11 @@ const ResetPassword = () => {
     if (data.error) {
       setFormError(data.message[0].messages[0].message)
     } else {
-      setFormSuccess(true)
+      signIn('credentials', {
+        email: data.user.email,
+        password: values.password,
+        callbackUrl: '/'
+      })
     }
   }
 
