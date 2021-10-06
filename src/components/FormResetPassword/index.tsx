@@ -32,19 +32,7 @@ const ResetPassword = () => {
       setLoading(false)
       return
     }
-    setFieldError({ email: '', password: '' })
-    const result = await signIn('credentials', {
-      ...values,
-      redirect: false,
-      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
-    })
-
-    if (result?.url) {
-      return push(result?.url)
-    }
-    setLoading(false)
-
-    setFormError('Username or password is invalid')
+    setFieldError({})
   }
 
   const handleInput = (field: string, value: string) => {
