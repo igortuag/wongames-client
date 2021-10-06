@@ -9,6 +9,7 @@ import TextField from 'components/TextField'
 import { FieldErros, resetPasswordValidate } from 'utils/validations'
 
 const ResetPassword = () => {
+  const [formSuccess, setFormSuccess] = useState(false)
   const [formError, setFormError] = useState('')
   const [fieldError, setFieldError] = useState<FieldErros>({
     password: ''
@@ -18,8 +19,7 @@ const ResetPassword = () => {
     confirm_password: ''
   })
   const [loading, setLoading] = useState(false)
-  const routes = useRouter()
-  const { push, query } = routes
+  const { query } = useRouter()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -33,6 +33,28 @@ const ResetPassword = () => {
       return
     }
     setFieldError({})
+
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/reset-password`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          password: values.password,
+          passwordConfirmation: values.confirm_password,
+          code: query.code
+        })
+      }
+    )
+
+    const data = await response.json()
+    setLoading(false)
+
+    if (data.error) {
+      setFormError(data.message[0].messages[0].message)
+    } else {
+      setFormSuccess(true)
+    }
   }
 
   const handleInput = (field: string, value: string) => {
