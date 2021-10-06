@@ -18,8 +18,7 @@ const ResetPassword = () => {
     confirm_password: ''
   })
   const [loading, setLoading] = useState(false)
-  const routes = useRouter()
-  const { push, query } = routes
+  const { query } = useRouter()
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
@@ -32,19 +31,33 @@ const ResetPassword = () => {
       setLoading(false)
       return
     }
-    setFieldError({ email: '', password: '' })
-    const result = await signIn('credentials', {
-      ...values,
-      redirect: false,
-      callbackUrl: `${window.location.origin}${query?.callbackUrl || ''}`
-    })
+    setFieldError({})
 
-    if (result?.url) {
-      return push(result?.url)
-    }
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/auth/reset-password`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          password: values.password,
+          passwordConfirmation: values.confirm_password,
+          code: query.code
+        })
+      }
+    )
+
+    const data = await response.json()
     setLoading(false)
 
-    setFormError('Username or password is invalid')
+    if (data.error) {
+      setFormError(data.message[0].messages[0].message)
+    } else {
+      signIn('credentials', {
+        email: data.user.email,
+        password: values.password,
+        callbackUrl: '/'
+      })
+    }
   }
 
   const handleInput = (field: string, value: string) => {
