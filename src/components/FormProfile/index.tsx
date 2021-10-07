@@ -31,20 +31,6 @@ const FormProfile = ({ email, username }: FormProfileProps) => (
         disabled
       />
 
-      <TextField
-        type="password"
-        name="password"
-        placeholder="Type your password"
-        label="Password"
-      />
-
-      <TextField
-        type="password"
-        name="new_password"
-        placeholder="New Password"
-        label="New Password"
-      />
-
       <Button size="large">Save</Button>
     </S.Form>
   </>
