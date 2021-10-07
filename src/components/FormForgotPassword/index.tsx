@@ -86,6 +86,7 @@ const FormForgotPassword = () => {
               name="email"
               placeholder="Email"
               type="text"
+              initialValue={query.email as string}
               error={fieldError.email}
               onInputChange={(v) => handleInput('email', v)}
               icon={<Email />}
