@@ -33,7 +33,7 @@ const FormProfile = ({ email, username }: FormProfileProps) => (
       />
 
       <S.ButtonContainer>
-        <Link href="/forgot-password" passHref>
+        <Link href={`/forgot-password?email=${email}`} passHref>
           <Button minimal size="medium" as="a">
             Reset Password
           </Button>
