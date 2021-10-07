@@ -32,12 +32,14 @@ const FormProfile = ({ email, username }: FormProfileProps) => (
         disabled
       />
 
-      <Link href="/forgot-password" passHref>
-        <Button minimal size="medium" as="a">
-          Reset Password
-        </Button>
-      </Link>
-      <Button size="medium">Save</Button>
+      <S.ButtonContainer>
+        <Link href="/forgot-password" passHref>
+          <Button minimal size="medium" as="a">
+            Reset Password
+          </Button>
+        </Link>
+        <Button size="medium">Save</Button>
+      </S.ButtonContainer>
     </S.Form>
   </>
 )
