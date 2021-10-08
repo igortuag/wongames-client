@@ -7,3 +7,7 @@ beforeAll(() => {
 afterAll(() => {
   server.restoreHandlers()
 })
+
+afterAll(() => {
+  server.close()
+})
