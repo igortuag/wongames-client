@@ -32,6 +32,7 @@
     "@styled-icons/material-outlined": "^10.18.0",
     "@styled-icons/remix-fill": "^10.18.0",
     "@types/lodash.xor": "^4.5.6",
+    "dotenv": "^10.0.0",
     "graphql": "^15.4.0",
     "joi": "^17.4.0",
     "lodash.xor": "^4.5.0",
