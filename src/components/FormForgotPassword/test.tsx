@@ -5,7 +5,7 @@ import FormForgotPassword from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter', 'useRouter')
-const query = {}
+let query = {}
 
 useRouter.mockImplementation(() => ({ query }))
 
@@ -59,5 +59,13 @@ describe('<FormForgotPassword />', () => {
     expect(
       await screen.findByText(/This email does not exist/i)
     ).toBeInTheDocument()
+  })
+
+  it('should autofill if comes via logged user', async () => {
+    query = { email: 'valid@email.com' }
+
+    render(<FormForgotPassword />)
+
+    expect(screen.getByPlaceHolderText(/email/i)).toHaveValue('valid@email.com')
   })
 })
