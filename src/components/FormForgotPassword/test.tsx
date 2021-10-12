@@ -33,4 +33,16 @@ describe('<FormForgotPassword />', () => {
       await screen.findByText(/You just received an email!/i)
     ).toBeInTheDocument()
   })
+
+  it('should show an invalid email', async () => {
+    render(<FormForgotPassword />)
+
+    await userEvent.type(screen.getByPlaceHolderText(/email/i), 'invalid')
+
+    userEvent.click(screen.getByRole('button', { name: /send email/i }))
+
+    expect(
+      await screen.findByText(/must be a valid email/i)
+    ).toBeInTheDocument()
+  })
 })
