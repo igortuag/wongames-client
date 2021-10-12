@@ -45,4 +45,19 @@ describe('<FormForgotPassword />', () => {
       await screen.findByText(/must be a valid email/i)
     ).toBeInTheDocument()
   })
+
+  it('should show an inexistent email error', async () => {
+    render(<FormForgotPassword />)
+
+    await userEvent.type(
+      screen.getByPlaceHolderText(/email/i),
+      'false@email.com'
+    )
+
+    userEvent.click(screen.getByRole('button', { name: /send email/i }))
+
+    expect(
+      await screen.findByText(/This email does not exist/i)
+    ).toBeInTheDocument()
+  })
 })
