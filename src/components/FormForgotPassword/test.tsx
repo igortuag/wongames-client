@@ -1,5 +1,5 @@
 import 'server.mock'
-import { screen, render } from 'utils/test-utils'
+import { screen, render, userEvent } from 'utils/test-utils'
 
 import FormForgotPassword from '.'
 
@@ -16,6 +16,21 @@ describe('<FormForgotPassword />', () => {
     expect(screen.getByPlaceHolderText(/email/i)).toBeInTheDocument()
     expect(
       screen.getByRole('button', { name: /send email/i })
+    ).toBeInTheDocument()
+  })
+
+  it('should validate the email', async () => {
+    render(<FormForgotPassword />)
+
+    await userEvent.type(
+      screen.getByPlaceHolderText(/email/i),
+      'valid@email.com'
+    )
+
+    userEvent.click(screen.getByRole('button', { name: /send email/i }))
+
+    expect(
+      await screen.findByText(/You just received an email!/i)
     ).toBeInTheDocument()
   })
 })
