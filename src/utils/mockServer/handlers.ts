@@ -41,14 +41,14 @@ export const handlers = [
         })
       )
     }
-  )
+  ),
 
   rest.post<ResetReqBody>(
     `${process.env.NEXT_PUBLIC_API_URL}/auth/reset-password`,
     (req, res, ctx) => {
-      const { email } = req.body
+      const { code } = req.body
 
-      if (email === 'false@email.com') {
+      if (code === 'wrong_code') {
         return res(
           ctx.status(400),
           ctx.json({
@@ -57,7 +57,7 @@ export const handlers = [
               {
                 messages: [
                   {
-                    message: 'This email does not exist'
+                    message: 'Incorrect code provided.'
                   }
                 ]
               }
