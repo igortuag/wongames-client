@@ -5,7 +5,7 @@ import FormResetPassword from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useRouter = jest.spyOn(require('next/router'), 'useRouter', 'useRouter')
-const query = {}
+let query = {}
 
 useRouter.mockImplementation(() => ({ query }))
 
@@ -30,6 +30,20 @@ describe('<FormResetPassword />', () => {
 
     expect(
       await screen.findByText(/confirm password does not match/i)
+    ).toBeInTheDocument()
+  })
+
+  it('should show validation errors', async () => {
+    query = { code: 'wrong_code' }
+    render(<FormResetPassword />)
+
+    await userEvent.type(screen.getByPlaceHolderText('Password'), '123')
+    await userEvent.type(screen.getByPlaceHolderText('confirm password'), '123')
+
+    userEvent.click(screen.getByRole('button', { name: /reset password/i }))
+
+    expect(
+      await screen.findByText(/Incorrect code provided/i)
     ).toBeInTheDocument()
   })
 })
