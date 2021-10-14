@@ -19,4 +19,17 @@ describe('<FormResetPassword />', () => {
       screen.getByRole('button', { name: /reset password/i })
     ).toBeInTheDocument()
   })
+
+  it('should show validate errors', async () => {
+    render(<FormResetPassword />)
+
+    await userEvent.type(screen.getByPlaceHolderText('Password'), '123')
+    await userEvent.type(screen.getByPlaceHolderText('confirm password'), '321')
+
+    userEvent.click(screen.getByRole('button', { name: /reset password/i }))
+
+    expect(
+      await screen.findByText(/confirm password does not match/i)
+    ).toBeInTheDocument()
+  })
 })
