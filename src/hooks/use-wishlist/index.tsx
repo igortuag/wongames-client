@@ -20,3 +20,25 @@ export const WishlistContextDefaultValues = {
 export const WishlistContext = createContext<WishlistContextData>(
   WishlistContextDefaultValues
 )
+
+export type WishlistProviderProps = {
+  children: React.ReactNode
+}
+
+const WishlistProvider = ({ children }: WishlistProviderProps) => {
+  const isInWishlist = (id: string) => false
+  const addToWishlist = (id: string) => {}
+  const removeFromWishlist = (id: string) => {}
+
+  return (
+    <WishlistContext.Provider
+      value={{
+        isInWishlist,
+        addToWishlist,
+        removeFromWishlist
+      }}
+    >
+      {children}
+    </WishlistContext.Provider>
+  )
+}
