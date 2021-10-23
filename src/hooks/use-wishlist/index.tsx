@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { GameCardProps } from 'components/GameCard'
 import { createContext } from 'react'
 
@@ -42,3 +43,5 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     </WishlistContext.Provider>
   )
 }
+
+const useWishlist = () => useContext(WishlistContext)
