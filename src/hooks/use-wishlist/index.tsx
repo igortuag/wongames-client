@@ -45,3 +45,5 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
 }
 
 const useWishlist = () => useContext(WishlistContext)
+
+export { WishlistProvider, useWishlist }
