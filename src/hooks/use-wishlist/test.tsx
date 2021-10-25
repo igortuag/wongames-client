@@ -1,4 +1,5 @@
 import { MockedProvider } from '@apollo/client/testing'
+import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
 import { useWishlist, WishlistProvider } from '.'
 
@@ -9,5 +10,7 @@ describe('useWishlist', () => {
         <WishlistProvider>{children}</WishlistProvider>
       </MockedProvider>
     )
+
+    const { result } = renderHook(() => useWishlist(), { wrapper })
   })
 })
