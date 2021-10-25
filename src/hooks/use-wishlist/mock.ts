@@ -26,7 +26,7 @@ export const wishlistMock = {
         {
           id: '1',
           name: 'Lorem ipsum',
-          games: [{}]
+          games: [gameMock('1'), gameMock('2')]
         }
       ]
     }
