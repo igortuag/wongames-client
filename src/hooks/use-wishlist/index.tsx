@@ -46,13 +46,13 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   })
 
   useEffect(() => {
-    setWishlistItems(data?.wishlist[0]?.games)
+    setWishlistItems(data?.wishlist[0]?.games || [])
   }, [data])
 
   return (
     <WishlistContext.Provider
       value={{
-        items: gamesMapper(wishlistItems || []),
+        items: gamesMapper(wishlistItems),
         isInWishlist,
         addToWishlist,
         removeFromWishlist,
