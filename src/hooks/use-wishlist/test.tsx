@@ -5,6 +5,8 @@ import { useWishlist, WishlistProvider } from '.'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useSession = jest.spyOn(require('next-auth/client'), 'useSession')
+const session = { jwt: '123', user: { email: 'lorem@ipsum.com' } }
+useSession.mockReturnValue(() => [session])
 
 describe('useWishlist', () => {
   it('should return wishlist items', () => {
