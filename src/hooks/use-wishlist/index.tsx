@@ -52,7 +52,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   return (
     <WishlistContext.Provider
       value={{
-        items: gamesMapper(wishlistItems),
+        items: gamesMapper(wishlistItems || []),
         isInWishlist,
         addToWishlist,
         removeFromWishlist,
