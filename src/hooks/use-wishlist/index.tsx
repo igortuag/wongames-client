@@ -37,10 +37,6 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const addToWishlist = (id: string) => {}
   const removeFromWishlist = (id: string) => {}
 
-  useEffect(() => {
-    setWishlistItems(data?.wishlist[0]?.games)
-  }, [data])
-
   const { data, loading } = useQueryWishilist({
     skip: !session?.user?.email,
     context: { session },
@@ -48,6 +44,10 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       identifier: session?.user?.email as string
     }
   })
+
+  useEffect(() => {
+    setWishlistItems(data?.wishlist[0]?.games)
+  }, [data])
 
   return (
     <WishlistContext.Provider
