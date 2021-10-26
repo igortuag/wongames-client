@@ -20,7 +20,9 @@ export const bannerMapper = (banners: QueryHome_banners[]) => {
   }))
 }
 
-export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
+export const gamesMapper = (
+  games: QueryGames_games[] | QueryWishlist_wishlist_games[] | null | undefined
+) => {
   if (!games || games?.length <= 0) return []
 
   return []
