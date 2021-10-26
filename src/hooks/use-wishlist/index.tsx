@@ -47,7 +47,8 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       value={{
         isInWishlist,
         addToWishlist,
-        removeFromWishlist
+        removeFromWishlist,
+        loading
       }}
     >
       {children}
