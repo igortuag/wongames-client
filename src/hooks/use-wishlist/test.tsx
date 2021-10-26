@@ -12,5 +12,7 @@ describe('useWishlist', () => {
     )
 
     const { result } = renderHook(() => useWishlist(), { wrapper })
+
+    expect(result.current.loading).toBe(true)
   })
 })
