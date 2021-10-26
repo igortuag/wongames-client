@@ -45,6 +45,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   return (
     <WishlistContext.Provider
       value={{
+        items: data,
         isInWishlist,
         addToWishlist,
         removeFromWishlist,
