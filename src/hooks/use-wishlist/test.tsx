@@ -9,15 +9,19 @@ const session = { jwt: '123', user: { email: 'lorem@ipsum.com' } }
 useSession.mockReturnValue(() => [session])
 
 describe('useWishlist', () => {
-  it('should return wishlist items', () => {
+  it('should return wishlist items', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <MockedProvider mocks={[]}>
         <WishlistProvider>{children}</WishlistProvider>
       </MockedProvider>
     )
 
-    const { result } = renderHook(() => useWishlist(), { wrapper })
+    const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
+      wrapper
+    })
 
     expect(result.current.loading).toBe(true)
+
+    await waitForNextUpdate()
   })
 })
