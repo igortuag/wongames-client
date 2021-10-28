@@ -2,6 +2,7 @@ import { MockedProvider } from '@apollo/client/testing'
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
+import { waitFor } from 'utils/test-utils'
 import { useWishlist, WishlistProvider } from '.'
 import {
   createWishlistMock,
@@ -86,12 +87,14 @@ describe('useWishlist', () => {
       wrapper
     })
 
+    await waitForNextUpdate()
+
     act(() => {
       result.current.addToWishlist('3')
     })
 
-    await waitForNextUpdate()
-
-    expect(result.current.items).toStrictEqual(wishlistItems)
+    await waitFor(() => {
+      expect(result.current.items).toStrictEqual(wishlistItems)
+    })
   })
 })
