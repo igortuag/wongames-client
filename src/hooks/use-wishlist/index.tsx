@@ -1,9 +1,14 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useMemo } from 'react'
 import { GameCardProps } from 'components/GameCard'
 import { createContext } from 'react'
 import { useQueryWishilist } from 'graphql/queries/wishlist'
 import { useSession } from 'next-auth/client'
 import { gamesMapper } from 'utils/mappers'
+import { useMutation } from '@apollo/client'
+import {
+  MUTATION_CREATE_WISHILIST,
+  MUTATION_UPDATE_WISHILIST
+} from 'graphql/mutations/wishlist'
 
 export type WishlistContextData = {
   items: GameCardProps[]
@@ -31,8 +36,30 @@ export type WishlistProviderProps = {
 
 const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const [session] = useSession()
+  const [wishlistId, setiWishlistId] = useState<string | null>()
   const [wishlistItems, setWishlistItems] =
     useState<QueryWishlist_wishlist_games>([])
+
+  const [createList, { loading: loadingCreate }] = useMutation(
+    MUTATION_CREATE_WISHILIST,
+    {
+      context: { session },
+      onCompleted: (data) => {
+        setWishlistItems(data.createWishlist.games)
+        setiWishlistId(data.createWishlist.wishlist?.id)
+      }
+    }
+  )
+
+  const [updateList, { loading: loadingUpdate }] = useMutation(
+    MUTATION_UPDATE_WISHILIST,
+    {
+      context: { session },
+      onCompleted: (data) => {
+        setWishlistItems(data.updateWishlist.games)
+      }
+    }
+  )
 
   const { data, loading } = useQueryWishilist({
     skip: !session?.user?.email,
@@ -44,12 +71,41 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
 
   useEffect(() => {
     setWishlistItems(data?.wishlist[0]?.games || [])
+    setiWishlistId(data?.wishlist[0]?.id)
   }, [data])
 
   const isInWishlist = (id: string) =>
     !!wishlistItems.find((game) => game.id === id)
 
-  const addToWishlist = (id: string) => {}
+  const wishlistIds = useMemo(
+    () => wishlistItems.map((game) => game.id),
+    [wishlistItems]
+  )
+
+  const addToWishlist = (id: string) => {
+    if (!wishlistId) {
+      return createList({
+        variables: {
+          input: {
+            data: {
+              games: [...wishlistIds, id]
+            }
+          }
+        }
+      })
+    }
+    return updateList({
+      variables: {
+        input: {
+          where: { id: wishlistId },
+          data: {
+            games: [...wishlistIds, id]
+          }
+        }
+      }
+    })
+  }
+
   const removeFromWishlist = (id: string) => {}
 
   return (
