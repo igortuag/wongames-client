@@ -3,7 +3,12 @@ import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
 import { useWishlist, WishlistProvider } from '.'
-import { wishlistItems } from './mock'
+import {
+  createWishlistMock,
+  updateWishlistMock,
+  wishlistItems,
+  wishlistMock
+} from './mock'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const useSession = jest.spyOn(require('next-auth/client'), 'useSession')
@@ -52,7 +57,7 @@ describe('useWishlist', () => {
 
   it('should add item in wishlist creating a new list', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <MockedProvider mocks={[]}>
+      <MockedProvider mocks={[wishlistMock, createWishlistMock]}>
         <WishlistProvider>{children}</WishlistProvider>
       </MockedProvider>
     )
@@ -68,5 +73,25 @@ describe('useWishlist', () => {
     await waitForNextUpdate()
 
     expect(result.current.items).toStrictEqual([wishlistItems[2]])
+  })
+
+  it('should add item in wishlist updating the current list', async () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <MockedProvider mocks={[wishlistMock, updateWishlistMock]}>
+        <WishlistProvider>{children}</WishlistProvider>
+      </MockedProvider>
+    )
+
+    const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
+      wrapper
+    })
+
+    act(() => {
+      result.current.addToWishlist('3')
+    })
+
+    await waitForNextUpdate()
+
+    expect(result.current.items).toStrictEqual(wishlistItems)
   })
 })
