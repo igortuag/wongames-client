@@ -33,6 +33,7 @@ export type WishlistProviderProps = {
 
 const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const [session] = useSession()
+  const [wishlistId, setiWishlistId] = useState<string | null>()
   const [wishlistItems, setWishlistItems] =
     useState<QueryWishlist_wishlist_games>([])
 
@@ -42,6 +43,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       context: { session },
       onCompleted: (data) => {
         setWishlistItems(data.createWishlist.games)
+        setiWishlistId(data.createWishlist.wishlist?.id)
       }
     }
   )
