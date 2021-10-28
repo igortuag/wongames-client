@@ -70,15 +70,17 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   )
 
   const addToWishlist = (id: string) => {
-    return createList({
-      variables: {
-        input: {
-          data: {
-            games: [...wishlistIds, id]
+    if (!wishlistId) {
+      return createList({
+        variables: {
+          input: {
+            data: {
+              games: [...wishlistIds, id]
+            }
           }
         }
-      }
-    })
+      })
+    }
   }
 
   const removeFromWishlist = (id: string) => {}
