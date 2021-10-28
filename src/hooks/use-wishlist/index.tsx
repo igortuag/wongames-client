@@ -57,7 +57,6 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
       context: { session },
       onCompleted: (data) => {
         setWishlistItems(data.updateWishlist.games)
-        setiWishlistId(data.updateWishlist.wishlist?.id)
       }
     }
   )
@@ -95,6 +94,16 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
         }
       })
     }
+    return updateList({
+      variables: {
+        input: {
+          where: { id: wishlistId },
+          data: {
+            games: [...wishlistIds, id]
+          }
+        }
+      }
+    })
   }
 
   const removeFromWishlist = (id: string) => {}
