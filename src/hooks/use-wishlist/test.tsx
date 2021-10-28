@@ -1,6 +1,7 @@
 import { MockedProvider } from '@apollo/client/testing'
 import { renderHook } from '@testing-library/react-hooks'
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { useWishlist, WishlistProvider } from '.'
 import { wishlistItems } from './mock'
 
@@ -47,5 +48,25 @@ describe('useWishlist', () => {
     expect(result.current.isInWishlist('1')).toBe(true)
     expect(result.current.isInWishlist('2')).toBe(true)
     expect(result.current.isInWishlist('3')).toBe(false)
+  })
+
+  it('should add item in wishlist creating a new list', async () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <MockedProvider mocks={[]}>
+        <WishlistProvider>{children}</WishlistProvider>
+      </MockedProvider>
+    )
+
+    const { result, waitForNextUpdate } = renderHook(() => useWishlist(), {
+      wrapper
+    })
+
+    act(() => {
+      result.current.addToWishlist('3')
+    })
+
+    await waitForNextUpdate()
+
+    expect(result.current.items).toStrictEqual([wishlistItems[2]])
   })
 })
