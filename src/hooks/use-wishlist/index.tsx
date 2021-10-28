@@ -58,6 +58,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
 
   useEffect(() => {
     setWishlistItems(data?.wishlist[0]?.games || [])
+    setiWishlistId(data?.wishlist[0]?.id)
   }, [data])
 
   const isInWishlist = (id: string) =>
