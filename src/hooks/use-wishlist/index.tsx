@@ -4,6 +4,8 @@ import { createContext } from 'react'
 import { useQueryWishilist } from 'graphql/queries/wishlist'
 import { useSession } from 'next-auth/client'
 import { gamesMapper } from 'utils/mappers'
+import { useMutation } from '@apollo/client'
+import { MUTATION_CREATE_WISHILIST } from 'graphql/mutations/wishlist'
 
 export type WishlistContextData = {
   items: GameCardProps[]
@@ -33,6 +35,16 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const [session] = useSession()
   const [wishlistItems, setWishlistItems] =
     useState<QueryWishlist_wishlist_games>([])
+
+  const [createList, { loading: loadingCreate }] = useMutation(
+    MUTATION_CREATE_WISHILIST,
+    {
+      context: { session },
+      onCompleted: (data) => {
+        setWishlistItems(data.createWishlist.games)
+      }
+    }
+  )
 
   const { data, loading } = useQueryWishilist({
     skip: !session?.user?.email,
