@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useMemo } from 'react'
 import { GameCardProps } from 'components/GameCard'
 import { createContext } from 'react'
 import { useQueryWishilist } from 'graphql/queries/wishlist'
@@ -61,7 +61,23 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
   const isInWishlist = (id: string) =>
     !!wishlistItems.find((game) => game.id === id)
 
-  const addToWishlist = (id: string) => {}
+  const wishlistIds = useMemo(
+    () => wishlistItems.map((game) => game.id),
+    [wishlistItems]
+  )
+
+  const addToWishlist = (id: string) => {
+    return createList({
+      variables: {
+        input: {
+          data: {
+            games: [...wishlistIds, id]
+          }
+        }
+      }
+    })
+  }
+
   const removeFromWishlist = (id: string) => {}
 
   return (
