@@ -1,4 +1,5 @@
 import { QUERY_WISHLIST } from 'graphql/queries/wishlist'
+import { MUTATION_CREATE_WISHILIST } from 'graphql/mutations/wishlist'
 
 const gameMock = (id: string) => ({
   id,
@@ -29,6 +30,30 @@ export const wishlistMock = {
           games: [gameMock('1'), gameMock('2')]
         }
       ]
+    }
+  }
+}
+
+export const createWishlistMock = {
+  request: {
+    query: MUTATION_CREATE_WISHILIST,
+    context: { session: { jwt: '123' } },
+    variables: {
+      input: {
+        data: {
+          games: ['3']
+        }
+      }
+    }
+  },
+  result: {
+    data: {
+      createWishlist: {
+        wishlist: {
+          id: '3',
+          games: [gameMock('3')]
+        }
+      }
     }
   }
 }
