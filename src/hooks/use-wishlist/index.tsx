@@ -106,7 +106,18 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     })
   }
 
-  const removeFromWishlist = (id: string) => {}
+  const removeFromWishlist = (id: string) => {
+    updateList({
+      variables: {
+        input: {
+          where: { id: wishlistId },
+          data: {
+            games: wishlistIds.filter((gameId: string) => gameId !== id)
+          }
+        }
+      }
+    })
+  }
 
   return (
     <WishlistContext.Provider
