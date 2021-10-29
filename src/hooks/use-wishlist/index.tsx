@@ -61,7 +61,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     }
   )
 
-  const { data, loading } = useQueryWishilist({
+  const { data, loading: loadingQuery } = useQueryWishilist({
     skip: !session?.user?.email,
     context: { session },
     variables: {
@@ -126,7 +126,7 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
         isInWishlist,
         addToWishlist,
         removeFromWishlist,
-        loading
+        loading: loadingCreate || loadingUpdate || loadingQuery
       }}
     >
       {children}
