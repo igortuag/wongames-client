@@ -4,6 +4,11 @@ import {
   CartContextData,
   CartContextDefaultValues
 } from 'hooks/use-cart'
+import {
+  WishlistContext,
+  WishlistContextData,
+  WishlistContextDefaultValues
+} from 'hooks/use-wishlist'
 import { ReactElement } from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from 'styles/theme'
