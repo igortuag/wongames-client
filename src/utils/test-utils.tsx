@@ -15,6 +15,7 @@ import theme from 'styles/theme'
 
 type CustomRenderProps = {
   cartProviderProps?: CartContextData
+  wishlistProviderProps?: WishlistContextData
 } & Omit<RenderOptions, 'queries'>
 
 const customRender = (
