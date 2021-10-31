@@ -1,27 +1,35 @@
 import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
 
-import Button from 'components/Button'
+import Button, { ButtonProps } from 'components/Button'
 import { useWishlist } from 'hooks/use-wishlist'
 
 type WishlistButtonProps = {
   id: string
   hasText?: boolean
-}
+} & Pick<ButtonProps, 'size'>
 
-const WishlistButton = ({ id, hasText }: WishlistButtonProps) => {
+const WishlistButton = ({
+  id,
+  hasText,
+  size = 'small'
+}: WishlistButtonProps) => {
   const { isInWishlist } = useWishlist()
 
-  const buttonText = isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'
+  const buttonText = isInWishlist(id)
+    ? 'Remove from wishlist'
+    : 'Add to wishlist'
 
   return (
     <Button
       icon={
         isInWishlist(id) ? (
-          <Favorite aria-label="Remove from wishlist" />
+          <Favorite aria-label={buttonText} />
         ) : (
-          <FavoriteBorder aria-label="Add to wishlist" />
+          <FavoriteBorder aria-label={buttonText} />
         )
       }
+      minimal
+      size={size}
     >
       {hasText && buttonText}
     </Button>
