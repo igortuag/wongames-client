@@ -46,4 +46,19 @@ describe('WishlistButton', () => {
 
     expect(screen.getByText(/remove from wishlist/)).toBeInTheDocument()
   })
+
+  it('should not render if not logged', () => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const useSession = jest.spyOn(require('next-auth/client'), 'useSession')
+    useSession.mockReturnValue(() => [null])
+
+    const wishlistProviderProps = {
+      ...WishlistContextDefaultValues,
+      isInWishlist: () => false
+    }
+
+    render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
+
+    expect(screen.queryByText(/remove from wishlist/)).not.toBeInTheDocument()
+  })
 })
