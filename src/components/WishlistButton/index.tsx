@@ -5,10 +5,13 @@ import { useWishlist } from 'hooks/use-wishlist'
 
 type WishlistButtonProps = {
   id: string
+  hasText?: boolean
 }
 
-const WishlistButton = ({ id }: WishlistButtonProps) => {
+const WishlistButton = ({ id, hasText }: WishlistButtonProps) => {
   const { isInWishlist } = useWishlist()
+
+  const buttonText = isInWishlist ? 'Remove from wishlist' : 'Add to wishlist'
 
   return (
     <Button
@@ -19,7 +22,9 @@ const WishlistButton = ({ id }: WishlistButtonProps) => {
           <FavoriteBorder aria-label="Add to wishlist" />
         )
       }
-    />
+    >
+      {hasText && buttonText}
+    </Button>
   )
 }
 

@@ -44,6 +44,6 @@ describe('WishlistButton', () => {
 
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
 
-    expect(screen.getByText(/remove to wishlist/)).toBeInTheDocument()
+    expect(screen.getByText(/remove from wishlist/)).toBeInTheDocument()
   })
 })
