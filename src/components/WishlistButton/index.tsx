@@ -2,6 +2,7 @@ import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
 
 import Button, { ButtonProps } from 'components/Button'
 import { useWishlist } from 'hooks/use-wishlist'
+import { useSession } from 'next-auth/client'
 
 type WishlistButtonProps = {
   id: string
@@ -13,11 +14,14 @@ const WishlistButton = ({
   hasText,
   size = 'small'
 }: WishlistButtonProps) => {
+  const [session] = useSession()
   const { isInWishlist } = useWishlist()
 
   const buttonText = isInWishlist(id)
     ? 'Remove from wishlist'
     : 'Add to wishlist'
+
+  if (!session) return null
 
   return (
     <Button
