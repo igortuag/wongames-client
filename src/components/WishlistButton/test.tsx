@@ -24,4 +24,15 @@ describe('WishlistButton', () => {
 
     expect(screen.getByLabelText(/remove to wishlist/)).toBeInTheDocument()
   })
+
+  it('should renders a button with text', () => {
+    const wishlistProviderProps = {
+      ...WishlistContextDefaultValues,
+      isInWishlist: () => false
+    }
+
+    render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
+
+    expect(screen.getByText(/add to wishlist/)).toBeInTheDocument()
+  })
 })
