@@ -25,7 +25,7 @@ describe('WishlistButton', () => {
     expect(screen.getByLabelText(/remove to wishlist/)).toBeInTheDocument()
   })
 
-  it('should renders a button with text', () => {
+  it('should renders a button with to add wishlist text', () => {
     const wishlistProviderProps = {
       ...WishlistContextDefaultValues,
       isInWishlist: () => false
@@ -34,5 +34,16 @@ describe('WishlistButton', () => {
     render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
 
     expect(screen.getByText(/add to wishlist/)).toBeInTheDocument()
+  })
+
+  it('should renders a button with to remove wishlist text', () => {
+    const wishlistProviderProps = {
+      ...WishlistContextDefaultValues,
+      isInWishlist: () => false
+    }
+
+    render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
+
+    expect(screen.getByText(/remove to wishlist/)).toBeInTheDocument()
   })
 })
