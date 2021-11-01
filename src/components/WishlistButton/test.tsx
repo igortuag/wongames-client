@@ -68,6 +68,22 @@ describe('WishlistButton', () => {
     expect(screen.queryByText(/remove from wishlist/)).not.toBeInTheDocument()
   })
 
+  it('should add to wishlist', () => {
+    const wishlistProviderProps = {
+      ...WishlistContextDefaultValues,
+      isInWishlist: () => false,
+      removeFromWishlist: jest.fn()
+    }
+
+    render(<WishlistButton id="1" hasText />, { wishlistProviderProps })
+
+    act(() => {
+      userEvent.click(screen.getByText(/remove from wishlist/))
+    })
+
+    expect(wishlistProviderProps.addToWishlist).toHaveBeenCalledWith('1')
+  })
+
   it('should remove from wishlist', () => {
     const wishlistProviderProps = {
       ...WishlistContextDefaultValues,
