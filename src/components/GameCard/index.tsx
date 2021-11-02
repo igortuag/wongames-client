@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
-
 import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import * as S from './styles'
 import formatPrice from 'utils/format-price'
@@ -31,11 +29,9 @@ const GameCard = ({
   img,
   price,
   promotionalPrice,
-  favorite = false,
   ribbon,
   ribbonColor = 'primary',
-  ribbonSize = 'small',
-  onFav
+  ribbonSize = 'small'
 }: GameCardProps) => (
   <S.Wrapper>
     {!!ribbon && (
