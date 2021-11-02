@@ -6,6 +6,7 @@ import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import * as S from './styles'
 import formatPrice from 'utils/format-price'
 import CartButton from 'components/CartButton'
+import WishlistButton from 'components/WishlistButton'
 
 export type GameCardProps = {
   id: string
@@ -54,13 +55,7 @@ const GameCard = ({
           <S.Developer>{developer}</S.Developer>
         </S.Info>
       </Link>
-      <S.FavButton onClick={onFav} role="button">
-        {favorite ? (
-          <Favorite aria-label="Remove from wishlist" />
-        ) : (
-          <FavoriteBorder aria-label="Add to wishlist" />
-        )}
-      </S.FavButton>
+      <WishlistButton id={id} />
       <S.BuyBox>
         {!!promotionalPrice && (
           <S.Price isPromotional>{formatPrice(price)}</S.Price>
