@@ -1,6 +1,3 @@
-import { FavoriteBorder } from '@styled-icons/material-outlined'
-
-import Button from 'components/Button'
 import WishlistButton from 'components/WishlistButton'
 import CartButton from 'components/CartButton'
 import Heading from 'components/Heading'
