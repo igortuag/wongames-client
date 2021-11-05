@@ -1,3 +1,5 @@
+import 'session.mock'
+
 import { screen } from '@testing-library/react'
 import { MockedProvider } from '@apollo/client/testing'
 
