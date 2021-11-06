@@ -34,6 +34,10 @@ exports[`<FormSignIn /> should render the form 1`] = `
   width: 100%;
 }
 
+.c8:focus {
+  outline: 1px dashed;
+}
+
 .c8:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
@@ -214,7 +218,7 @@ exports[`<FormSignIn /> should render the form 1`] = `
         </div>
         <a
           class="c6"
-          href="#"
+          href="/forgot-password"
         >
           Forgot your password?
         </a>
@@ -232,7 +236,6 @@ exports[`<FormSignIn /> should render the form 1`] = `
           class="c9"
         >
           Don’t have an account?
-           
           <s>
             Sign up
           </s>
