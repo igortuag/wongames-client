@@ -18,7 +18,7 @@ export const QUERY_WISHLIST = gql`
   ${GameFragment}
 `
 
-export function useQueryWishilist(
+export function useQueryWishlist(
   options?: QueryHookOptions<QueryWishlist, QueryWishListVariables>
 ) {
   return useQuery<QueryWishlist, QueryWishListVariables>(
