@@ -50,12 +50,18 @@ describe('<Wishlist />', () => {
   })
 
   it('should render empty when there are no games', () => {
+    const wishlistProviderProps = {
+      ...WishlistContextDefaultValues,
+      items: []
+    }
+
     renderWithTheme(
       <Wishlist
         recommendedHighlight={highlightMock}
         recommendedGames={gamesMock}
         recommendTitle="You may like this games"
-      />
+      />,
+      { wishlistProviderProps }
     )
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument()
