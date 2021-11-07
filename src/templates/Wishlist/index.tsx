@@ -12,14 +12,12 @@ import { useWishlist } from 'hooks/use-wishlist'
 import Loader from 'components/Loader'
 
 export type WishlistTemplateProps = {
-  games?: GameCardProps[]
   recommendedTitle?: string
   recommendedGames: GameCardProps[]
   recommendedHighlight: HighlightProps
 }
 
 const Wishlist = ({
-  games = [],
   recommendedTitle = 'You may like these games',
   recommendedGames,
   recommendedHighlight
