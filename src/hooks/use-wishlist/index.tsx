@@ -15,7 +15,7 @@ export type WishlistContextData = {
   isInWishlist: (id: string) => boolean
   addToWishlist: (id: string) => void
   removeFromWishlist: (id: string) => void
-  loadign: boolean
+  loading: boolean
 }
 
 export const WishlistContextDefaultValues = {
