@@ -9,6 +9,7 @@ import Heading from 'components/Heading'
 import Showcase from 'components/Showcase'
 import Empty from 'components/Empty'
 import { useWishlist } from 'hooks/use-wishlist'
+import Loader from 'components/Loader'
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[]
@@ -32,7 +33,9 @@ const Wishlist = ({
           Wishlist
         </Heading>
 
-        {games.length ? (
+        {loading ? (
+          <Loader />
+        ) : items.length >= 1 ? (
           <Grid>
             {items?.map((game, index) => (
               <GameCard key={`whishlist-${index}`} {...game} />
