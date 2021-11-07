@@ -8,6 +8,7 @@ import Wishlist from '.'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
+import { WishlistContextDefaultValues } from 'hooks/use-wishlist'
 
 const props = {
   recommendedHighlight: highlightMock,
@@ -33,13 +34,18 @@ jest.mock('components/Showcase', () => ({
 
 describe('<Wishlist />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<Wishlist {...props} />)
+    const wishlistProviderProps = {
+      ...WishlistContextDefaultValues,
+      items: [gamesMock[0]]
+    }
+
+    renderWithTheme(<Wishlist {...props} />, { wishlistProviderProps })
 
     expect(
       screen.getByRole('heading', { name: /wishlist/i })
     ).toBeInTheDocument()
 
-    expect(screen.getAllByText(/population zero/i)).toHaveLength(6)
+    expect(screen.getAllByText(/population zero/i)).toBeInTheDocument()
     expect(screen.getByTestId('Mock Showcase')).toBeInTheDocument()
   })
 
