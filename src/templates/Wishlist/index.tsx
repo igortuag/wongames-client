@@ -8,6 +8,7 @@ import { HighlightProps } from 'components/Highlight'
 import Heading from 'components/Heading'
 import Showcase from 'components/Showcase'
 import Empty from 'components/Empty'
+import { useWishlist } from 'hooks/use-wishlist'
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[]
@@ -21,36 +22,40 @@ const Wishlist = ({
   recommendedTitle = 'You may like these games',
   recommendedGames,
   recommendedHighlight
-}: WishlistTemplateProps) => (
-  <Base>
-    <Container>
-      <Heading lineLeft lineColor="secondary">
-        Wishlist
-      </Heading>
+}: WishlistTemplateProps) => {
+  const { items, loading } = useWishlist()
 
-      {games.length ? (
-        <Grid>
-          {games?.map((game, index) => (
-            <GameCard key={`whishlist-${index}`} {...game} />
-          ))}
-        </Grid>
-      ) : (
-        <Empty
-          title="Your wishlist is empty"
-          description="Games add to you wishlist will appear here"
-          hasLink
-        />
-      )}
+  return (
+    <Base>
+      <Container>
+        <Heading lineLeft lineColor="secondary">
+          Wishlist
+        </Heading>
 
-      <Divider />
-    </Container>
+        {games.length ? (
+          <Grid>
+            {items?.map((game, index) => (
+              <GameCard key={`whishlist-${index}`} {...game} />
+            ))}
+          </Grid>
+        ) : (
+          <Empty
+            title="Your wishlist is empty"
+            description="Games add to you wishlist will appear here"
+            hasLink
+          />
+        )}
 
-    <Showcase
-      title={recommendedTitle}
-      games={recommendedGames}
-      highlight={recommendedHighlight}
-    />
-  </Base>
-)
+        <Divider />
+      </Container>
+
+      <Showcase
+        title={recommendedTitle}
+        games={recommendedGames}
+        highlight={recommendedHighlight}
+      />
+    </Base>
+  )
+}
 
 export default Wishlist
