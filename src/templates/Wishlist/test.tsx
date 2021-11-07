@@ -10,7 +10,6 @@ import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 const props = {
-  games: gamesMock,
   recommendedHighlight: highlightMock,
   recommendTitle: 'You may like this games',
   recommendedGames: gamesMock
