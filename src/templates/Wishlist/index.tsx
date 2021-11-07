@@ -11,6 +11,8 @@ import Empty from 'components/Empty'
 import { useWishlist } from 'hooks/use-wishlist'
 import Loader from 'components/Loader'
 
+import * as S from './styles'
+
 export type WishlistTemplateProps = {
   recommendedTitle?: string
   recommendedGames: GameCardProps[]
@@ -32,7 +34,9 @@ const Wishlist = ({
         </Heading>
 
         {loading ? (
-          <Loader />
+          <S.Loading>
+            <Loader />
+          </S.Loading>
         ) : items.length >= 1 ? (
           <Grid>
             {items?.map((game, index) => (
