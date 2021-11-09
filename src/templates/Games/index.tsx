@@ -10,7 +10,6 @@ import { useQueryGames } from 'graphql/queries/games'
 import { useRouter } from 'next/router'
 import {
   parseQueryStringToFilter,
-  parseQueryStringToFilter,
   parseQueryStringToWhere
 } from 'utils/filter'
 import { ParsedUrlQueryInput } from 'querystring'
