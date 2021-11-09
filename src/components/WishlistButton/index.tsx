@@ -2,7 +2,7 @@ import { Favorite, FavoriteBorder } from '@styled-icons/material-outlined'
 
 import Button, { ButtonProps } from 'components/Button'
 import Spinner from 'components/Spinner'
-import { useState } from 'hoist-non-react-statics/node_modules/@types/react'
+import { useState } from 'react'
 import { useWishlist } from 'hooks/use-wishlist'
 import { useSession } from 'next-auth/client'
 
