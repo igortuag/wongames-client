@@ -24,6 +24,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
+      session,
       items: itemsMock,
       total: '$ 430,00',
       cards: cardsMock,
