@@ -3,7 +3,7 @@ import Button from 'components/Button'
 import Heading from 'components/Heading'
 import * as S from './styles'
 
-const PaymentOptions = () => {
+const PaymentForm = () => {
   return (
     <S.Wrapper>
       <S.Body>
@@ -23,4 +23,4 @@ const PaymentOptions = () => {
   )
 }
 
-export default PaymentOptions
+export default PaymentForm

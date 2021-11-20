@@ -3,7 +3,7 @@ import { Divider } from 'components/Divider'
 import { GameCardProps } from 'components/GameCard'
 import Heading from 'components/Heading'
 import { HighlightProps } from 'components/Highlight'
-import PaymentOptions from 'components/PaymentOptions'
+import PaymentForm from 'components/PaymentForm'
 import Showcase from 'components/Showcase'
 import { Container } from 'components/Container'
 import Base from 'templates/Base'
@@ -25,7 +25,7 @@ const Cart = ({ recommendedGames, recommendedHighlight }: CartProps) => {
         <S.Content>
           <CartList />
 
-          <PaymentOptions />
+          <PaymentForm />
         </S.Content>
 
         <Divider />

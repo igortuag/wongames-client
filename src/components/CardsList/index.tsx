@@ -1,9 +1,9 @@
 import Heading from 'components/Heading'
-import { PaymentCard } from 'components/PaymentOptions'
+import { PaymentForm } from 'components/PaymentForm'
 import * as S from './styles'
 
 export type CardsListProps = {
-  cards?: PaymentCard[]
+  cards?: PaymentForm[]
 }
 
 const CardsList = ({ cards }: CardsListProps) => (
