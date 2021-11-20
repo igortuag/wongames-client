@@ -2,12 +2,10 @@ import { render, screen } from 'utils/test-utils'
 
 import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
-import cardsMock from 'components/PaymentOptions/mock'
 
 import Cart from '.'
 
 const props = {
-  cards: cardsMock,
   recommendedHighlight: highlightMock,
   recommendTitle: 'You may like this games',
   recommendedGames: gamesMock
