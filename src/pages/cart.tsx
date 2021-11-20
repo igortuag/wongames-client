@@ -1,7 +1,6 @@
 import Cart, { CartProps } from 'templates/Cart'
 
 import highlightMock from 'components/Highlight/mock'
-import cardsMock from 'components/PaymentOptions/mock'
 import { initializeApollo } from 'utils/apollo'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
 import { QueryRecommended } from 'graphql/generated/QueryRecommended'
@@ -24,7 +23,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       session,
-      cards: cardsMock,
       recommendedTitle: data.recommended?.section?.highlight?.title,
       recommendedGames: gamesMapper(data.recommended?.section?.games),
       recommendedHighlights: highlightMock
