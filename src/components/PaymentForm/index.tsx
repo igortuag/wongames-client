@@ -12,7 +12,7 @@ const PaymentForm = () => {
           Payment
         </Heading>
 
-        <CardElement />
+        <CardElement options={{ hidePostalCode: true }} />
       </S.Body>
       <S.Footer>
         <Button as="a" fullWidth minimal>
