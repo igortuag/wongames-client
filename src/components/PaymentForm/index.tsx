@@ -25,6 +25,8 @@ const PaymentForm = () => {
           options={{ hidePostalCode: true }}
           onChange={handleChange}
         />
+
+        {error && <S.Error>{error}</S.Error>}
       </S.Body>
       <S.Footer>
         <Button as="a" fullWidth minimal>

@@ -27,3 +27,7 @@ export const Footer = styled.div`
     }
   `}
 `
+
+export const Error = styled.div`
+  ${({ theme }) => css``}
+`
