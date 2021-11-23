@@ -10,7 +10,9 @@ import * as S from './styles'
 const PaymentForm = () => {
   const [error, setError] = useState<string | null>()
 
-  const handleChange = async (event: StripeCardElementChangeEvent) => {}
+  const handleChange = async (event: StripeCardElementChangeEvent) => {
+    setError(event.error ? event.error.message : '')
+  }
 
   return (
     <S.Wrapper>
