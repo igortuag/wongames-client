@@ -44,7 +44,7 @@ const PaymentForm = () => {
         <Button as="a" fullWidth minimal>
           Continue shopping
         </Button>
-        <Button fullWidth icon={<ShoppingCart />}>
+        <Button fullWidth icon={<ShoppingCart />} disabled={!!error}>
           Buy now
         </Button>
       </S.Footer>
