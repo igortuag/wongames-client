@@ -12,6 +12,7 @@ const PaymentForm = () => {
   const [disabled, setDisabled] = useState(true)
 
   const handleChange = async (event: StripeCardElementChangeEvent) => {
+    setDisabled(event.empty)
     setError(event.error ? event.error.message : '')
   }
 
