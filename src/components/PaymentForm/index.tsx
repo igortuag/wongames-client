@@ -18,7 +18,7 @@ const PaymentForm = () => {
   useEffect(() => {
     if (items.length) {
     }
-  }, [])
+  }, [items])
 
   const handleChange = async (event: StripeCardElementChangeEvent) => {
     setDisabled(event.empty)
