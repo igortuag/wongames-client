@@ -25,8 +25,13 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     async function setPaymentMode() {
       if (items.length) {
         const data = await createPaymentIntent({
-          items
+          items,
+          token: session.jwt as string
         })
+
+        if (data.freeGames) {
+          setFreeGames(true)
+        }
       }
     }
 
