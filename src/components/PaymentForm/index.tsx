@@ -16,7 +16,9 @@ const PaymentForm = () => {
   const [freeGames, setFreeGames] = useState(false)
 
   useEffect(() => {
-    if (items.length) {
+    async function setPaymentMode() {
+      if (items.length) {
+      }
     }
   }, [items])
 
