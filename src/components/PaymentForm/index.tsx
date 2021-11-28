@@ -47,7 +47,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     }
 
     setPaymentMode()
-  }, [items])
+  }, [items, session.jwt])
 
   const handleChange = async (event: StripeCardElementChangeEvent) => {
     setDisabled(event.empty)
