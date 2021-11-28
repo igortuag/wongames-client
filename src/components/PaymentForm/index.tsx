@@ -31,6 +31,12 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
         if (data.freeGames) {
           setFreeGames(true)
+          return
+        }
+
+        if (data.error) {
+          setError(data.error)
+          return
         }
       }
     }
