@@ -38,6 +38,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           setError(data.error)
           return
         }
+
+        if (data.clientSecret) {
+          setClientSecrect(data.clientSecret)
+          return
+        }
       }
     }
 
