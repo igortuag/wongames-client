@@ -91,7 +91,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         <Button
           fullWidth
           icon={<ShoppingCart />}
-          disabled={!!error || disabled}
+          disabled={!freeGames && (!!error || disabled)}
         >
           Buy now
         </Button>
