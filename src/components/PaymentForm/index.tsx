@@ -40,6 +40,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         }
 
         if (data.clientSecret) {
+          setFreeGames(false)
           setClientSecrect(data.clientSecret)
           return
         }
