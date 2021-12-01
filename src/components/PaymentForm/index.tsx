@@ -55,9 +55,13 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setError(event.error ? event.error.message : '')
   }
 
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault()
+  }
+
   return (
     <S.Wrapper>
-      <form onSubmit={() => {}}>
+      <form onSubmit={handleSubmit}>
         <S.Body>
           <Heading color="black" lineBottom size="small">
             Payment
