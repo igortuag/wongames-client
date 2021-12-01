@@ -57,46 +57,48 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
   return (
     <S.Wrapper>
-      <S.Body>
-        <Heading color="black" lineBottom size="small">
-          Payment
-        </Heading>
+      <form onSubmit={() => {}}>
+        <S.Body>
+          <Heading color="black" lineBottom size="small">
+            Payment
+          </Heading>
 
-        {freeGames ? (
-          <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
-        ) : (
-          <CardElement
-            options={{
-              hidePostalCode: true,
-              style: {
-                base: {
-                  fontSize: '16px'
+          {freeGames ? (
+            <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
+          ) : (
+            <CardElement
+              options={{
+                hidePostalCode: true,
+                style: {
+                  base: {
+                    fontSize: '16px'
+                  }
                 }
-              }
-            }}
-            onChange={handleChange}
-          />
-        )}
+              }}
+              onChange={handleChange}
+            />
+          )}
 
-        {error && (
-          <S.Error>
-            <ErrorOutline size={20} />
-            {error}
-          </S.Error>
-        )}
-      </S.Body>
-      <S.Footer>
-        <Button as="a" fullWidth minimal>
-          Continue shopping
-        </Button>
-        <Button
-          fullWidth
-          icon={<ShoppingCart />}
-          disabled={!freeGames && (!!error || disabled)}
-        >
-          Buy now
-        </Button>
-      </S.Footer>
+          {error && (
+            <S.Error>
+              <ErrorOutline size={20} />
+              {error}
+            </S.Error>
+          )}
+        </S.Body>
+        <S.Footer>
+          <Button as="a" fullWidth minimal>
+            Continue shopping
+          </Button>
+          <Button
+            fullWidth
+            icon={<ShoppingCart />}
+            disabled={!freeGames && (!!error || disabled)}
+          >
+            Buy now
+          </Button>
+        </S.Footer>
+      </form>
     </S.Wrapper>
   )
 }
