@@ -9,6 +9,7 @@ import * as S from './styles'
 import { useCart } from 'hooks/use-cart'
 import { createPaymentIntent } from 'utils/stripe/methods'
 import { Session } from 'next-auth'
+import { FormLoading } from 'components/Form'
 
 type PaymentFormProps = {
   session: Session
@@ -97,10 +98,10 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           </Button>
           <Button
             fullWidth
-            icon={<ShoppingCart />}
+            icon={loading ? <FormLoading /> : <ShoppingCart />}
             disabled={!freeGames && (!!error || disabled)}
           >
-            Buy now
+            {!loading && <span>Buy now</span>}
           </Button>
         </S.Footer>
       </form>
