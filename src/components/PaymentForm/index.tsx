@@ -59,6 +59,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
+    setLoading(true)
   }
 
   return (
