@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js'
 
-import { CardElement } from '@stripe/react-stripe-js'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
