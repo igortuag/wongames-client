@@ -17,6 +17,9 @@ type PaymentFormProps = {
 
 const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart()
+  const stripe = useStripe()
+  const elements = useElements()
+
   const [error, setError] = useState<string | null>()
   const [loading, setLoading] = useState(false)
   const [disabled, setDisabled] = useState(true)
