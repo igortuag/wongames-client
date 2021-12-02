@@ -63,6 +63,12 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
     setLoading(true)
+
+    const payload = await stripe!.confirmCardPayment(clientSecrect, {
+      payment_method: {
+        card: elements!.getElement(CardElement)!
+      }
+    })
   }
 
   return (
