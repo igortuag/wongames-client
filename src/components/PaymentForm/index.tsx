@@ -69,6 +69,15 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         card: elements!.getElement(CardElement)!
       }
     })
+
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`)
+      setLoading(false)
+      return
+    }
+
+    setError(null)
+    setLoading(false)
   }
 
   return (
