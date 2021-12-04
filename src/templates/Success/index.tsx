@@ -9,6 +9,8 @@ import { Container } from 'components/Container'
 import Showcase from 'components/Showcase'
 
 import * as S from './styles'
+import { useCart } from 'hooks/use-cart'
+import { useEffect } from 'hoist-non-react-statics/node_modules/@types/react'
 
 export type SuccessTemplateProps = {
   recommendTitle: string
@@ -20,33 +22,41 @@ const Success = ({
   recommendTitle,
   recommendGames,
   recommendedHighlight
-}: SuccessTemplateProps) => (
-  <Base>
-    <Container>
-      <S.Wrapper>
-        <S.Heading>Your purchase was successful!</S.Heading>
+}: SuccessTemplateProps) => {
+  const { clearCart } = useCart()
 
-        <S.CheckMark>
-          <Done />
-        </S.CheckMark>
+  useEffect(() => {
+    clearCart()
+  }, [clearCart])
 
-        <S.Text>
-          Wait for your payment details by email. Your game is now available for
-          download inside your{' '}
-          <Link href="/profile/orders">
-            <a>Orders List</a>
-          </Link>
-          . Enjoy!
-        </S.Text>
-      </S.Wrapper>
-    </Container>
+  return (
+    <Base>
+      <Container>
+        <S.Wrapper>
+          <S.Heading>Your purchase was successful!</S.Heading>
 
-    <Showcase
-      title={recommendTitle}
-      games={recommendGames}
-      highlight={recommendedHighlight}
-    />
-  </Base>
-)
+          <S.CheckMark>
+            <Done />
+          </S.CheckMark>
+
+          <S.Text>
+            Wait for your payment details by email. Your game is now available
+            for download inside your{' '}
+            <Link href="/profile/orders">
+              <a>Orders List</a>
+            </Link>
+            . Enjoy!
+          </S.Text>
+        </S.Wrapper>
+      </Container>
+
+      <Showcase
+        title={recommendTitle}
+        games={recommendGames}
+        highlight={recommendedHighlight}
+      />
+    </Base>
+  )
+}
 
 export default Success
