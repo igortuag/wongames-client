@@ -66,6 +66,11 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     event.preventDefault()
     setLoading(true)
 
+    if (freeGames) {
+      push('/success')
+      return
+    }
+
     const payload = await stripe!.confirmCardPayment(clientSecrect, {
       payment_method: {
         card: elements!.getElement(CardElement)!
@@ -80,9 +85,6 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
     setError(null)
     setLoading(false)
-
-    if (freeGames) {
-    }
   }
 
   return (
