@@ -10,6 +10,7 @@ import { useCart } from 'hooks/use-cart'
 import { createPaymentIntent } from 'utils/stripe/methods'
 import { Session } from 'next-auth'
 import { FormLoading } from 'components/Form'
+import { useRouter } from 'next/router'
 
 type PaymentFormProps = {
   session: Session
@@ -17,6 +18,7 @@ type PaymentFormProps = {
 
 const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart()
+  const { push } = useRouter()
   const stripe = useStripe()
   const elements = useElements()
 
@@ -78,6 +80,9 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
     setError(null)
     setLoading(false)
+
+    if (freeGames) {
+    }
   }
 
   return (
