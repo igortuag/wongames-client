@@ -85,6 +85,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
     setError(null)
     setLoading(false)
+    push('/success')
   }
 
   return (
