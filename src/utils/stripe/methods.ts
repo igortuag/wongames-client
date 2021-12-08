@@ -1,5 +1,23 @@
 import { CartItem } from 'hooks/use-cart'
 
+type FetcherParams = {
+  url: string
+  body: string
+  token: string
+}
+const fetcher = async ({ url, body, token }: FetcherParams) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    },
+    body
+  })
+
+  return await response.json()
+}
+
 type PaymentIntentParams = {
   items: CartItem[]
   token: string
