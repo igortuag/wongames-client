@@ -96,6 +96,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
     setError(null)
     setLoading(false)
+    saveOrder(payload.paymentIntent)
     push('/success')
   }
 
