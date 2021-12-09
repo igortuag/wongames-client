@@ -77,6 +77,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setLoading(true)
 
     if (freeGames) {
+      saveOrder()
       push('/success')
       return
     }
