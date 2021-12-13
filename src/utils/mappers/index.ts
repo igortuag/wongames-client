@@ -66,6 +66,6 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
     : []
 }
 
-export const ordersMapper = (orders: QueryOrders_orders[]) => {
+export const ordersMapper = (orders?: QueryOrders_orders[]) => {
   return orders ? orders : []
 }

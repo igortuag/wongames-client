@@ -1,5 +1,6 @@
 import { QueryGames_games } from 'graphql/generated/QueryGames'
 import { QueryHome_banners } from 'graphql/generated/QueryHome'
+import { QueryOrders_orders } from 'graphql/generated/QueryOrders'
 
 import { bannerMapper, gamesMapper, cartMapper, ordersMapper } from '.'
 
@@ -103,22 +104,54 @@ describe('ordersMapper()', () => {
   })
 
   it('should return mapped items', () => {
-    const games = {
-      id: '1',
-      name: 'game',
-      cover: {
-        url: '/image.jpg'
-      },
-      price: 10
-    } as QueryGames_games
+    it('should return mapped items', () => {
+      const orders = [
+        {
+          __typename: 'Order',
+          id: '1',
+          card_brand: 'visa',
+          card_last4: '4242',
+          created_at: '2021-04-14T18:41:48.358Z',
+          games: [
+            {
+              id: '1',
+              name: 'game',
+              developers: [
+                {
+                  name: 'developer'
+                }
+              ],
+              slug: 'game',
+              cover: {
+                url: '/image.jpg'
+              },
+              price: 10
+            }
+          ]
+        }
+      ] as QueryOrders_orders[]
 
-    expect(gamesMapper([games])).toStrictEqual([
-      {
-        id: '1',
-        img: 'http://localhost:1338/image.jpg',
-        title: 'game',
-        price: 10
-      }
-    ])
+      expect(ordersMapper(orders)).toStrictEqual([
+        {
+          id: '1',
+          paymentInfo: {
+            flag: 'visa',
+            img: '/img/cards/visa.png',
+            number: '**** **** **** 4242',
+            purchaseDate: 'Purchase made on Apr 14, 2021'
+          },
+          games: [
+            {
+              id: '1',
+              title: 'game',
+              downloadLink:
+                'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+              img: 'http://localhost:1337/image.jpg',
+              price: '$10.00'
+            }
+          ]
+        }
+      ])
+    })
   })
 })
