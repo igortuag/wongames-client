@@ -5,7 +5,7 @@ export const QUERY_ORDERS = gql`
   query QueryOrders($identifier: ID!) {
     orders(identifier: $identifier) {
       id
-      created_ad
+      created_at
       card_brand
       card_last4
       games {
