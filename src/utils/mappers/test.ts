@@ -154,4 +154,54 @@ describe('ordersMapper()', () => {
       ])
     })
   })
+
+  it('should return free game when its free', () => {
+    const orders = [
+      {
+        __typename: 'Order',
+        id: '1',
+        card_brand: null,
+        card_last4: null,
+        created_at: '2021-04-14T18:41:48.358Z',
+        games: [
+          {
+            id: '1',
+            name: 'game',
+            developers: [
+              {
+                name: 'developer'
+              }
+            ],
+            slug: 'game',
+            cover: {
+              url: '/image.jpg'
+            },
+            price: 0
+          }
+        ]
+      }
+    ] as QueryOrders_orders[]
+
+    expect(ordersMapper(orders)).toStrictEqual([
+      {
+        id: '1',
+        paymentInfo: {
+          flag: null,
+          img: null,
+          number: 'Free Game',
+          purchaseDate: 'Purchase made on Apr 14, 2021'
+        },
+        games: [
+          {
+            id: '1',
+            title: 'game',
+            downloadLink:
+              'https://wongames.com/game/download/yuYT56Tgh431LkjhNBgdf',
+            img: 'http://localhost:1337/image.jpg',
+            price: '$0.00'
+          }
+        ]
+      }
+    ])
+  })
 })
