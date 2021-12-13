@@ -1,7 +1,7 @@
 import { QueryGames_games } from 'graphql/generated/QueryGames'
 import { QueryHome_banners } from 'graphql/generated/QueryHome'
 
-import { bannerMapper, bannerMapper, gamesMapper, cartMapper } from '.'
+import { bannerMapper, gamesMapper, cartMapper, ordersMapper } from '.'
 
 describe('bannerMapper()', () => {
   it('should return the right format when mapped', () => {
@@ -74,6 +74,32 @@ describe('gamesMapper()', () => {
 describe('cartMapper()', () => {
   it('should return empty array if no games', () => {
     expect(cartMapper(undefined)).toStrictEqual([])
+  })
+
+  it('should return mapped items', () => {
+    const games = {
+      id: '1',
+      name: 'game',
+      cover: {
+        url: '/image.jpg'
+      },
+      price: 10
+    } as QueryGames_games
+
+    expect(gamesMapper([games])).toStrictEqual([
+      {
+        id: '1',
+        img: 'http://localhost:1338/image.jpg',
+        title: 'game',
+        price: 10
+      }
+    ])
+  })
+})
+
+describe('ordersMapper()', () => {
+  it('should return empty array if no orders', () => {
+    expect(ordersMapper(undefined)).toStrictEqual([])
   })
 
   it('should return mapped items', () => {

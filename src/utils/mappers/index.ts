@@ -64,3 +64,5 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
       }))
     : []
 }
+
+export const ordersMapper = (orders: any) => {}
