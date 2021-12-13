@@ -3,6 +3,7 @@ import {
   QueryHome_banners,
   QueryHome_sections_freeGames_highlight
 } from 'graphql/generated/QueryHome'
+import { QueryOrders_orders } from 'graphql/generated/QueryOrders'
 import formatPrice from 'utils/format-price'
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
@@ -65,4 +66,6 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
     : []
 }
 
-export const ordersMapper = (orders: any) => {}
+export const ordersMapper = (orders: QueryOrders_orders[]) => {
+  return orders ? orders : []
+}
