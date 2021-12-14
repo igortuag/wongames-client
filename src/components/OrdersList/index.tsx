@@ -1,10 +1,16 @@
 import Empty from 'components/Empty'
-import GameItem, { GameItemProps } from 'components/GameItem'
+import GameItem, { GameItemProps, PaymentInfoProps } from 'components/GameItem'
 import Heading from 'components/Heading'
 import * as S from './styles'
 
+export type OrderProps = {
+  id: string
+  paymentInfo: PaymentInfoProps
+  games: GameItemProps[]
+}
+
 export type OrdersListProps = {
-  items?: GameItemProps[]
+  items?: OrderProps[]
 }
 
 const OrdersList = ({ items }: OrdersListProps) => (
