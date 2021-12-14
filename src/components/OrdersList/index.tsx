@@ -20,7 +20,11 @@ const OrdersList = ({ items }: OrdersListProps) => (
     </Heading>
 
     {items?.length ? (
-      items.map((item) => <GameItem key={item.downloadLink} {...item} />)
+      items.map((order) =>
+        order.games.map((game) => (
+          <GameItem key={order.id} {...game} paymentInfo={order.paymentInfo} />
+        ))
+      )
     ) : (
       <Empty
         title="You have no orders yet"
