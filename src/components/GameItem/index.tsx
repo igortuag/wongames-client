@@ -4,8 +4,8 @@ import { useCart } from 'hooks/use-cart'
 
 export type PaymentInfoProps = {
   number: string
-  flag: string
-  img: string
+  flag: string | null
+  img: string | null
   purchaseDate: string
 }
 
