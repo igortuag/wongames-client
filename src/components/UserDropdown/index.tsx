@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
   AccountCircle,
   FavoriteBorder,
@@ -14,35 +15,44 @@ export type UserDropdownProps = {
   username: string
 }
 
-const UserDropdown = ({ username }: UserDropdownProps) => (
-  <Dropdown
-    title={
-      <>
-        <AccountCircle size={24} />
-        <S.Username>{username}</S.Username>
-        <ChevronDown size={24} />
-      </>
-    }
-  >
-    <S.Nav>
-      <Link href="/profile/me" passHref>
-        <S.Link title="My profile">
-          <AccountCircle />
-          <span>My profile</span>
+const UserDropdown = ({ username }: UserDropdownProps) => {
+  const { push } = useRouter()(
+    <Dropdown
+      title={
+        <>
+          <AccountCircle size={24} />
+          <S.Username>{username}</S.Username>
+          <ChevronDown size={24} />
+        </>
+      }
+    >
+      <S.Nav>
+        <Link href="/profile/me" passHref>
+          <S.Link title="My profile">
+            <AccountCircle />
+            <span>My profile</span>
+          </S.Link>
+        </Link>
+        <Link href="/wishlist" passHref>
+          <S.Link title="Wishlist">
+            <FavoriteBorder />
+            <span>My profile</span>
+          </S.Link>
+        </Link>
+        <S.Link
+          role="button"
+          onClick={async () => {
+            const data = await signOut({ redirect: false, callbackUrl: '/' })
+            push(data.url)
+          }}
+          title="Sign out"
+        >
+          <ExitToApp />
+          <span>Sign out</span>
         </S.Link>
-      </Link>
-      <Link href="/wishlist" passHref>
-        <S.Link title="Wishlist">
-          <FavoriteBorder />
-          <span>My profile</span>
-        </S.Link>
-      </Link>
-      <S.Link role="button" onClick={() => signOut()} title="Sign out">
-        <ExitToApp />
-        <span>Sign out</span>
-      </S.Link>
-    </S.Nav>
-  </Dropdown>
-)
+      </S.Nav>
+    </Dropdown>
+  )
+}
 
 export default UserDropdown
