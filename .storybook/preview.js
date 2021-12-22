@@ -1,3 +1,4 @@
+import '../.jest/next-image.mock'
 import { addDecorator } from '@storybook/react'
 import { CartContext, CartContextDefaultValues } from 'hooks/use-cart'
 import { withNextRouter } from 'storybook-addon-next-router'
