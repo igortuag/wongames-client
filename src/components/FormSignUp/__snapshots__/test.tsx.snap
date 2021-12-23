@@ -84,6 +84,10 @@ exports[`<FormSignUp /> should render the form 1`] = `
   width: 100%;
 }
 
+.c7:focus {
+  outline: 1px dashed;
+}
+
 .c7:hover {
   background: linear-gradient(180deg,#e35565 0%,#d958a6 50%);
 }
@@ -185,7 +189,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
           class="c5"
           name="email"
           placeholder="Email"
-          type="email"
+          type="text"
           value=""
         />
       </div>
@@ -267,7 +271,7 @@ exports[`<FormSignUp /> should render the form 1`] = `
         </div>
         <input
           class="c5"
-          name="confirm-password"
+          name="confirm_password"
           placeholder="Confirm password"
           type="password"
           value=""
