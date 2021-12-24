@@ -21,7 +21,7 @@ const wrapperModifiers = {
       text-align: left;
     }
 
-    ${FloatImage} {
+    ${FloatImageWrapper} {
       justify-self: end;
     }
   `
