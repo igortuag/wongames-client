@@ -23,7 +23,7 @@ const Highlight = ({
   alignment = 'right'
 }: HighlightProps) => (
   <S.Wrapper alignment={alignment}>
-    <Image src={backgroundImage} alt={title} layout="fill" objectFit="cover" />
+    <Image src={backgroundImage} alt={title} layout="fill" />
     {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
     <S.Content>
       <S.Title>{title}</S.Title>
