@@ -4,11 +4,13 @@ import {
   QueryHome_sections_freeGames_highlight
 } from 'graphql/generated/QueryHome'
 import { QueryOrders_orders } from 'graphql/generated/QueryOrders'
+import { QueryWishlist_wishlist_games } from 'graphql/generated/QueryWishlist'
 import formatPrice from 'utils/format-price'
+import { getImageUrl } from 'utils/getImageUrl'
 
 export const bannerMapper = (banners: QueryHome_banners[]) => {
   return banners.map(({ image, title, subtitle, button, ribbon }) => ({
-    img: `http://localhost:1338${image?.url}`,
+    img: getImageUrl(image?.url),
     title,
     subtitle,
     buttonLabel: button?.label || null,
@@ -26,14 +28,13 @@ export const gamesMapper = (
 ) => {
   if (!games || games?.length <= 0) return []
 
-  return []
   return games
     ? games.map((game) => ({
         id: game.id,
         title: game.name,
         slug: game.slug,
         developer: game.developers[0].name,
-        img: `http://localhost:1338${game.cover?.url}`,
+        img: getImageUrl(game.cover?.url),
         price: game.price
       }))
     : []
@@ -46,8 +47,8 @@ export const highlightMapper = (
     highlight && {
       title: highlight?.title,
       subtitle: highlight?.subtitle,
-      backgroundImage: `http://localhost:1338${highlight?.background?.url}`,
-      floatImage: `http://localhost:1338${highlight?.floatImage?.url}`,
+      backgroundImage: getImageUrl(highlight?.background?.url),
+      floatImage: getImageUrl(highlight?.floatImage?.url),
       buttonLabel: highlight?.buttonLabel,
       buttonLink: highlight?.buttonLink,
       aligment: highlight?.alignment
@@ -59,7 +60,7 @@ export const cartMapper = (games: QueryGames_games[] | undefined) => {
   return games
     ? games.map((game) => ({
         id: game.id,
-        img: `http://localhost:1338${game?.cover?.url}`,
+        img: getImageUrl(game?.cover?.url),
         title: game?.title,
         price: formatPrice(game.price)
       }))
