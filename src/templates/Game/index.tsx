@@ -11,6 +11,7 @@ import * as S from './styles'
 import Showcase from 'components/Showcase'
 
 export type GameTemplateProps = {
+  slug: string
   cover: string
   gameInfo: GameInfoProps
   gallery?: GalleryImageProps[]
@@ -24,6 +25,7 @@ export type GameTemplateProps = {
 }
 
 const Game = ({
+  slug,
   cover,
   gameInfo,
   gallery,
