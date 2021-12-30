@@ -8,10 +8,7 @@ import { Grid } from 'components/Grid'
 import * as S from './styles'
 import { useQueryGames } from 'graphql/queries/games'
 import { useRouter } from 'next/router'
-import {
-  parseQueryStringToFilter,
-  parseQueryStringToWhere
-} from 'utils/filter'
+import { parseQueryStringToFilter, parseQueryStringToWhere } from 'utils/filter'
 import { ParsedUrlQueryInput } from 'querystring'
 import Empty from 'components/Empty'
 
