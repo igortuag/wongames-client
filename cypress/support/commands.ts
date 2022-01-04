@@ -24,4 +24,4 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Comands.add('google', () => crypto.visit('https://www.google.com/'))
+Cypress.Commands.add('google', () => cy.visit('https://www.google.com/'))
