@@ -3,5 +3,7 @@
 describe('Home Page', () => {
   it('should render home sections', () => {
     cy.visit('/')
+
+    cy.get('.slick-slider')
   })
 })
