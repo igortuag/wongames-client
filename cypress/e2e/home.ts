@@ -5,7 +5,7 @@ describe('Home Page', () => {
     cy.visit('/')
 
     cy.get('.slick-slider').within(() => {
-      
+      cy.findByRole('heading', {name: /cyberpunk 2077/i})
     })
   })
 })
