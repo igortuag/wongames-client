@@ -13,6 +13,12 @@ describe('Home Page', () => {
 
       cy.findByRole('heading', { name: /horizon zero dawn/i })
       cy.findByRole('link', { name: /by now/i })
+      
+      cy.get('.slick-dots > :nth-child(3) > button').click()
+      cy.wait(500)
+
+      cy.findByRole('heading', { name: /huge promotion/i })
+      cy.findByRole('link', { name: /browse games/i })
     })
   })
 })
