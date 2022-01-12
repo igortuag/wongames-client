@@ -9,6 +9,7 @@ describe('Home Page', () => {
       cy.findByRole('link', { name: /by now/i })
       
       cy.get('.slick-dots > :nth-child(2) > button').click()
+      cy.wait(500)
     })
   })
 })
