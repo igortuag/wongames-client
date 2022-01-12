@@ -10,6 +10,9 @@ describe('Home Page', () => {
       
       cy.get('.slick-dots > :nth-child(2) > button').click()
       cy.wait(500)
+
+      cy.findByRole('heading', { name: /horizon zero dawn/i })
+      cy.findByRole('link', { name: /by now/i })
     })
   })
 })
