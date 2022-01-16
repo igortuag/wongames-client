@@ -53,5 +53,7 @@ Cypress.Commands.add('shouldRenderShowcase', ({
 }) => {
   cy.get(`[data-cy="${name}"]`).within(() => {
     cy.findByRole('heading', { name }).should('exist')
+
+    cy.get(`[data-cy="highlight"]`).should(highlight ? 'exist' : 'not.exist')
   })
 })
