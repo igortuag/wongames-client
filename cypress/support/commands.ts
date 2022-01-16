@@ -55,5 +55,11 @@ Cypress.Commands.add('shouldRenderShowcase', ({
     cy.findByRole('heading', { name }).should('exist')
 
     cy.get(`[data-cy="highlight"]`).should(highlight ? 'exist' : 'not.exist')
+
+    if (highlight) {
+      cy.get(`[data-cy="highlight"]`).within(() => {
+        cy.findByRole('link').should('have.attr', 'href')
+      })
+    }
   })
 })
