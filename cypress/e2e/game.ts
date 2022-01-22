@@ -12,6 +12,11 @@ describe('Home Page', () => {
     })
 
     // gallery
-    cy.findAllByRole('button', { name: /thumb  \-/i }).should('have.length.gt', 0)
+    cy.findAllByRole('button', { name: /thumb  \-/i }).should('have.length.gt', 0)]
+
+    // content
+    cy.getByDataCy('content').within(() => {
+      cy.findByRole('heading', { name: /description/i }).should('exist')
+    }
   })
 })
