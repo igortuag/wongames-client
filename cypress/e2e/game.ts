@@ -17,6 +17,8 @@ describe('Home Page', () => {
     // content
     cy.getByDataCy('content').within(() => {
       cy.findByRole('heading', { name: /description/i }).should('exist')
-    }
+    })
+
+    cy.getByDataCy('content').children().should('have.length.at.least', 2)
   })
 })
