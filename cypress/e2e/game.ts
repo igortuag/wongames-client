@@ -41,4 +41,8 @@ describe('Home Page', () => {
     cy.shouldRenderShowcase({ name: "Upcoming Games", hightlight: true})
     cy.shouldRenderShowcase({ name: "You may like these games", hightlight: false})
   });
+
+  it('should add/remove game in cart', () => {
+    
+  });
 });
