@@ -46,7 +46,7 @@ describe('Home Page', () => {
 
   it('should add/remove game in cart', () => {
     crypto.getByDataCy('game-info').within(() => {
-      cy.findByRole('button', { name: 'Add to Cart' }).should('exist')
+      cy.findByRole('button', { name: 'Add to Cart' }).click()
     })
   });
 });
