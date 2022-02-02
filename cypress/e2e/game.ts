@@ -44,7 +44,11 @@ describe('Home Page', () => {
   })
 
   it('should add/remove game in cart', () => {
-    cy.findByRole('button', { name: 'Add to Cart' }).click()
-    cy.findByRole('button', { name: '/remove from cart/i' }).should('exist')
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: 'Add to Cart' }).click()
+      cy.findByRole('button', { name: '/remove from cart/i' }).should('exist')
+    })
+
+    cy.findAllByLabelText(/cart items/i).first().should('have text', 1)
   })
 })
