@@ -2,7 +2,7 @@
 
 describe('Home Page', () => {
   before(() => {
-    cy.visit('/game//cyberpunk-2077')
+    cy.visit('/game/cyberpunk-2077')
   })
 
   it('should render home sections', () => {
@@ -41,5 +41,11 @@ describe('Home Page', () => {
 
     cy.shouldRenderShowcase({ name: "Upcoming Games",highlight: true })
     cy.shouldRenderShowcase({ name: "You may like these games", highlight: false })
+  })
+
+  it('should add/remove game in cart', () => {
+    cy
+      .findByRole('button', { name: 'Add to Cart' })
+      .click()
   })
 })
