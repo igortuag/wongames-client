@@ -2,7 +2,7 @@
 
 describe('Home Page', () => {
   before(() => {
-    cy.visit('/game//cyberpunk-2077')
+    cy.visit('/game/cyberpunk-2077')
   })
 
   it('should render home sections', () => {
@@ -20,7 +20,6 @@ describe('Home Page', () => {
     cy.getByDataCy('content').within(() => {
       cy.findByRole('heading', { name: /description/i }).should('exist')
     })
-
     cy.getByDataCy('content').children().should('have.length.at.least', 2)
 
     // Details
@@ -40,23 +39,20 @@ describe('Home Page', () => {
       cy.findByText('Role-playing / Action / Sci-fi').should('exist')
     })
 
-    cy.shouldRenderShowcase({ name: "Upcoming Games", hightlight: true})
-    cy.shouldRenderShowcase({ name: "You may like these games", hightlight: false})
-  });
+    cy.shouldRenderShowcase({ name: "Upcoming Games", highlight: true })
+    cy.shouldRenderShowcase({ name: "You may like these games", highlight: false })
+  })
 
   it('should add/remove game in cart', () => {
-    crypto.getByDataCy('game-info').within(() => {
-      cy.findByRole('button', { name: /Add to Cart/i }).click()
-      cy.findByRole('button', { name: /remove to cart/i }).should('exist')
-
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: 'Add to Cart' }).click()
+      cy.findByRole('button', { name: '/remove from cart/i' }).should('exist')
     })
-    cy.findAllByLabelText(/cart items/i)
-      .first()
-      .should('have.text', 1)
-      .click()
+
+    cy.findAllByLabelText(/cart items/i).first().should('have text', 1).click()
 
     cy.getByDataCy('cart-list').within(() => {
-      cy.findByRole('heading', { name: /cyberpunk 2077/i}).should("exist")
+      cy.findByRole('heading', { name: /cyberpunk 2077/i }).should('exist')
     })
-  });
-});
+  })
+})
