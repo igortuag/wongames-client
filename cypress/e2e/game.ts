@@ -60,5 +60,7 @@ describe('Home Page', () => {
     cy.getByDataCy('game-info').within(() => {
       cy.findByRole('button', { name: '/remove from cart/i' }).click()
     })
+
+    cy.findAllByText(/cart items/i).should('not.exist')
   })
 })
