@@ -54,5 +54,7 @@ describe('Home Page', () => {
     cy.getByDataCy('cart-list').within(() => {
       cy.findByRole('heading', { name: /cyberpunk 2077/i }).should('exist')
     })
+
+    cy.findAllByText(/cart items/i).first().click()
   })
 })
