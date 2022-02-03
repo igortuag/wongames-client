@@ -54,5 +54,13 @@ describe('Home Page', () => {
     cy.getByDataCy('cart-list').within(() => {
       cy.findByRole('heading', { name: /cyberpunk 2077/i }).should('exist')
     })
+
+    cy.findAllByText(/cart items/i).first().click()
+
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: '/remove from cart/i' }).click()
+    })
+
+    cy.findAllByText(/cart items/i).should('not.exist')
   })
 })
