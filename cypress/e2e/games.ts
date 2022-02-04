@@ -1,6 +1,6 @@
 /// <reference path="../support/index.d.ts" />
 
-import { priceFields } from '../../src/utils/filter/fields';
+import { priceFields, platformFields, genresFields, sortFields } from '../../src/utils/filter/fields';
 
 describe('Explore page', () => {
   before(() => {
@@ -14,6 +14,18 @@ describe('Explore page', () => {
     cy.findByRole('heading', { name: /genres/i }).should('exist')
 
     priceFields.map(({ label }) => {
+      cy.findByText(label).should('exist')
+    })
+
+    platformFields.map(({ label }) => {
+      cy.findByText(label).should('exist')
+    })
+
+    sortFields.map(({ label }) => {
+      cy.findByText(label).should('exist')
+    })
+
+    genresFields.map(({ label }) => {
       cy.findByText(label).should('exist')
     })
   })
