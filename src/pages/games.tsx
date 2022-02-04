@@ -4,6 +4,7 @@ import { initializeApollo } from 'utils/apollo'
 import { QUERY_GAMES } from 'graphql/queries/games'
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
 import { GetServerSidePropsContext } from 'next'
+import { priceFields } from 'utils/filter/fields'
 
 export default function GamesPage(props: GamesTemplateProps) {
   return <GamesTemplate {...props} />
@@ -41,10 +42,7 @@ export async function getServerSideProps({ query }: GetServerSidePropsContext) {
     title: 'Sort by price',
     name: 'sort',
     type: 'radio',
-    fields: [
-      { label: 'Lowest to highest', name: 'price:asc' },
-      { label: 'Highest to lowest', name: 'price:desc' }
-    ]
+    fields: priceFields
   }
 
   const filterCategories = {
