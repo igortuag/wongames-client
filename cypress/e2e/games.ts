@@ -7,5 +7,8 @@ describe('Explore page', () => {
 
   it('should render filters columns', () => {
     cy.findByRole('heading', { name: /sort by price/i }).should('exist')
+    cy.findByRole('heading', { name: /^price/i }).should('exist')
+    cy.findByRole('heading', { name: /platforms/i }).should('exist')
+    cy.findByRole('heading', { name: /genres/i }).should('exist')
   })
 })
