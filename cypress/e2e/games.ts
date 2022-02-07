@@ -18,4 +18,8 @@ describe('Explore page', () => {
     cy.getFields(sortFields)
     cy.getFields(genresFields)
   })
+
+  it('should show 15 games and show more games when show more is clicked', () => {
+    cy.getByDataCy('game-card').should('have.length', 15)
+  })
 })
