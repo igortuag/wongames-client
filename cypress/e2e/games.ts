@@ -24,4 +24,8 @@ describe('Explore page', () => {
     cy.findByRole('button', { name: /show more/i}).click()
     cy.getByDataCy('game-card').should('have.length', 30)
   })
+
+  it('should order by price', () => {
+    cy.findByText(/lowest to highest/i).click()
+  })
 })
