@@ -27,5 +27,7 @@ describe('Explore page', () => {
 
   it('should order by price', () => {
     cy.findByText(/lowest to highest/i).click()
+
+    cy.location('href').should('contain', 'sort-price%3Aasc')
   })
 })
