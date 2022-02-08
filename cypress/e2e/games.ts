@@ -29,5 +29,9 @@ describe('Explore page', () => {
     cy.findByText(/lowest to highest/i).click()
 
     cy.location('href').should('contain', 'sort-price%3Aasc')
+
+    cy.getByDataCy('game-card').first().within(() => {
+      cy.findByText("$0.00").should('exist')
+    })
   })
 })
