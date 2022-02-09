@@ -42,6 +42,7 @@ describe('Explore page', () => {
       cy
         .findByText(/^\$\d+(\.\d{1,2})?/)
         .invoke('text')
+        .then($el => $el.replace('$', ''))
     })
   })
 })
