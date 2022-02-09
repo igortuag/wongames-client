@@ -43,6 +43,7 @@ describe('Explore page', () => {
         .findByText(/^\$\d+(\.\d{1,2})?/)
         .invoke('text')
         .then($el => $el.replace('$', ''))
+        .then(parseFloat)
     })
   })
 })
