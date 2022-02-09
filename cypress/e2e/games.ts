@@ -39,7 +39,9 @@ describe('Explore page', () => {
     cy.location('href').should('contain', 'sort-price%3Adesc')
 
     cy.getByDataCy('game-card').first().within(() => {
-      cy.findByText(/^\$\d+(\.\d{1,2})?/)
+      cy
+        .findByText(/^\$\d+(\.\d{1,2})?/)
+        .invoke('text')
     })
   })
 })
