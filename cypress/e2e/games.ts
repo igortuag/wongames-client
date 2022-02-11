@@ -45,5 +45,12 @@ describe('Explore page', () => {
 
   it('should filter by price', () => {
     cy.findByText(/highest to lowest/i).click()
+
+    cy.findByText(/free/i).click()
+    cy.location('href').should('contain', 'price_lte=0')
+    cy.getByDataCy('game-card').first().within(() => {
+      cy.findByText('$0.00').should('exist')
+    })
+
   })
 })
