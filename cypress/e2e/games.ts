@@ -42,4 +42,8 @@ describe('Explore page', () => {
       cy.shouldBeGreaterThan(0)
     })
   })
+
+  it('should filter by price', () => {
+    cy.findByText(/highest to lowest/i).click()
+  })
 })
