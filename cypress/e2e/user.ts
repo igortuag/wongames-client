@@ -13,5 +13,7 @@ describe('User', () => {
     cy.findByPlaceholderText(/^password/i).type(user.password)
     cy.findByPlaceholderText(/confirm password/i).type(user.password)
     cy.findByRole('button', { name: /sign up now/i }).click()
+
+    cy.url().should('eq', `${Cypress.config().baseUrl}/`)
   });
 })
