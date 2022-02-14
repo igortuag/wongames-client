@@ -15,5 +15,6 @@ describe('User', () => {
     cy.findByRole('button', { name: /sign up now/i }).click()
 
     cy.url().should('eq', `${Cypress.config().baseUrl}/`)
+    cy.findByText(user.username).should('exist')
   });
 })
