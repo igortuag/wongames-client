@@ -8,10 +8,10 @@ describe('User', () => {
 
     cy.visit('/sign-up')
 
-    cy.findByPlaceholderText(/username/i).type('cypress')
-    cy.findByPlaceholderText(/email/i).type('e2e@wongames.com')
-    cy.findByPlaceholderText(/^password/i).type('123456')
-    cy.findByPlaceholderText(/confirm password/i).type('123456')
+    cy.findByPlaceholderText(/username/i).type(user.username)
+    cy.findByPlaceholderText(/email/i).type(user.email)
+    cy.findByPlaceholderText(/^password/i).type(user.password)
+    cy.findByPlaceholderText(/confirm password/i).type(user.password)
     cy.findByRole('button', { name: /sign up now/i }).click()
   });
 })
