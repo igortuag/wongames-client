@@ -16,5 +16,8 @@ describe('User', () => {
 
   it('should sing in and sign out', () => {
     cy.visit('/sign-in')
+
+    cy.findByPlaceholderText(/email/i).type('e2e@wongames.com')
+    cy.findByPlaceholderText(/^password/i).type('123456')
   });
 })
