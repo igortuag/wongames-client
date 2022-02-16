@@ -20,5 +20,7 @@ describe('User', () => {
     cy.findByPlaceholderText(/email/i).type('e2e@wongames.com')
     cy.findByPlaceholderText(/^password/i).type('123456')
     cy.findByRole('button', { name: /sign in now/i }).click()
+
+    cy.findByText('cypress').should('exist')
   });
 })
