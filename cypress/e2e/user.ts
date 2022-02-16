@@ -24,6 +24,7 @@ describe('User', () => {
     cy.findByText('cypress').should('exist').click()
     cy.findByText(/sign out/i).click()
 
+    cy.findByRole('link', { name: /sign in/i }).should('exist')
     cy.findByText('cypress').should('not.exist')
   });
 })
