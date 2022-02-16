@@ -21,6 +21,9 @@ describe('User', () => {
     cy.findByPlaceholderText(/^password/i).type('123456')
     cy.findByRole('button', { name: /sign in now/i }).click()
 
-    cy.findByText('cypress').should('exist')
+    cy.findByText('cypress').should('exist').click()
+    cy.findByText(/sign out/i).click()
+
+    cy.findByText('cypress').should('not.exist')
   });
 })
