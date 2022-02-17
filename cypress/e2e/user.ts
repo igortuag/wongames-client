@@ -17,9 +17,7 @@ describe('User', () => {
   it('should sing in and sign out', () => {
     cy.visit('/sign-in')
 
-    cy.findByPlaceholderText(/email/i).type('e2e@wongames.com')
-    cy.findByPlaceholderText(/^password/i).type('123456')
-    cy.findByRole('button', { name: /sign in now/i }).click()
+    cy.signIn()
 
     cy.findByText('cypress').should('exist').click()
     cy.findByText(/sign out/i).click()
