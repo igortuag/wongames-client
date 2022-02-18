@@ -25,4 +25,8 @@ describe('User', () => {
     cy.findByRole('link', { name: /sign in/i }).should('exist')
     cy.findByText('cypress').should('not.exist')
   });
+
+  it('shoulod sign the user and redirect to the page that it was defined previously', () =>{
+    cy.visit('/profile/me')
+  })
 })
