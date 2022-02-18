@@ -30,5 +30,7 @@ describe('User', () => {
     cy.visit('/profile/me')
 
     cy.location('href').should('eq', `${Cypress.config().baseUrl}/sign-in?callbackUrl=profile/me`)
+
+    cy.signIn()
   })
 })
