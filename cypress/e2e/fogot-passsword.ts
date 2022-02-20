@@ -16,5 +16,7 @@ describe('Forgot Password', () => {
 
     cy.findAllByPlaceholderText(/email/i).type('ci@wongames.com')
     cy.findByRole('button', { name: /send email/i }).click()
+
+    cy.findByText(/you just received an email/i).should('exist')
   });
 })
