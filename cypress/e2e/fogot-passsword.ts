@@ -1,7 +1,7 @@
 /// <reference path="../support/index.d.ts" />
 
 describe('Forgot Password', () => {
-  it.skip('should fill the input and receive a success message', () => {
+  it('should fill the input and receive a success message', () => {
 
     cy.intercept('POST', '**/auth/forgot-password', res => {
       res.reply({
@@ -18,5 +18,28 @@ describe('Forgot Password', () => {
     cy.findByRole('button', { name: /send email/i }).click()
 
     cy.findByText(/you just received an email/i).should('exist')
+  });
+
+  it('should fill the input with and invalid email and receive an error', () => {
+
+    cy.intercept('POST', '**/auth/forgot-password', res => {
+      res.reply({
+        status: 400,
+        body: {
+          error: 'Bad Request',
+          message: [
+            {
+              messages: [
+                {
+                  message: 'This email does not exist'
+                }
+              ]
+            }
+          ]
+         }
+      })
+    })
+
+
   });
 })
