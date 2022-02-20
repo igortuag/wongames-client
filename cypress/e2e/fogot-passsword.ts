@@ -40,6 +40,11 @@ describe('Forgot Password', () => {
       })
     })
 
+    cy.visit('/forgot-password')
 
+    cy.findAllByPlaceholderText(/email/i).type('false@wongames.com')
+    cy.findByRole('button', { name: /send email/i }).click()
+
+    cy.findByText(/This email does not exist/i).should('exist')
   });
 })
