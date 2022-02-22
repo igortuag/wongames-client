@@ -62,5 +62,7 @@ describe('Forgot Password', () => {
     cy.findByRole('button', { name: /reset password/i }).click()
 
     cy.url().should('eq', Cypress.config().baseUrl + '/')
+
+    cy.findByText(/cypress/i).should('exist')
   })
 })
