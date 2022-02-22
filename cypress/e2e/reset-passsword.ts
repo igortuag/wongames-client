@@ -44,5 +44,10 @@ describe('Forgot Password', () => {
       status: 200,
       body: { user: { email: 'cypress@email.com' } }
     })
+
+    cy.intercept('POST', '**/auth/callback/credentials*', {
+      status: 200,
+      body: { user: { email: 'cypress@email.com' } }
+    })
   })
 })
