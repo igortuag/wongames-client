@@ -38,4 +38,11 @@ describe('Forgot Password', () => {
 
     cy.findByText(/Incorrect code provided/i).should('exist')
   });
+
+  it('should fill the input and redirect to the home page with the user signed in', () => {
+    cy.intercept('POST', '**/auth/reset-password', {
+      status: 200,
+      body: { user: { email: 'cypress@email.com' } }
+    })
+  })
 })
