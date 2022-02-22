@@ -54,5 +54,13 @@ describe('Forgot Password', () => {
       status: 200,
       body: { user: { name: 'cypress', email: 'cypress@email.com' } }
     })
+
+    cy.visit('/reset-password?code=valid_token')
+
+    cy.findAllByPlaceholderText(/^password/i).type('123')
+    cy.findAllByPlaceholderText(/confirm password/i).type('123')
+    cy.findByRole('button', { name: /reset password/i }).click()
+
+    cy.url().should('eq', Cypress.config().baseUrl + '/')
   })
 })
