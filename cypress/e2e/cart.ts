@@ -20,5 +20,6 @@ describe('Cart', () => {
     cy.findAllByLabelText(/cart items/i)
       .first()
       .should('have.text', 3)
+      .click()
   })
 })
