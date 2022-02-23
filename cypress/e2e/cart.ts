@@ -17,6 +17,8 @@ describe('Cart', () => {
       cy.findByRole('button', { name: /Add to cart/i }).click()
     })
 
-
+    cy.findAllByLabelText(/cart items/i)
+      .first()
+      .should('have.text', 3)
   })
 })
