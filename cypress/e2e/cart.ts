@@ -43,5 +43,7 @@ describe('Cart', () => {
     })
 
     cy.findAllByLabelText(/cart items/i).should('not.exist')
+
+    cy.findAllByLabelText(/shopping cart/i).first().click()
   })
 })
