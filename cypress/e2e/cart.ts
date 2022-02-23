@@ -29,5 +29,17 @@ describe('Cart', () => {
     cy.findAllByLabelText(/cart items/i)
       .first()
       .click()
+
+    cy.getByDataCy('game-card').eq(0).within(() => {
+      cy.findByRole('button', { name: /remove from cart/i }).click()
+    })
+
+    cy.getByDataCy('game-card').eq(1).within(() => {
+      cy.findByRole('button', { name: /remove from cart/i }).click()
+    })
+
+    cy.getByDataCy('game-card').eq(2).within(() => {
+      cy.findByRole('button', { name: /remove from cart/i }).click()
+    })
   })
 })
