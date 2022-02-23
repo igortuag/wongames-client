@@ -25,5 +25,9 @@ describe('Cart', () => {
     cy.getByDataCy('cart-list').within(() => {
       cy.findAllByRole('heading').should('have.length', 3)
     })
+
+    cy.findAllByLabelText(/cart items/i)
+      .first()
+      .click()
   })
 })
