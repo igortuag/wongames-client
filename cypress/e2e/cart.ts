@@ -41,5 +41,7 @@ describe('Cart', () => {
     cy.getByDataCy('game-card').eq(2).within(() => {
       cy.findByRole('button', { name: /remove from cart/i }).click()
     })
+
+    cy.findAllByLabelText(/cart items/i).should('not.exist')
   })
 })
