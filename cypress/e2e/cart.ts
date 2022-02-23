@@ -45,5 +45,9 @@ describe('Cart', () => {
     cy.findAllByLabelText(/cart items/i).should('not.exist')
 
     cy.findAllByLabelText(/shopping cart/i).first().click()
+
+    cy.getByDataCy('cart-list').within(() => {
+      cy.findAllByRole('heading', {name: /your cart is empty/i}).should('exist')
+    })
   })
 })
