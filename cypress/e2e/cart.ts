@@ -21,5 +21,9 @@ describe('Cart', () => {
       .first()
       .should('have.text', 3)
       .click()
+
+    cy.getByDataCy('cart-list').within(() => {
+      cy.findAllByRole('heading').should('have.length', 3)
+    })
   })
 })
