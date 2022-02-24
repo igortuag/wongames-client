@@ -38,6 +38,18 @@ declare namespace Cypress {
     signIn(email?: string, password?: string): Chainable<Element>
 
     /**
+     * Custom command to add game to cart by index
+     * @example cy.addToCartByIndex(2)
+     */
+    addToCartByIndex(index: number): Chainable<Element>
+
+    /**
+     * Custom command to remove game from cart by index
+     * @example cy.removeFromCartByIndex(2)
+     */
+    removeFromCartByIndex(index: number): Chainable<Element>
+
+    /**
      * Custom command to get element by data-cy attribute.
      * @example cy.getByDataCy('selector')
      */
