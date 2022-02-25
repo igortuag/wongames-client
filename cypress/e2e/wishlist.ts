@@ -16,5 +16,9 @@ describe('Wishlist', () => {
     cy.getByDataCy('wishlist').within(() => {
       cy.getByDataCy('game-card').should('have.length', 1)
     })
+
+    cy.getByDataCy('wishlist').within(() => {
+      cy.findAllByLabelText(/remove from wishlist/i).click()
+    })
   })
 })
