@@ -4,5 +4,7 @@
 describe('Wishlist', () => {
   it('should add and remove games from wishlist', () => {
     cy.visit('/wishlist')
+
+    cy.signIn()
   })
 })
