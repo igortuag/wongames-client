@@ -6,5 +6,7 @@ describe('Wishlist', () => {
     cy.visit('/wishlist')
 
     cy.signIn()
+
+    cy.findByText(/your wishlist is empty/i).should('exist')
   })
 })
