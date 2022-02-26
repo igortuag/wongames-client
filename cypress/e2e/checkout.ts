@@ -43,8 +43,12 @@ describe('Checkout', () => {
     it('should show games in order page', () => {
       cy.visit('/profile/orders')
 
-      cy.url().should('eq', `${Cypress.config().baseUrl}/sign-in?callbackUrl=/profile/me`)
+      cy.url().should('eq', `${Cypress.config().baseUrl}/sign-in?callbackUrl=/profile/orders`)
 
+      cy.signIn(user.email, user.password)
+      cy.url().should('eq', `${Cypress.config().baseUrl}/profile/orders`)
+
+      cy.getByDataCy('game-item').should('have.length', 1)
     })
   })
 
