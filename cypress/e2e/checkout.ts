@@ -8,6 +8,12 @@ describe('Checkout', () => {
     beforeEach(() => {
       user = createUser()
     })
+
+    it('should buy free games', () => {
+      cy.visit('/sign-up')
+      cy.signUp(user)
+
+    })
   })
 
   describe('Paid Games', () => {
