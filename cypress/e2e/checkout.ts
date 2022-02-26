@@ -19,6 +19,8 @@ describe('Checkout', () => {
 
       cy.findByText(/free/i).click()
       cy.url().should('contain', 'price_lte=0')
+
+      cy.addToCartByIndex(0)
     })
   })
 
