@@ -26,6 +26,10 @@ describe('Checkout', () => {
         .first()
         .should('have.text', 1)
         .click()
+
+      cy.getByDataCy('cart-list').within(() => {
+        cy.findByText(/buy ut now/i).click()
+      })
     })
   })
 
