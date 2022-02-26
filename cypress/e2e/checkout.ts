@@ -13,6 +13,9 @@ describe('Checkout', () => {
       cy.visit('/sign-up')
       cy.signUp(user)
       cy.url().should('eq', `${Cypress.config().baseUrl}/`)
+
+      cy.findByRole('link', { name: /explore/i }).click()
+      cy.url().should('eq', `${Cypress.config().baseUrl}/games`)
     })
   })
 
