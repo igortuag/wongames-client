@@ -37,6 +37,7 @@ describe('Checkout', () => {
 
       cy.url().should('eq', `${Cypress.config().baseUrl}/success`)
 
+      cy.findByRole('heading', { name: /your purchase was successful!/i }).should('exist')
     })
   })
 
