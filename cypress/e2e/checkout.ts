@@ -39,6 +39,10 @@ describe('Checkout', () => {
 
       cy.findByRole('heading', { name: /your purchase was successful!/i }).should('exist')
     })
+
+    it('should show games in order page', () => {
+      cy.visit('/profile/orders')
+    })
   })
 
   describe('Paid Games', () => {
