@@ -32,6 +32,8 @@ describe('Checkout', () => {
       })
 
       cy.findByText(/only free games, click buy and enjoy!/i).should('exist')
+
+      cy.findByRole('button', { name: /buy now/i }).click()
     })
   })
 
