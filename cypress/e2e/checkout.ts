@@ -30,6 +30,8 @@ describe('Checkout', () => {
       cy.getByDataCy('cart-list').within(() => {
         cy.findByText(/buy ut now/i).click()
       })
+
+      cy.findByText(/only free games, click buy and enjoy!/i).should('exist')
     })
   })
 
