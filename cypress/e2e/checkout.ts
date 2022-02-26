@@ -21,6 +21,11 @@ describe('Checkout', () => {
       cy.url().should('contain', 'price_lte=0')
 
       cy.addToCartByIndex(0)
+
+      cy.findAllByLabelText(/cart item/i)
+        .first()
+        .should('have.text', 1)
+        .click()
     })
   })
 
