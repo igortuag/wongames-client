@@ -16,6 +16,9 @@ describe('Checkout', () => {
 
       cy.findByRole('link', { name: /explore/i }).click()
       cy.url().should('eq', `${Cypress.config().baseUrl}/games`)
+
+      cy.findByText(/free/i).click()
+      cy.url().should('contain', 'price_lte=0')
     })
   })
 
