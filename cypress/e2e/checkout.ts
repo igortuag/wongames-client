@@ -42,6 +42,9 @@ describe('Checkout', () => {
 
     it('should show games in order page', () => {
       cy.visit('/profile/orders')
+
+      cy.url().should('eq', `${Cypress.config().baseUrl}/sign-in?callbackUrl=/profile/me`)
+
     })
   })
 
