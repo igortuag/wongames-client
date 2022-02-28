@@ -53,6 +53,9 @@ describe('Checkout', () => {
   })
 
   describe('Paid Games', () => {
+    beforeEach(() => {
+      user = createUser()
+    })
 
   })
 })
