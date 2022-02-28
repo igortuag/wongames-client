@@ -57,9 +57,15 @@ describe('Checkout', () => {
       user = createUser()
     })
 
-    it('should buy free games', () => {
+    it('should buy paid games', () => {
       cy.visit('/sign-up')
       cy.signUp(user)
       cy.url().should('eq', `${Cypress.config().baseUrl}/`)
+
+      cy.findByRole('link', { name: /explore/i }).click()
+      cy.url().should('eq', `${Cypress.config().baseUrl}/games`)
+
+      cy.findByText(/highest to lowest/i).click()
+      cy.url().should('contain', 'sort=price%3Adesc')
   })
 })
