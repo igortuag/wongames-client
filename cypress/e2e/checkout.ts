@@ -84,5 +84,11 @@ describe('Checkout', () => {
       cy.fillElementsInput('cardNumber', '4242424242424242')
       cy.fillElementsInput('cardExpiry', '1040')
       cy.fillElementsInput('cardCvc', '103')
+
+      cy.findByRole('button', { name: /buy now/i }).click()
+
+      cy.url().should('eq', `${Cypress.config().baseUrl}/success`)
+
+      cy.findByRole('heading', { name: /your purchase was successful!/i }).should('exist')
   })
 })
