@@ -67,5 +67,12 @@ describe('Checkout', () => {
 
       cy.findByText(/highest to lowest/i).click()
       cy.url().should('contain', 'sort=price%3Adesc')
+
+      cy.addToCartByIndex(0)
+
+      cy.findAllByLabelText(/cart item/i)
+        .first()
+        .should('have.text', 1)
+        .click()
   })
 })
