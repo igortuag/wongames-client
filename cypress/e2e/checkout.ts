@@ -28,7 +28,7 @@ describe('Checkout', () => {
         .click()
 
       cy.getByDataCy('cart-list').within(() => {
-        cy.findByText(/buy ut now/i).click()
+        cy.findByText(/buy it now/i).click()
       })
 
       cy.findByText(/only free games, click buy and enjoy!/i).should('exist')
@@ -74,5 +74,11 @@ describe('Checkout', () => {
         .first()
         .should('have.text', 1)
         .click()
+
+      cy.getByDataCy('cart-list').within(() => {
+        cy.findByText(/buy it now/i).click()
+      })
+
+      cy.findByRole('button', { name: /buy now/i }).should('have.attr', 'disabled')
   })
 })
