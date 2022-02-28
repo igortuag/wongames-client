@@ -80,5 +80,9 @@ describe('Checkout', () => {
       })
 
       cy.findByRole('button', { name: /buy now/i }).should('have.attr', 'disabled')
+
+      cy.fillElementsInput('cardNumber', '4242424242424242')
+      cy.fillElementsInput('cardExpiry', '1040')
+      cy.fillElementsInput('cardCvc', '103')
   })
 })
