@@ -57,5 +57,9 @@ describe('Checkout', () => {
       user = createUser()
     })
 
+    it('should buy free games', () => {
+      cy.visit('/sign-up')
+      cy.signUp(user)
+      cy.url().should('eq', `${Cypress.config().baseUrl}/`)
   })
 })
